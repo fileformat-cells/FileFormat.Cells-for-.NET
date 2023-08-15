@@ -1,0 +1,627 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Workbook
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Workbook
+   ">
+    <meta name="generator" content="docfx 2.59.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FileFormat.Cells.Workbook">
+  
+  
+  <h1 id="FileFormat_Cells_Workbook" data-uid="FileFormat.Cells.Workbook" class="text-break">Class Workbook
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a root object to create an Excel spreadsheet.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Workbook</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FileFormat.Cells.html">FileFormat.Cells</a></h6>
+  <h6><strong>Assembly</strong>: FileFormat.Cells.dll</h6>
+  <h5 id="FileFormat_Cells_Workbook_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Workbook : IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="FileFormat_Cells_Workbook__ctor_" data-uid="FileFormat.Cells.Workbook.#ctor*"></a>
+  <h4 id="FileFormat_Cells_Workbook__ctor" data-uid="FileFormat.Cells.Workbook.#ctor">Workbook()</h4>
+  <div class="markdown level1 summary"><p>Instantiate a new instance of the Workbook class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Workbook()</code></pre>
+  </div>
+  
+  
+  <a id="FileFormat_Cells_Workbook__ctor_" data-uid="FileFormat.Cells.Workbook.#ctor*"></a>
+  <h4 id="FileFormat_Cells_Workbook__ctor_Stream_" data-uid="FileFormat.Cells.Workbook.#ctor(Stream)">Workbook(Stream)</h4>
+  <div class="markdown level1 summary"><p>Create an object of the Workbook class that opens an existing Excel document from a stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Workbook(Stream stream)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>An object of the Stream class.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FileFormat_Cells_Workbook__ctor_" data-uid="FileFormat.Cells.Workbook.#ctor*"></a>
+  <h4 id="FileFormat_Cells_Workbook__ctor_System_String_" data-uid="FileFormat.Cells.Workbook.#ctor(System.String)">Workbook(String)</h4>
+  <div class="markdown level1 summary"><p>Create an object of the Workbook class that opens an existing Excel document from a file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Workbook(string filePath)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">filePath</span></td>
+        <td><p>String value that represents the document name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="FileFormat_Cells_Workbook_spreadsheetDocument" data-uid="FileFormat.Cells.Workbook.spreadsheetDocument">spreadsheetDocument</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DocumentFormat.OpenXml.Packaging.SpreadsheetDocument spreadsheetDocument</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DocumentFormat.OpenXml.Packaging.SpreadsheetDocument</span></td>
+        <td><p>An object of the Parent SpreadsheetDocument class.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FileFormat_Cells_Workbook_stylesPart" data-uid="FileFormat.Cells.Workbook.stylesPart">stylesPart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected WorkbookStylesPart stylesPart</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">WorkbookStylesPart</span></td>
+        <td><p>An object of the Parent WorkbookStylesPart class.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FileFormat_Cells_Workbook_workbookpart" data-uid="FileFormat.Cells.Workbook.workbookpart">workbookpart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DocumentFormat.OpenXml.Packaging.WorkbookPart workbookpart</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DocumentFormat.OpenXml.Packaging.WorkbookPart</span></td>
+        <td><p>An object of the Parent WorkbookPart class.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FileFormat_Cells_Workbook_worksheetPart" data-uid="FileFormat.Cells.Workbook.worksheetPart">worksheetPart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DocumentFormat.OpenXml.Packaging.WorksheetPart worksheetPart</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DocumentFormat.OpenXml.Packaging.WorksheetPart</span></td>
+        <td><p>An object of the Parent worksheetPart class.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="FileFormat_Cells_Workbook_BuiltinDocumentProperties_" data-uid="FileFormat.Cells.Workbook.BuiltinDocumentProperties*"></a>
+  <h4 id="FileFormat_Cells_Workbook_BuiltinDocumentProperties" data-uid="FileFormat.Cells.Workbook.BuiltinDocumentProperties">BuiltinDocumentProperties</h4>
+  <div class="markdown level1 summary"><p>It returns custom built-in document properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BuiltInDocumentProperties BuiltinDocumentProperties { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FileFormat.Cells.Properties.BuiltInDocumentProperties.html">BuiltInDocumentProperties</a></td>
+        <td><p>An object of document properties.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FileFormat_Cells_Workbook_Worksheets_" data-uid="FileFormat.Cells.Workbook.Worksheets*"></a>
+  <h4 id="FileFormat_Cells_Workbook_Worksheets" data-uid="FileFormat.Cells.Workbook.Worksheets">Worksheets</h4>
+  <div class="markdown level1 summary"><p>This property returns the number of worksheets existing in an Excel document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Worksheets { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>An integer value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FileFormat_Cells_Workbook_ApplyFontStyle_" data-uid="FileFormat.Cells.Workbook.ApplyFontStyle*"></a>
+  <h4 id="FileFormat_Cells_Workbook_ApplyFontStyle_System_String_System_Int32_" data-uid="FileFormat.Cells.Workbook.ApplyFontStyle(System.String,System.Int32)">ApplyFontStyle(String, Int32)</h4>
+  <div class="markdown level1 summary"><p>Applies the specified font style to the workbook.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ApplyFontStyle(string fontName, int fontSize)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fontName</span></td>
+        <td><p>The name of the font to be applied.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">fontSize</span></td>
+        <td><p>The size of the font to be applied.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FileFormat_Cells_Workbook_DeleteTextFromCell_" data-uid="FileFormat.Cells.Workbook.DeleteTextFromCell*"></a>
+  <h4 id="FileFormat_Cells_Workbook_DeleteTextFromCell_System_String_System_String_System_UInt32_" data-uid="FileFormat.Cells.Workbook.DeleteTextFromCell(System.String,System.String,System.UInt32)">DeleteTextFromCell(String, String, UInt32)</h4>
+  <div class="markdown level1 summary"><p>This method removes a cell's value in a Worksheet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DeleteTextFromCell(string sheetName, string colName, uint rowIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sheetName</span></td>
+        <td><p>String value represents the worksheet name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">colName</span></td>
+        <td><p>The string value represents the name of the column.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td><span class="parametername">rowIndex</span></td>
+        <td><p>An integer value represents the row.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FileFormat_Cells_Workbook_DeleteWorksheet_" data-uid="FileFormat.Cells.Workbook.DeleteWorksheet*"></a>
+  <h4 id="FileFormat_Cells_Workbook_DeleteWorksheet_System_String_" data-uid="FileFormat.Cells.Workbook.DeleteWorksheet(System.String)">DeleteWorksheet(String)</h4>
+  <div class="markdown level1 summary"><p>Invoke this method to delete a worksheet from an Excel document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DeleteWorksheet(string sheetName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sheetName</span></td>
+        <td><p>String value represents the worksheet name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A string value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FileFormat_Cells_Workbook_Dispose_" data-uid="FileFormat.Cells.Workbook.Dispose*"></a>
+  <h4 id="FileFormat_Cells_Workbook_Dispose" data-uid="FileFormat.Cells.Workbook.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"><p>This method releases unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  
+  
+  <a id="FileFormat_Cells_Workbook_Dispose_" data-uid="FileFormat.Cells.Workbook.Dispose*"></a>
+  <h4 id="FileFormat_Cells_Workbook_Dispose_System_Boolean_" data-uid="FileFormat.Cells.Workbook.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"><p>This method releases unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">disposing</span></td>
+        <td><p>A boolean value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FileFormat_Cells_Workbook_GetCellValue_" data-uid="FileFormat.Cells.Workbook.GetCellValue*"></a>
+  <h4 id="FileFormat_Cells_Workbook_GetCellValue_System_String_System_String_" data-uid="FileFormat.Cells.Workbook.GetCellValue(System.String,System.String)">GetCellValue(String, String)</h4>
+  <div class="markdown level1 summary"><p>Invoke this method to read the value of a particular cell.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetCellValue(string sheetName, string cellRef)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sheetName</span></td>
+        <td><p>String value represents the worksheet name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">cellRef</span></td>
+        <td><p>String value represents the address of the cell.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A sttring value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FileFormat_Cells_Workbook_Save_" data-uid="FileFormat.Cells.Workbook.Save*"></a>
+  <h4 id="FileFormat_Cells_Workbook_Save_Stream_" data-uid="FileFormat.Cells.Workbook.Save(Stream)">Save(Stream)</h4>
+  <div class="markdown level1 summary"><p>Invoke this method to save the document to a stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Save(Stream stream)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>An object of the Stream class.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FileFormat_Cells_Workbook_Save_" data-uid="FileFormat.Cells.Workbook.Save*"></a>
+  <h4 id="FileFormat_Cells_Workbook_Save_System_String_" data-uid="FileFormat.Cells.Workbook.Save(System.String)">Save(String)</h4>
+  <div class="markdown level1 summary"><p>Invoke this method to save the document to a file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Save(string filePath)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">filePath</span></td>
+        <td><p>String value represents the document name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <span></span>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
