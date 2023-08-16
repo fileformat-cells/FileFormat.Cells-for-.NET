@@ -49,7 +49,7 @@ namespace FileFormat.Cells
         /// <summary>
         /// This method is used to set the value of a Cell.
         /// </summary>
-        ///   /// <param name="value">A dynamic value.</param>
+        /// <param name="value">A dynamic value.</param>
         public void CellValue(dynamic value)
         {
             this.cell.CellValue = new DocumentFormat.OpenXml.Spreadsheet.CellValue(value);
@@ -58,7 +58,6 @@ namespace FileFormat.Cells
         /// <summary>
         /// Sets the style index of the cell to 1.
         /// </summary>
-        /// 
         public void CellIndex()
         {
             this.cell.StyleIndex = 1;
@@ -67,7 +66,7 @@ namespace FileFormat.Cells
         /// <summary>
         /// Sets the style index of the cell to the specified value.
         /// </summary>
-        /// <param name="num">The style index to be set for the cell.</param>
+        /// <param name="num">The style index is to be set for the cell.</param>
 
         public void CellIndex(UInt32Value num)
         {

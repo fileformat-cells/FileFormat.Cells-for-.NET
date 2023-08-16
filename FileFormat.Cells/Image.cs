@@ -10,7 +10,7 @@ using System.Linq;
 namespace FileFormat.Cells.Image
 {
     /// <summary>
-    /// This class contains methods to add images into an Excel document.
+    /// This class contains methods to add images to an Excel document.
     /// </summary>
     public class Image
     {
@@ -47,9 +47,10 @@ namespace FileFormat.Cells.Image
         /// </summary>
         /// <param name="sheetIndex">An integer value represents the index of worksheet.</param>
         ///  <param name="imagePath">An integer value represents the index of worksheet.</param>
-        ///  <param name="startRowIndex">An integer value.</param>
-        ///  <param name="endRowIndex">An integer value.</param>
-        ///  <param name="endColumnIndex">An integer value</param>
+        ///  <param name="startRowIndex">An integer value that represents the starting row index.</param>
+        ///  <param name="startColumnIndex">An integer value that represents the starting column index.</param>
+        ///  <param name="endRowIndex">An integer value that represents the ending row index.</param>
+        ///  <param name="endColumnIndex">An integer value that represents the ending column index.</param>
         
         public void Add(int sheetIndex, string imagePath, int startRowIndex, int startColumnIndex, int endRowIndex, int endColumnIndex) {
  
@@ -401,7 +402,7 @@ namespace FileFormat.Cells.Image
         /// Invoke this method to read the value of a particular cell. 
         /// </summary>
         /// <param name="sheetIndex">An Integer value.</param>
-
+        /// <returns>A collection of image streams.</returns>
         public List<Stream> ExtractImagesFromWorkSheet(int sheetIndex)
         {
             List<Stream> imagePartsCollection = new List<Stream>();
@@ -417,7 +418,7 @@ namespace FileFormat.Cells.Image
         /// <summary>
         /// Call this property to get the total number of images in a Workbook.
         /// </summary>
-
+        /// <returns>The count of the total number of images in a Workbook. </returns>
         public int GetImagesCountFromWorkBook
         {
             get

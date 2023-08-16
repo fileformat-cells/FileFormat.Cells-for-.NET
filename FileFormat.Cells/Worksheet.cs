@@ -34,10 +34,17 @@ namespace FileFormat.Cells
         private UInt32 sheetID;
         private string ID;
         SheetData sheetData;
+        /// <value>
+        /// An object of the Parent WorkbookStylesPart class.
+        /// </value>
         protected internal WorkbookStylesPart stylesPart;
-
+        /// <value>
+        /// An object of the Parent MergeCells class.
+        /// </value>
         protected internal MergeCells mergeCells;
-
+        /// <value>
+        /// An object of the Parent Stylesheet class.
+        /// </value>
         protected internal Stylesheet stylesheet;
         int i = 1;
 
@@ -210,9 +217,9 @@ namespace FileFormat.Cells
         }
 
         /// <summary>
-        /// Inserts a new cell style into the spreadsheet's styles part.
+        /// Insert a new cell style into the spreadsheet's styles part.
         /// </summary>
-        /// <param name="cellStyle">The <see cref="CellStyle"/> containing the desired font family, size, and cell color.</param>
+        /// <param name="cellStyle">The <see cref="CellStyle"/> contains the desired font family, size, and cell color.</param>
         /// <returns>The index of the inserted style within the stylesheet's cell formats.</returns>
 
 
@@ -294,7 +301,12 @@ namespace FileFormat.Cells
         }
 
         
-        // Merge two cells by range (e.g., "A1" to "B2")
+        
+        /// <summary>
+        /// Merge two cells by range (e.g., "A1" to "B2")
+        /// </summary>
+        /// <param name="startCellRef">A string value.</param>
+        /// <param name="endCellRef">A string value.</param>
         public void MergeCells(string startCellRef, string endCellRef)
         {
 

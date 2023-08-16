@@ -24,7 +24,9 @@ namespace FileFormat.Cells
         /// An object of the Parent worksheetPart class.
         /// </value>
         protected internal DocumentFormat.OpenXml.Packaging.WorksheetPart worksheetPart;
-
+        /// <value>
+        /// An object of the Parent WorkbookStylesPart class.
+        /// </value>
         protected internal WorkbookStylesPart stylesPart;
 
         private MemoryStream ms;
@@ -55,10 +57,10 @@ namespace FileFormat.Cells
 
         }
 
-        // <summary>
+        /// <summary>
         /// Applies the specified font style to the workbook.
         /// </summary>
-        /// <param name="fontName">The name of the font to be applied.</param>
+        /// <param name='fontName'>The name of the font to be applied.</param>
         /// <param name="fontSize">The size of the font to be applied.</param>
 
         public void ApplyFontStyle(string fontName, int fontSize)
@@ -79,10 +81,8 @@ namespace FileFormat.Cells
             // Add the font to the Fonts collection in the Stylesheet
             stylesPart.Stylesheet.Fonts = new Fonts();
             stylesPart.Stylesheet.Fonts.AppendChild(font);
-
             
         }
-
 
 
         /// <summary>
@@ -146,7 +146,7 @@ namespace FileFormat.Cells
         }
 
         /// <summary>
-        /// Invoke this method to save the document to a file. 
+        /// Invoke this method to save the document to a stream. 
         /// </summary>
         /// <param name="stream">An object of the Stream class.</param>
         public void Save(Stream stream)
@@ -174,6 +174,7 @@ namespace FileFormat.Cells
         /// Invoke this method to delete a worksheet from an Excel document. 
         /// </summary>
         /// <param name="sheetName">String value represents the worksheet name.</param>
+        /// <returns>A string value. </returns>
         public string DeleteWorksheet(string sheetName)
         {
             try
@@ -214,6 +215,7 @@ namespace FileFormat.Cells
         /// </summary>
         /// <param name="sheetName">String value represents the worksheet name.</param>
         /// <param name="cellRef">String value represents the address of the cell.</param>
+        /// <returns>A sttring value. </returns>
         public string GetCellValue(string sheetName, string cellRef)
         {
 
@@ -236,7 +238,7 @@ namespace FileFormat.Cells
         /// This method removes a cell's value in a Worksheet.
         /// </summary>
         /// <param name="sheetName">String value represents the worksheet name.</param>
-        /// <param name="colName">String value represents the name of the column.</param>
+        /// <param name="colName">The string value represents the name of the column.</param>
         /// <param name="rowIndex">An integer value represents the row.</param>
         public void DeleteTextFromCell(string sheetName, string colName, uint rowIndex)
         {
@@ -284,6 +286,7 @@ namespace FileFormat.Cells
         /// <summary>
         /// It returns custom built-in document properties.
         /// </summary>
+        /// <returns>An object of document properties. </returns>
         public BuiltInDocumentProperties BuiltinDocumentProperties
         {
             get

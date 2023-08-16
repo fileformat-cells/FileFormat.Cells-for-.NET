@@ -8,7 +8,7 @@ namespace FileFormat.Cells.Properties
     {
 
         /// <summary>
-        /// This property is used to get/set the Author name of a Word document.
+        /// This property is used to get/set the Author name of an Excel document.
         /// </summary>
         /// <returns>Returns a string value.</returns>
         public String Author { get; set; }
