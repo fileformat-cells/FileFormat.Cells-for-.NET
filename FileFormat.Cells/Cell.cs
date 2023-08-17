@@ -11,7 +11,6 @@ namespace FileFormat.Cells
         /// An object of the Parent Cell class.
         /// </value>
         protected internal DocumentFormat.OpenXml.Spreadsheet.Cell cell;
-        private Styles styles;
 
         /// <summary>
         /// Instantiate a new instance of the Cell class.
