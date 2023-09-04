@@ -47,7 +47,7 @@ This Open-Source .NET API comes up with the following functionalities:
 <p>Since FileFormat.Cells is available as a <a href="#">NuGet Package</a>, you can download the Nuget Package of this library. Well, the installation procedure of this C# Spreadsheet API is a matter of running a single command as mentioned below:  </p>
 <code>Install-Package FileFormat.Cells</code>
 
-## Creating a Word Document Programmatically
+## Creating an Excel Spreadsheet Programmatically
 
 The following code segment creates an empty <a href="https://docs.fileformat.com/spreadsheet/xlsx/">Excel<a/> file with a default Worksheet. 
 <pre>
