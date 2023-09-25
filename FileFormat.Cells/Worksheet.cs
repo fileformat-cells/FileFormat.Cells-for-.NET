@@ -149,6 +149,28 @@ namespace FileFormat.Cells
 
         }
 
+        public void AddFormulaToCell(string cellRef, UInt32 rowIndex, string formula)
+        {
+
+            DocumentFormat.OpenXml.Spreadsheet.Row row = new DocumentFormat.OpenXml.Spreadsheet.Row()
+            {
+                RowIndex = rowIndex
+            };
+
+            // Create the CellFormula element
+            CellFormula cellFormula = new CellFormula
+            {
+                CalculateCell = true,
+                Text = formula
+            };
+            DocumentFormat.OpenXml.Spreadsheet.Cell cell = new DocumentFormat.OpenXml.Spreadsheet.Cell()
+            {
+                CellReference = cellRef,
+                CellFormula = cellFormula
+            };
+            row.Append(cell);
+            sheetData.sheetData.Append(row);
+        }
 
         private static List<UInt32> AddStyle(ref Stylesheet stylesheet)
         {
