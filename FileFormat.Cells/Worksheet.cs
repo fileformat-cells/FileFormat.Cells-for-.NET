@@ -143,10 +143,88 @@ namespace FileFormat.Cells
             }
 
             // Save the worksheet data
-            worksheet.Save();
+            //worksheet.Save();
             
 
 
+        }
+
+        public void AddFormulaToCell(string cellRef, UInt32 rowIndex, string formula)
+        {
+
+            DocumentFormat.OpenXml.Spreadsheet.Row row = new DocumentFormat.OpenXml.Spreadsheet.Row()
+            {
+                RowIndex = rowIndex
+            };
+
+            // Create the CellFormula element
+            CellFormula cellFormula = new CellFormula
+            {
+                CalculateCell = true,
+                Text = formula
+            };
+            DocumentFormat.OpenXml.Spreadsheet.Cell cell = new DocumentFormat.OpenXml.Spreadsheet.Cell()
+            {
+                CellReference = cellRef,
+                CellFormula = cellFormula
+            };
+            row.Append(cell);
+            sheetData.sheetData.Append(row);
+        }
+
+        public void ProtectSheet(string password, int sheetIndex)
+        {
+            string passwordHash = GeneratePasswordHash(password);
+
+            SheetProtection sheetProtection = new SheetProtection()
+            {
+                Sheet = true,
+                Objects = true,
+                Scenarios = true,
+                Password = password,
+            };
+
+            var targetSheet = this.spreadsheetDocument.WorkbookPart.WorksheetParts.ElementAt(sheetIndex).Worksheet;
+
+            if (targetSheet.Elements<SheetProtection>().Any())
+            {
+                targetSheet.Elements<SheetProtection>().First().Remove();
+            }
+
+            targetSheet.InsertAt(sheetProtection, 0);
+        }
+
+        private string GeneratePasswordHash(string password)
+        {
+            int hash = 0;
+            if (password.Length > 0)
+            {
+                char[] chars = password.ToCharArray();
+                for (int i = chars.Length; i > 0; i--)
+                {
+                    hash = ((hash >> 14) & 0x01) | ((hash << 1) & 0x7fff);
+                    hash ^= chars[chars.Length - i];
+                }
+                // Additional XOR operation.
+                hash ^= (0x8000 | ('N' << 8) | 'K');
+            }
+
+            return hash.ToString("X");
+        }
+
+
+
+
+        /// <summary>
+        /// Unprotects the worksheet.
+        /// </summary>
+        public void UnProtectSheet()
+        {
+            // Remove existing SheetProtection if exists
+            if (worksheet.Elements<SheetProtection>().Any())
+            {
+                worksheet.Elements<SheetProtection>().First().Remove();
+            }
         }
 
 
