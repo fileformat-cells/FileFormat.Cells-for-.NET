@@ -143,7 +143,7 @@ namespace FileFormat.Cells
             }
 
             // Save the worksheet data
-            worksheet.Save();
+            //worksheet.Save();
             
 
 
@@ -171,6 +171,39 @@ namespace FileFormat.Cells
             row.Append(cell);
             sheetData.sheetData.Append(row);
         }
+
+        public void ProtectSheet(string password, int sheetIndex)
+        {
+            SheetProtection sheetProtection = new SheetProtection()
+            {
+                Sheet = true,
+                Objects = true,
+                Scenarios = true,
+                Password = password,
+            };
+
+            var targetSheet = this.spreadsheetDocument.WorkbookPart.WorksheetParts.ElementAt(sheetIndex).Worksheet;
+
+            if (targetSheet.Elements<SheetProtection>().Any())
+            {
+                targetSheet.Elements<SheetProtection>().First().Remove();
+            }
+
+            targetSheet.InsertAt(sheetProtection, 0);
+        }
+
+        /// <summary>
+        /// Unprotects the worksheet.
+        /// </summary>
+        public void UnProtectSheet()
+        {
+            // Remove existing SheetProtection if exists
+            if (worksheet.Elements<SheetProtection>().Any())
+            {
+                worksheet.Elements<SheetProtection>().First().Remove();
+            }
+        }
+
 
         private static List<UInt32> AddStyle(ref Stylesheet stylesheet)
         {
