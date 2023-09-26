@@ -3,764 +3,803 @@ sorted: true
 references:
 - uid: FileFormat.Cells
   name: FileFormat.Cells
-  href: api/FileFormat.Cells.html
+  href: api/FileFormat.Cells.yml
   commentId: N:FileFormat.Cells
   fullName: FileFormat.Cells
   nameWithType: FileFormat.Cells
 - uid: FileFormat.Cells.Cell
   name: Cell
-  href: api/FileFormat.Cells.Cell.html
+  href: api/FileFormat.Cells.Cell.yml
   commentId: T:FileFormat.Cells.Cell
   fullName: FileFormat.Cells.Cell
   nameWithType: Cell
 - uid: FileFormat.Cells.Cell.#ctor
   name: Cell()
-  href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell__ctor
+  href: api/FileFormat.Cells.Cell.yml
   commentId: M:FileFormat.Cells.Cell.#ctor
   fullName: FileFormat.Cells.Cell.Cell()
   nameWithType: Cell.Cell()
 - uid: FileFormat.Cells.Cell.#ctor*
   name: Cell
-  href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell__ctor_
+  href: api/FileFormat.Cells.Cell.yml
   commentId: Overload:FileFormat.Cells.Cell.#ctor
   isSpec: "True"
   fullName: FileFormat.Cells.Cell.Cell
   nameWithType: Cell.Cell
-- uid: FileFormat.Cells.Cell.cell
-  name: cell
-  href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_cell
-  commentId: F:FileFormat.Cells.Cell.cell
-  fullName: FileFormat.Cells.Cell.cell
-  nameWithType: Cell.cell
 - uid: FileFormat.Cells.Cell.CellIndex
   name: CellIndex()
-  href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_CellIndex
+  href: api/FileFormat.Cells.Cell.yml
   commentId: M:FileFormat.Cells.Cell.CellIndex
   fullName: FileFormat.Cells.Cell.CellIndex()
   nameWithType: Cell.CellIndex()
 - uid: FileFormat.Cells.Cell.CellIndex(UInt32Value)
   name: CellIndex(UInt32Value)
-  href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_CellIndex_UInt32Value_
+  href: api/FileFormat.Cells.Cell.yml
   commentId: M:FileFormat.Cells.Cell.CellIndex(UInt32Value)
   fullName: FileFormat.Cells.Cell.CellIndex(UInt32Value)
   nameWithType: Cell.CellIndex(UInt32Value)
 - uid: FileFormat.Cells.Cell.CellIndex*
   name: CellIndex
-  href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_CellIndex_
+  href: api/FileFormat.Cells.Cell.yml
   commentId: Overload:FileFormat.Cells.Cell.CellIndex
   isSpec: "True"
   fullName: FileFormat.Cells.Cell.CellIndex
   nameWithType: Cell.CellIndex
 - uid: FileFormat.Cells.Cell.CellValue(System.Object)
   name: CellValue(Object)
-  href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_CellValue_System_Object_
+  href: api/FileFormat.Cells.Cell.yml
   commentId: M:FileFormat.Cells.Cell.CellValue(System.Object)
   fullName: FileFormat.Cells.Cell.CellValue(System.Object)
   nameWithType: Cell.CellValue(Object)
 - uid: FileFormat.Cells.Cell.CellValue*
   name: CellValue
-  href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_CellValue_
+  href: api/FileFormat.Cells.Cell.yml
   commentId: Overload:FileFormat.Cells.Cell.CellValue
   isSpec: "True"
   fullName: FileFormat.Cells.Cell.CellValue
   nameWithType: Cell.CellValue
+- uid: FileFormat.Cells.Cell.cell
+  name: cell
+  href: api/FileFormat.Cells.Cell.yml
+  commentId: F:FileFormat.Cells.Cell.cell
+  fullName: FileFormat.Cells.Cell.cell
+  nameWithType: Cell.cell
 - uid: FileFormat.Cells.Cell.setCellReference(System.String)
   name: setCellReference(String)
-  href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_setCellReference_System_String_
+  href: api/FileFormat.Cells.Cell.yml
   commentId: M:FileFormat.Cells.Cell.setCellReference(System.String)
   fullName: FileFormat.Cells.Cell.setCellReference(System.String)
   nameWithType: Cell.setCellReference(String)
 - uid: FileFormat.Cells.Cell.setCellReference*
   name: setCellReference
-  href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_setCellReference_
+  href: api/FileFormat.Cells.Cell.yml
   commentId: Overload:FileFormat.Cells.Cell.setCellReference
   isSpec: "True"
   fullName: FileFormat.Cells.Cell.setCellReference
   nameWithType: Cell.setCellReference
 - uid: FileFormat.Cells.Cell.setNumberDataType
   name: setNumberDataType()
-  href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_setNumberDataType
+  href: api/FileFormat.Cells.Cell.yml
   commentId: M:FileFormat.Cells.Cell.setNumberDataType
   fullName: FileFormat.Cells.Cell.setNumberDataType()
   nameWithType: Cell.setNumberDataType()
 - uid: FileFormat.Cells.Cell.setNumberDataType*
   name: setNumberDataType
-  href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_setNumberDataType_
+  href: api/FileFormat.Cells.Cell.yml
   commentId: Overload:FileFormat.Cells.Cell.setNumberDataType
   isSpec: "True"
   fullName: FileFormat.Cells.Cell.setNumberDataType
   nameWithType: Cell.setNumberDataType
 - uid: FileFormat.Cells.Cell.setStringDataType
   name: setStringDataType()
-  href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_setStringDataType
+  href: api/FileFormat.Cells.Cell.yml
   commentId: M:FileFormat.Cells.Cell.setStringDataType
   fullName: FileFormat.Cells.Cell.setStringDataType()
   nameWithType: Cell.setStringDataType()
 - uid: FileFormat.Cells.Cell.setStringDataType*
   name: setStringDataType
-  href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_setStringDataType_
+  href: api/FileFormat.Cells.Cell.yml
   commentId: Overload:FileFormat.Cells.Cell.setStringDataType
   isSpec: "True"
   fullName: FileFormat.Cells.Cell.setStringDataType
   nameWithType: Cell.setStringDataType
 - uid: FileFormat.Cells.CellStyle
   name: CellStyle
-  href: api/FileFormat.Cells.CellStyle.html
+  href: api/FileFormat.Cells.CellStyle.yml
   commentId: T:FileFormat.Cells.CellStyle
   fullName: FileFormat.Cells.CellStyle
   nameWithType: CellStyle
 - uid: FileFormat.Cells.CellStyle.CellColor
   name: CellColor
-  href: api/FileFormat.Cells.CellStyle.html#FileFormat_Cells_CellStyle_CellColor
+  href: api/FileFormat.Cells.CellStyle.yml
   commentId: P:FileFormat.Cells.CellStyle.CellColor
   fullName: FileFormat.Cells.CellStyle.CellColor
   nameWithType: CellStyle.CellColor
 - uid: FileFormat.Cells.CellStyle.CellColor*
   name: CellColor
-  href: api/FileFormat.Cells.CellStyle.html#FileFormat_Cells_CellStyle_CellColor_
+  href: api/FileFormat.Cells.CellStyle.yml
   commentId: Overload:FileFormat.Cells.CellStyle.CellColor
   isSpec: "True"
   fullName: FileFormat.Cells.CellStyle.CellColor
   nameWithType: CellStyle.CellColor
 - uid: FileFormat.Cells.CellStyle.FontName
   name: FontName
-  href: api/FileFormat.Cells.CellStyle.html#FileFormat_Cells_CellStyle_FontName
+  href: api/FileFormat.Cells.CellStyle.yml
   commentId: P:FileFormat.Cells.CellStyle.FontName
   fullName: FileFormat.Cells.CellStyle.FontName
   nameWithType: CellStyle.FontName
 - uid: FileFormat.Cells.CellStyle.FontName*
   name: FontName
-  href: api/FileFormat.Cells.CellStyle.html#FileFormat_Cells_CellStyle_FontName_
+  href: api/FileFormat.Cells.CellStyle.yml
   commentId: Overload:FileFormat.Cells.CellStyle.FontName
   isSpec: "True"
   fullName: FileFormat.Cells.CellStyle.FontName
   nameWithType: CellStyle.FontName
 - uid: FileFormat.Cells.CellStyle.FontSize
   name: FontSize
-  href: api/FileFormat.Cells.CellStyle.html#FileFormat_Cells_CellStyle_FontSize
+  href: api/FileFormat.Cells.CellStyle.yml
   commentId: P:FileFormat.Cells.CellStyle.FontSize
   fullName: FileFormat.Cells.CellStyle.FontSize
   nameWithType: CellStyle.FontSize
 - uid: FileFormat.Cells.CellStyle.FontSize*
   name: FontSize
-  href: api/FileFormat.Cells.CellStyle.html#FileFormat_Cells_CellStyle_FontSize_
+  href: api/FileFormat.Cells.CellStyle.yml
   commentId: Overload:FileFormat.Cells.CellStyle.FontSize
   isSpec: "True"
   fullName: FileFormat.Cells.CellStyle.FontSize
   nameWithType: CellStyle.FontSize
 - uid: FileFormat.Cells.Image
   name: FileFormat.Cells.Image
-  href: api/FileFormat.Cells.Image.html
+  href: api/FileFormat.Cells.Image.yml
   commentId: N:FileFormat.Cells.Image
   fullName: FileFormat.Cells.Image
   nameWithType: FileFormat.Cells.Image
 - uid: FileFormat.Cells.Image.Image
   name: Image
-  href: api/FileFormat.Cells.Image.Image.html
+  href: api/FileFormat.Cells.Image.Image.yml
   commentId: T:FileFormat.Cells.Image.Image
   fullName: FileFormat.Cells.Image.Image
   nameWithType: Image
 - uid: FileFormat.Cells.Image.Image.#ctor(FileFormat.Cells.Workbook)
   name: Image(Workbook)
-  href: api/FileFormat.Cells.Image.Image.html#FileFormat_Cells_Image_Image__ctor_FileFormat_Cells_Workbook_
+  href: api/FileFormat.Cells.Image.Image.yml
   commentId: M:FileFormat.Cells.Image.Image.#ctor(FileFormat.Cells.Workbook)
   fullName: FileFormat.Cells.Image.Image.Image(FileFormat.Cells.Workbook)
   nameWithType: Image.Image(Workbook)
 - uid: FileFormat.Cells.Image.Image.#ctor*
   name: Image
-  href: api/FileFormat.Cells.Image.Image.html#FileFormat_Cells_Image_Image__ctor_
+  href: api/FileFormat.Cells.Image.Image.yml
   commentId: Overload:FileFormat.Cells.Image.Image.#ctor
   isSpec: "True"
   fullName: FileFormat.Cells.Image.Image.Image
   nameWithType: Image.Image
 - uid: FileFormat.Cells.Image.Image.Add(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.Int32)
   name: Add(Int32, String, Int32, Int32, Int32, Int32)
-  href: api/FileFormat.Cells.Image.Image.html#FileFormat_Cells_Image_Image_Add_System_Int32_System_String_System_Int32_System_Int32_System_Int32_System_Int32_
+  href: api/FileFormat.Cells.Image.Image.yml
   commentId: M:FileFormat.Cells.Image.Image.Add(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.Int32)
   fullName: FileFormat.Cells.Image.Image.Add(System.Int32, System.String, System.Int32, System.Int32, System.Int32, System.Int32)
   nameWithType: Image.Add(Int32, String, Int32, Int32, Int32, Int32)
 - uid: FileFormat.Cells.Image.Image.Add*
   name: Add
-  href: api/FileFormat.Cells.Image.Image.html#FileFormat_Cells_Image_Image_Add_
+  href: api/FileFormat.Cells.Image.Image.yml
   commentId: Overload:FileFormat.Cells.Image.Image.Add
   isSpec: "True"
   fullName: FileFormat.Cells.Image.Image.Add
   nameWithType: Image.Add
-- uid: FileFormat.Cells.Image.Image.drawing
-  name: drawing
-  href: api/FileFormat.Cells.Image.Image.html#FileFormat_Cells_Image_Image_drawing
-  commentId: F:FileFormat.Cells.Image.Image.drawing
-  fullName: FileFormat.Cells.Image.Image.drawing
-  nameWithType: Image.drawing
 - uid: FileFormat.Cells.Image.Image.ExtractImagesFromWorkSheet(System.Int32)
   name: ExtractImagesFromWorkSheet(Int32)
-  href: api/FileFormat.Cells.Image.Image.html#FileFormat_Cells_Image_Image_ExtractImagesFromWorkSheet_System_Int32_
+  href: api/FileFormat.Cells.Image.Image.yml
   commentId: M:FileFormat.Cells.Image.Image.ExtractImagesFromWorkSheet(System.Int32)
   fullName: FileFormat.Cells.Image.Image.ExtractImagesFromWorkSheet(System.Int32)
   nameWithType: Image.ExtractImagesFromWorkSheet(Int32)
 - uid: FileFormat.Cells.Image.Image.ExtractImagesFromWorkSheet*
   name: ExtractImagesFromWorkSheet
-  href: api/FileFormat.Cells.Image.Image.html#FileFormat_Cells_Image_Image_ExtractImagesFromWorkSheet_
+  href: api/FileFormat.Cells.Image.Image.yml
   commentId: Overload:FileFormat.Cells.Image.Image.ExtractImagesFromWorkSheet
   isSpec: "True"
   fullName: FileFormat.Cells.Image.Image.ExtractImagesFromWorkSheet
   nameWithType: Image.ExtractImagesFromWorkSheet
 - uid: FileFormat.Cells.Image.Image.GetImagesCountFromWorkBook
   name: GetImagesCountFromWorkBook
-  href: api/FileFormat.Cells.Image.Image.html#FileFormat_Cells_Image_Image_GetImagesCountFromWorkBook
+  href: api/FileFormat.Cells.Image.Image.yml
   commentId: P:FileFormat.Cells.Image.Image.GetImagesCountFromWorkBook
   fullName: FileFormat.Cells.Image.Image.GetImagesCountFromWorkBook
   nameWithType: Image.GetImagesCountFromWorkBook
 - uid: FileFormat.Cells.Image.Image.GetImagesCountFromWorkBook*
   name: GetImagesCountFromWorkBook
-  href: api/FileFormat.Cells.Image.Image.html#FileFormat_Cells_Image_Image_GetImagesCountFromWorkBook_
+  href: api/FileFormat.Cells.Image.Image.yml
   commentId: Overload:FileFormat.Cells.Image.Image.GetImagesCountFromWorkBook
   isSpec: "True"
   fullName: FileFormat.Cells.Image.Image.GetImagesCountFromWorkBook
   nameWithType: Image.GetImagesCountFromWorkBook
+- uid: FileFormat.Cells.Image.Image.drawing
+  name: drawing
+  href: api/FileFormat.Cells.Image.Image.yml
+  commentId: F:FileFormat.Cells.Image.Image.drawing
+  fullName: FileFormat.Cells.Image.Image.drawing
+  nameWithType: Image.drawing
 - uid: FileFormat.Cells.Image.Image.spreadsheetDocument
   name: spreadsheetDocument
-  href: api/FileFormat.Cells.Image.Image.html#FileFormat_Cells_Image_Image_spreadsheetDocument
+  href: api/FileFormat.Cells.Image.Image.yml
   commentId: F:FileFormat.Cells.Image.Image.spreadsheetDocument
   fullName: FileFormat.Cells.Image.Image.spreadsheetDocument
   nameWithType: Image.spreadsheetDocument
 - uid: FileFormat.Cells.Image.Image.worksheetPart
   name: worksheetPart
-  href: api/FileFormat.Cells.Image.Image.html#FileFormat_Cells_Image_Image_worksheetPart
+  href: api/FileFormat.Cells.Image.Image.yml
   commentId: F:FileFormat.Cells.Image.Image.worksheetPart
   fullName: FileFormat.Cells.Image.Image.worksheetPart
   nameWithType: Image.worksheetPart
 - uid: FileFormat.Cells.Properties
   name: FileFormat.Cells.Properties
-  href: api/FileFormat.Cells.Properties.html
+  href: api/FileFormat.Cells.Properties.yml
   commentId: N:FileFormat.Cells.Properties
   fullName: FileFormat.Cells.Properties
   nameWithType: FileFormat.Cells.Properties
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties
   name: BuiltInDocumentProperties
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: T:FileFormat.Cells.Properties.BuiltInDocumentProperties
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties
   nameWithType: BuiltInDocumentProperties
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.Author
   name: Author
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_Author
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: P:FileFormat.Cells.Properties.BuiltInDocumentProperties.Author
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.Author
   nameWithType: BuiltInDocumentProperties.Author
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.Author*
   name: Author
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_Author_
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: Overload:FileFormat.Cells.Properties.BuiltInDocumentProperties.Author
   isSpec: "True"
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.Author
   nameWithType: BuiltInDocumentProperties.Author
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.CreatedDate
   name: CreatedDate
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_CreatedDate
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: P:FileFormat.Cells.Properties.BuiltInDocumentProperties.CreatedDate
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.CreatedDate
   nameWithType: BuiltInDocumentProperties.CreatedDate
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.CreatedDate*
   name: CreatedDate
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_CreatedDate_
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: Overload:FileFormat.Cells.Properties.BuiltInDocumentProperties.CreatedDate
   isSpec: "True"
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.CreatedDate
   nameWithType: BuiltInDocumentProperties.CreatedDate
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.Creator
   name: Creator
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_Creator
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: P:FileFormat.Cells.Properties.BuiltInDocumentProperties.Creator
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.Creator
   nameWithType: BuiltInDocumentProperties.Creator
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.Creator*
   name: Creator
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_Creator_
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: Overload:FileFormat.Cells.Properties.BuiltInDocumentProperties.Creator
   isSpec: "True"
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.Creator
   nameWithType: BuiltInDocumentProperties.Creator
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.Description
   name: Description
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_Description
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: P:FileFormat.Cells.Properties.BuiltInDocumentProperties.Description
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.Description
   nameWithType: BuiltInDocumentProperties.Description
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.Description*
   name: Description
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_Description_
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: Overload:FileFormat.Cells.Properties.BuiltInDocumentProperties.Description
   isSpec: "True"
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.Description
   nameWithType: BuiltInDocumentProperties.Description
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.Keywords
   name: Keywords
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_Keywords
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: P:FileFormat.Cells.Properties.BuiltInDocumentProperties.Keywords
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.Keywords
   nameWithType: BuiltInDocumentProperties.Keywords
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.Keywords*
   name: Keywords
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_Keywords_
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: Overload:FileFormat.Cells.Properties.BuiltInDocumentProperties.Keywords
   isSpec: "True"
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.Keywords
   nameWithType: BuiltInDocumentProperties.Keywords
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.LastModifiedBy
   name: LastModifiedBy
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_LastModifiedBy
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: P:FileFormat.Cells.Properties.BuiltInDocumentProperties.LastModifiedBy
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.LastModifiedBy
   nameWithType: BuiltInDocumentProperties.LastModifiedBy
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.LastModifiedBy*
   name: LastModifiedBy
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_LastModifiedBy_
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: Overload:FileFormat.Cells.Properties.BuiltInDocumentProperties.LastModifiedBy
   isSpec: "True"
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.LastModifiedBy
   nameWithType: BuiltInDocumentProperties.LastModifiedBy
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.ModifiedBy
   name: ModifiedBy
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_ModifiedBy
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: P:FileFormat.Cells.Properties.BuiltInDocumentProperties.ModifiedBy
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.ModifiedBy
   nameWithType: BuiltInDocumentProperties.ModifiedBy
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.ModifiedBy*
   name: ModifiedBy
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_ModifiedBy_
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: Overload:FileFormat.Cells.Properties.BuiltInDocumentProperties.ModifiedBy
   isSpec: "True"
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.ModifiedBy
   nameWithType: BuiltInDocumentProperties.ModifiedBy
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.ModifiedDate
   name: ModifiedDate
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_ModifiedDate
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: P:FileFormat.Cells.Properties.BuiltInDocumentProperties.ModifiedDate
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.ModifiedDate
   nameWithType: BuiltInDocumentProperties.ModifiedDate
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.ModifiedDate*
   name: ModifiedDate
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_ModifiedDate_
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: Overload:FileFormat.Cells.Properties.BuiltInDocumentProperties.ModifiedDate
   isSpec: "True"
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.ModifiedDate
   nameWithType: BuiltInDocumentProperties.ModifiedDate
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.Subject
   name: Subject
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_Subject
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: P:FileFormat.Cells.Properties.BuiltInDocumentProperties.Subject
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.Subject
   nameWithType: BuiltInDocumentProperties.Subject
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.Subject*
   name: Subject
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_Subject_
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: Overload:FileFormat.Cells.Properties.BuiltInDocumentProperties.Subject
   isSpec: "True"
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.Subject
   nameWithType: BuiltInDocumentProperties.Subject
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.Title
   name: Title
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_Title
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: P:FileFormat.Cells.Properties.BuiltInDocumentProperties.Title
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.Title
   nameWithType: BuiltInDocumentProperties.Title
 - uid: FileFormat.Cells.Properties.BuiltInDocumentProperties.Title*
   name: Title
-  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.html#FileFormat_Cells_Properties_BuiltInDocumentProperties_Title_
+  href: api/FileFormat.Cells.Properties.BuiltInDocumentProperties.yml
   commentId: Overload:FileFormat.Cells.Properties.BuiltInDocumentProperties.Title
   isSpec: "True"
   fullName: FileFormat.Cells.Properties.BuiltInDocumentProperties.Title
   nameWithType: BuiltInDocumentProperties.Title
 - uid: FileFormat.Cells.Row
   name: Row
-  href: api/FileFormat.Cells.Row.html
+  href: api/FileFormat.Cells.Row.yml
   commentId: T:FileFormat.Cells.Row
   fullName: FileFormat.Cells.Row
   nameWithType: Row
 - uid: FileFormat.Cells.Row.#ctor
   name: Row()
-  href: api/FileFormat.Cells.Row.html#FileFormat_Cells_Row__ctor
+  href: api/FileFormat.Cells.Row.yml
   commentId: M:FileFormat.Cells.Row.#ctor
   fullName: FileFormat.Cells.Row.Row()
   nameWithType: Row.Row()
 - uid: FileFormat.Cells.Row.#ctor*
   name: Row
-  href: api/FileFormat.Cells.Row.html#FileFormat_Cells_Row__ctor_
+  href: api/FileFormat.Cells.Row.yml
   commentId: Overload:FileFormat.Cells.Row.#ctor
   isSpec: "True"
   fullName: FileFormat.Cells.Row.Row
   nameWithType: Row.Row
 - uid: FileFormat.Cells.Row.Append(FileFormat.Cells.Cell)
   name: Append(Cell)
-  href: api/FileFormat.Cells.Row.html#FileFormat_Cells_Row_Append_FileFormat_Cells_Cell_
+  href: api/FileFormat.Cells.Row.yml
   commentId: M:FileFormat.Cells.Row.Append(FileFormat.Cells.Cell)
   fullName: FileFormat.Cells.Row.Append(FileFormat.Cells.Cell)
   nameWithType: Row.Append(Cell)
 - uid: FileFormat.Cells.Row.Append*
   name: Append
-  href: api/FileFormat.Cells.Row.html#FileFormat_Cells_Row_Append_
+  href: api/FileFormat.Cells.Row.yml
   commentId: Overload:FileFormat.Cells.Row.Append
   isSpec: "True"
   fullName: FileFormat.Cells.Row.Append
   nameWithType: Row.Append
 - uid: FileFormat.Cells.Row.Index
   name: Index
-  href: api/FileFormat.Cells.Row.html#FileFormat_Cells_Row_Index
+  href: api/FileFormat.Cells.Row.yml
   commentId: P:FileFormat.Cells.Row.Index
   fullName: FileFormat.Cells.Row.Index
   nameWithType: Row.Index
 - uid: FileFormat.Cells.Row.Index*
   name: Index
-  href: api/FileFormat.Cells.Row.html#FileFormat_Cells_Row_Index_
+  href: api/FileFormat.Cells.Row.yml
   commentId: Overload:FileFormat.Cells.Row.Index
   isSpec: "True"
   fullName: FileFormat.Cells.Row.Index
   nameWithType: Row.Index
 - uid: FileFormat.Cells.Row.row
   name: row
-  href: api/FileFormat.Cells.Row.html#FileFormat_Cells_Row_row
+  href: api/FileFormat.Cells.Row.yml
   commentId: F:FileFormat.Cells.Row.row
   fullName: FileFormat.Cells.Row.row
   nameWithType: Row.row
 - uid: FileFormat.Cells.SheetData
   name: SheetData
-  href: api/FileFormat.Cells.SheetData.html
+  href: api/FileFormat.Cells.SheetData.yml
   commentId: T:FileFormat.Cells.SheetData
   fullName: FileFormat.Cells.SheetData
   nameWithType: SheetData
 - uid: FileFormat.Cells.SheetData.#ctor
   name: SheetData()
-  href: api/FileFormat.Cells.SheetData.html#FileFormat_Cells_SheetData__ctor
+  href: api/FileFormat.Cells.SheetData.yml
   commentId: M:FileFormat.Cells.SheetData.#ctor
   fullName: FileFormat.Cells.SheetData.SheetData()
   nameWithType: SheetData.SheetData()
 - uid: FileFormat.Cells.SheetData.#ctor*
   name: SheetData
-  href: api/FileFormat.Cells.SheetData.html#FileFormat_Cells_SheetData__ctor_
+  href: api/FileFormat.Cells.SheetData.yml
   commentId: Overload:FileFormat.Cells.SheetData.#ctor
   isSpec: "True"
   fullName: FileFormat.Cells.SheetData.SheetData
   nameWithType: SheetData.SheetData
 - uid: FileFormat.Cells.SheetData.Append(FileFormat.Cells.Row)
   name: Append(Row)
-  href: api/FileFormat.Cells.SheetData.html#FileFormat_Cells_SheetData_Append_FileFormat_Cells_Row_
+  href: api/FileFormat.Cells.SheetData.yml
   commentId: M:FileFormat.Cells.SheetData.Append(FileFormat.Cells.Row)
   fullName: FileFormat.Cells.SheetData.Append(FileFormat.Cells.Row)
   nameWithType: SheetData.Append(Row)
 - uid: FileFormat.Cells.SheetData.Append*
   name: Append
-  href: api/FileFormat.Cells.SheetData.html#FileFormat_Cells_SheetData_Append_
+  href: api/FileFormat.Cells.SheetData.yml
   commentId: Overload:FileFormat.Cells.SheetData.Append
   isSpec: "True"
   fullName: FileFormat.Cells.SheetData.Append
   nameWithType: SheetData.Append
 - uid: FileFormat.Cells.SheetData.sheetData
   name: sheetData
-  href: api/FileFormat.Cells.SheetData.html#FileFormat_Cells_SheetData_sheetData
+  href: api/FileFormat.Cells.SheetData.yml
   commentId: F:FileFormat.Cells.SheetData.sheetData
   fullName: FileFormat.Cells.SheetData.sheetData
   nameWithType: SheetData.sheetData
 - uid: FileFormat.Cells.Workbook
   name: Workbook
-  href: api/FileFormat.Cells.Workbook.html
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: T:FileFormat.Cells.Workbook
   fullName: FileFormat.Cells.Workbook
   nameWithType: Workbook
 - uid: FileFormat.Cells.Workbook.#ctor
   name: Workbook()
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook__ctor
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: M:FileFormat.Cells.Workbook.#ctor
   fullName: FileFormat.Cells.Workbook.Workbook()
   nameWithType: Workbook.Workbook()
 - uid: FileFormat.Cells.Workbook.#ctor(Stream)
   name: Workbook(Stream)
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook__ctor_Stream_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: M:FileFormat.Cells.Workbook.#ctor(Stream)
   fullName: FileFormat.Cells.Workbook.Workbook(Stream)
   nameWithType: Workbook.Workbook(Stream)
 - uid: FileFormat.Cells.Workbook.#ctor(System.String)
   name: Workbook(String)
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook__ctor_System_String_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: M:FileFormat.Cells.Workbook.#ctor(System.String)
   fullName: FileFormat.Cells.Workbook.Workbook(System.String)
   nameWithType: Workbook.Workbook(String)
 - uid: FileFormat.Cells.Workbook.#ctor*
   name: Workbook
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook__ctor_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: Overload:FileFormat.Cells.Workbook.#ctor
   isSpec: "True"
   fullName: FileFormat.Cells.Workbook.Workbook
   nameWithType: Workbook.Workbook
 - uid: FileFormat.Cells.Workbook.ApplyFontStyle(System.String,System.Int32)
   name: ApplyFontStyle(String, Int32)
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_ApplyFontStyle_System_String_System_Int32_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: M:FileFormat.Cells.Workbook.ApplyFontStyle(System.String,System.Int32)
   fullName: FileFormat.Cells.Workbook.ApplyFontStyle(System.String, System.Int32)
   nameWithType: Workbook.ApplyFontStyle(String, Int32)
 - uid: FileFormat.Cells.Workbook.ApplyFontStyle*
   name: ApplyFontStyle
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_ApplyFontStyle_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: Overload:FileFormat.Cells.Workbook.ApplyFontStyle
   isSpec: "True"
   fullName: FileFormat.Cells.Workbook.ApplyFontStyle
   nameWithType: Workbook.ApplyFontStyle
 - uid: FileFormat.Cells.Workbook.BuiltinDocumentProperties
   name: BuiltinDocumentProperties
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_BuiltinDocumentProperties
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: P:FileFormat.Cells.Workbook.BuiltinDocumentProperties
   fullName: FileFormat.Cells.Workbook.BuiltinDocumentProperties
   nameWithType: Workbook.BuiltinDocumentProperties
 - uid: FileFormat.Cells.Workbook.BuiltinDocumentProperties*
   name: BuiltinDocumentProperties
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_BuiltinDocumentProperties_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: Overload:FileFormat.Cells.Workbook.BuiltinDocumentProperties
   isSpec: "True"
   fullName: FileFormat.Cells.Workbook.BuiltinDocumentProperties
   nameWithType: Workbook.BuiltinDocumentProperties
 - uid: FileFormat.Cells.Workbook.DeleteTextFromCell(System.String,System.String,System.UInt32)
   name: DeleteTextFromCell(String, String, UInt32)
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_DeleteTextFromCell_System_String_System_String_System_UInt32_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: M:FileFormat.Cells.Workbook.DeleteTextFromCell(System.String,System.String,System.UInt32)
   fullName: FileFormat.Cells.Workbook.DeleteTextFromCell(System.String, System.String, System.UInt32)
   nameWithType: Workbook.DeleteTextFromCell(String, String, UInt32)
 - uid: FileFormat.Cells.Workbook.DeleteTextFromCell*
   name: DeleteTextFromCell
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_DeleteTextFromCell_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: Overload:FileFormat.Cells.Workbook.DeleteTextFromCell
   isSpec: "True"
   fullName: FileFormat.Cells.Workbook.DeleteTextFromCell
   nameWithType: Workbook.DeleteTextFromCell
 - uid: FileFormat.Cells.Workbook.DeleteWorksheet(System.String)
   name: DeleteWorksheet(String)
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_DeleteWorksheet_System_String_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: M:FileFormat.Cells.Workbook.DeleteWorksheet(System.String)
   fullName: FileFormat.Cells.Workbook.DeleteWorksheet(System.String)
   nameWithType: Workbook.DeleteWorksheet(String)
 - uid: FileFormat.Cells.Workbook.DeleteWorksheet*
   name: DeleteWorksheet
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_DeleteWorksheet_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: Overload:FileFormat.Cells.Workbook.DeleteWorksheet
   isSpec: "True"
   fullName: FileFormat.Cells.Workbook.DeleteWorksheet
   nameWithType: Workbook.DeleteWorksheet
 - uid: FileFormat.Cells.Workbook.Dispose
   name: Dispose()
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_Dispose
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: M:FileFormat.Cells.Workbook.Dispose
   fullName: FileFormat.Cells.Workbook.Dispose()
   nameWithType: Workbook.Dispose()
 - uid: FileFormat.Cells.Workbook.Dispose(System.Boolean)
   name: Dispose(Boolean)
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_Dispose_System_Boolean_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: M:FileFormat.Cells.Workbook.Dispose(System.Boolean)
   fullName: FileFormat.Cells.Workbook.Dispose(System.Boolean)
   nameWithType: Workbook.Dispose(Boolean)
 - uid: FileFormat.Cells.Workbook.Dispose*
   name: Dispose
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_Dispose_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: Overload:FileFormat.Cells.Workbook.Dispose
   isSpec: "True"
   fullName: FileFormat.Cells.Workbook.Dispose
   nameWithType: Workbook.Dispose
 - uid: FileFormat.Cells.Workbook.GetCellValue(System.String,System.String)
   name: GetCellValue(String, String)
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_GetCellValue_System_String_System_String_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: M:FileFormat.Cells.Workbook.GetCellValue(System.String,System.String)
   fullName: FileFormat.Cells.Workbook.GetCellValue(System.String, System.String)
   nameWithType: Workbook.GetCellValue(String, String)
 - uid: FileFormat.Cells.Workbook.GetCellValue*
   name: GetCellValue
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_GetCellValue_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: Overload:FileFormat.Cells.Workbook.GetCellValue
   isSpec: "True"
   fullName: FileFormat.Cells.Workbook.GetCellValue
   nameWithType: Workbook.GetCellValue
 - uid: FileFormat.Cells.Workbook.Save(Stream)
   name: Save(Stream)
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_Save_Stream_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: M:FileFormat.Cells.Workbook.Save(Stream)
   fullName: FileFormat.Cells.Workbook.Save(Stream)
   nameWithType: Workbook.Save(Stream)
 - uid: FileFormat.Cells.Workbook.Save(System.String)
   name: Save(String)
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_Save_System_String_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: M:FileFormat.Cells.Workbook.Save(System.String)
   fullName: FileFormat.Cells.Workbook.Save(System.String)
   nameWithType: Workbook.Save(String)
 - uid: FileFormat.Cells.Workbook.Save*
   name: Save
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_Save_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: Overload:FileFormat.Cells.Workbook.Save
   isSpec: "True"
   fullName: FileFormat.Cells.Workbook.Save
   nameWithType: Workbook.Save
-- uid: FileFormat.Cells.Workbook.spreadsheetDocument
-  name: spreadsheetDocument
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_spreadsheetDocument
-  commentId: F:FileFormat.Cells.Workbook.spreadsheetDocument
-  fullName: FileFormat.Cells.Workbook.spreadsheetDocument
-  nameWithType: Workbook.spreadsheetDocument
-- uid: FileFormat.Cells.Workbook.stylesPart
-  name: stylesPart
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_stylesPart
-  commentId: F:FileFormat.Cells.Workbook.stylesPart
-  fullName: FileFormat.Cells.Workbook.stylesPart
-  nameWithType: Workbook.stylesPart
-- uid: FileFormat.Cells.Workbook.workbookpart
-  name: workbookpart
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_workbookpart
-  commentId: F:FileFormat.Cells.Workbook.workbookpart
-  fullName: FileFormat.Cells.Workbook.workbookpart
-  nameWithType: Workbook.workbookpart
-- uid: FileFormat.Cells.Workbook.worksheetPart
-  name: worksheetPart
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_worksheetPart
-  commentId: F:FileFormat.Cells.Workbook.worksheetPart
-  fullName: FileFormat.Cells.Workbook.worksheetPart
-  nameWithType: Workbook.worksheetPart
 - uid: FileFormat.Cells.Workbook.Worksheets
   name: Worksheets
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_Worksheets
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: P:FileFormat.Cells.Workbook.Worksheets
   fullName: FileFormat.Cells.Workbook.Worksheets
   nameWithType: Workbook.Worksheets
 - uid: FileFormat.Cells.Workbook.Worksheets*
   name: Worksheets
-  href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_Worksheets_
+  href: api/FileFormat.Cells.Workbook.yml
   commentId: Overload:FileFormat.Cells.Workbook.Worksheets
   isSpec: "True"
   fullName: FileFormat.Cells.Workbook.Worksheets
   nameWithType: Workbook.Worksheets
+- uid: FileFormat.Cells.Workbook.spreadsheetDocument
+  name: spreadsheetDocument
+  href: api/FileFormat.Cells.Workbook.yml
+  commentId: F:FileFormat.Cells.Workbook.spreadsheetDocument
+  fullName: FileFormat.Cells.Workbook.spreadsheetDocument
+  nameWithType: Workbook.spreadsheetDocument
+- uid: FileFormat.Cells.Workbook.stylesPart
+  name: stylesPart
+  href: api/FileFormat.Cells.Workbook.yml
+  commentId: F:FileFormat.Cells.Workbook.stylesPart
+  fullName: FileFormat.Cells.Workbook.stylesPart
+  nameWithType: Workbook.stylesPart
+- uid: FileFormat.Cells.Workbook.workbookpart
+  name: workbookpart
+  href: api/FileFormat.Cells.Workbook.yml
+  commentId: F:FileFormat.Cells.Workbook.workbookpart
+  fullName: FileFormat.Cells.Workbook.workbookpart
+  nameWithType: Workbook.workbookpart
+- uid: FileFormat.Cells.Workbook.worksheetPart
+  name: worksheetPart
+  href: api/FileFormat.Cells.Workbook.yml
+  commentId: F:FileFormat.Cells.Workbook.worksheetPart
+  fullName: FileFormat.Cells.Workbook.worksheetPart
+  nameWithType: Workbook.worksheetPart
 - uid: FileFormat.Cells.Worksheet
   name: Worksheet
-  href: api/FileFormat.Cells.Worksheet.html
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: T:FileFormat.Cells.Worksheet
   fullName: FileFormat.Cells.Worksheet
   nameWithType: Worksheet
 - uid: FileFormat.Cells.Worksheet.#ctor(FileFormat.Cells.Workbook)
   name: Worksheet(Workbook)
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet__ctor_FileFormat_Cells_Workbook_
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: M:FileFormat.Cells.Worksheet.#ctor(FileFormat.Cells.Workbook)
   fullName: FileFormat.Cells.Worksheet.Worksheet(FileFormat.Cells.Workbook)
   nameWithType: Worksheet.Worksheet(Workbook)
 - uid: FileFormat.Cells.Worksheet.#ctor*
   name: Worksheet
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet__ctor_
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: Overload:FileFormat.Cells.Worksheet.#ctor
   isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.Worksheet
   nameWithType: Worksheet.Worksheet
 - uid: FileFormat.Cells.Worksheet.Add(System.String)
   name: Add(String)
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_Add_System_String_
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: M:FileFormat.Cells.Worksheet.Add(System.String)
   fullName: FileFormat.Cells.Worksheet.Add(System.String)
   nameWithType: Worksheet.Add(String)
 - uid: FileFormat.Cells.Worksheet.Add*
   name: Add
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_Add_
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: Overload:FileFormat.Cells.Worksheet.Add
   isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.Add
   nameWithType: Worksheet.Add
+- uid: FileFormat.Cells.Worksheet.AddFormulaToCell(System.String,UInt32,System.String)
+  name: AddFormulaToCell(String, UInt32, String)
+  href: api/FileFormat.Cells.Worksheet.yml
+  commentId: M:FileFormat.Cells.Worksheet.AddFormulaToCell(System.String,UInt32,System.String)
+  fullName: FileFormat.Cells.Worksheet.AddFormulaToCell(System.String, UInt32, System.String)
+  nameWithType: Worksheet.AddFormulaToCell(String, UInt32, String)
+- uid: FileFormat.Cells.Worksheet.AddFormulaToCell*
+  name: AddFormulaToCell
+  href: api/FileFormat.Cells.Worksheet.yml
+  commentId: Overload:FileFormat.Cells.Worksheet.AddFormulaToCell
+  isSpec: "True"
+  fullName: FileFormat.Cells.Worksheet.AddFormulaToCell
+  nameWithType: Worksheet.AddFormulaToCell
+- uid: FileFormat.Cells.Worksheet.MergeCells(System.String,System.String)
+  name: MergeCells(String, String)
+  href: api/FileFormat.Cells.Worksheet.yml
+  commentId: M:FileFormat.Cells.Worksheet.MergeCells(System.String,System.String)
+  fullName: FileFormat.Cells.Worksheet.MergeCells(System.String, System.String)
+  nameWithType: Worksheet.MergeCells(String, String)
+- uid: FileFormat.Cells.Worksheet.MergeCells*
+  name: MergeCells
+  href: api/FileFormat.Cells.Worksheet.yml
+  commentId: Overload:FileFormat.Cells.Worksheet.MergeCells
+  isSpec: "True"
+  fullName: FileFormat.Cells.Worksheet.MergeCells
+  nameWithType: Worksheet.MergeCells
+- uid: FileFormat.Cells.Worksheet.ProtectSheet(System.String,System.Int32)
+  name: ProtectSheet(String, Int32)
+  href: api/FileFormat.Cells.Worksheet.yml
+  commentId: M:FileFormat.Cells.Worksheet.ProtectSheet(System.String,System.Int32)
+  fullName: FileFormat.Cells.Worksheet.ProtectSheet(System.String, System.Int32)
+  nameWithType: Worksheet.ProtectSheet(String, Int32)
+- uid: FileFormat.Cells.Worksheet.ProtectSheet*
+  name: ProtectSheet
+  href: api/FileFormat.Cells.Worksheet.yml
+  commentId: Overload:FileFormat.Cells.Worksheet.ProtectSheet
+  isSpec: "True"
+  fullName: FileFormat.Cells.Worksheet.ProtectSheet
+  nameWithType: Worksheet.ProtectSheet
+- uid: FileFormat.Cells.Worksheet.UnProtectSheet
+  name: UnProtectSheet()
+  href: api/FileFormat.Cells.Worksheet.yml
+  commentId: M:FileFormat.Cells.Worksheet.UnProtectSheet
+  fullName: FileFormat.Cells.Worksheet.UnProtectSheet()
+  nameWithType: Worksheet.UnProtectSheet()
+- uid: FileFormat.Cells.Worksheet.UnProtectSheet*
+  name: UnProtectSheet
+  href: api/FileFormat.Cells.Worksheet.yml
+  commentId: Overload:FileFormat.Cells.Worksheet.UnProtectSheet
+  isSpec: "True"
+  fullName: FileFormat.Cells.Worksheet.UnProtectSheet
+  nameWithType: Worksheet.UnProtectSheet
 - uid: FileFormat.Cells.Worksheet.insertStyle(FileFormat.Cells.CellStyle)
   name: insertStyle(CellStyle)
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_insertStyle_FileFormat_Cells_CellStyle_
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: M:FileFormat.Cells.Worksheet.insertStyle(FileFormat.Cells.CellStyle)
   fullName: FileFormat.Cells.Worksheet.insertStyle(FileFormat.Cells.CellStyle)
   nameWithType: Worksheet.insertStyle(CellStyle)
 - uid: FileFormat.Cells.Worksheet.insertStyle*
   name: insertStyle
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_insertStyle_
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: Overload:FileFormat.Cells.Worksheet.insertStyle
   isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.insertStyle
   nameWithType: Worksheet.insertStyle
 - uid: FileFormat.Cells.Worksheet.insertValue(System.String,UInt32,System.Object,UInt32)
   name: insertValue(String, UInt32, Object, UInt32)
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_insertValue_System_String_UInt32_System_Object_UInt32_
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: M:FileFormat.Cells.Worksheet.insertValue(System.String,UInt32,System.Object,UInt32)
   fullName: FileFormat.Cells.Worksheet.insertValue(System.String, UInt32, System.Object, UInt32)
   nameWithType: Worksheet.insertValue(String, UInt32, Object, UInt32)
 - uid: FileFormat.Cells.Worksheet.insertValue*
   name: insertValue
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_insertValue_
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: Overload:FileFormat.Cells.Worksheet.insertValue
   isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.insertValue
   nameWithType: Worksheet.insertValue
 - uid: FileFormat.Cells.Worksheet.mergeCells
   name: mergeCells
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_mergeCells
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: F:FileFormat.Cells.Worksheet.mergeCells
   fullName: FileFormat.Cells.Worksheet.mergeCells
   nameWithType: Worksheet.mergeCells
-- uid: FileFormat.Cells.Worksheet.MergeCells(System.String,System.String)
-  name: MergeCells(String, String)
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_MergeCells_System_String_System_String_
-  commentId: M:FileFormat.Cells.Worksheet.MergeCells(System.String,System.String)
-  fullName: FileFormat.Cells.Worksheet.MergeCells(System.String, System.String)
-  nameWithType: Worksheet.MergeCells(String, String)
-- uid: FileFormat.Cells.Worksheet.MergeCells*
-  name: MergeCells
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_MergeCells_
-  commentId: Overload:FileFormat.Cells.Worksheet.MergeCells
-  isSpec: "True"
-  fullName: FileFormat.Cells.Worksheet.MergeCells
-  nameWithType: Worksheet.MergeCells
 - uid: FileFormat.Cells.Worksheet.saveDataToSheet(System.Int32)
   name: saveDataToSheet(Int32)
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_saveDataToSheet_System_Int32_
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: M:FileFormat.Cells.Worksheet.saveDataToSheet(System.Int32)
   fullName: FileFormat.Cells.Worksheet.saveDataToSheet(System.Int32)
   nameWithType: Worksheet.saveDataToSheet(Int32)
 - uid: FileFormat.Cells.Worksheet.saveDataToSheet*
   name: saveDataToSheet
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_saveDataToSheet_
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: Overload:FileFormat.Cells.Worksheet.saveDataToSheet
   isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.saveDataToSheet
   nameWithType: Worksheet.saveDataToSheet
 - uid: FileFormat.Cells.Worksheet.sheets
   name: sheets
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_sheets
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: F:FileFormat.Cells.Worksheet.sheets
   fullName: FileFormat.Cells.Worksheet.sheets
   nameWithType: Worksheet.sheets
 - uid: FileFormat.Cells.Worksheet.spreadsheetDocument
   name: spreadsheetDocument
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_spreadsheetDocument
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: F:FileFormat.Cells.Worksheet.spreadsheetDocument
   fullName: FileFormat.Cells.Worksheet.spreadsheetDocument
   nameWithType: Worksheet.spreadsheetDocument
-- uid: FileFormat.Cells.Worksheet.stylesheet
-  name: stylesheet
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_stylesheet
-  commentId: F:FileFormat.Cells.Worksheet.stylesheet
-  fullName: FileFormat.Cells.Worksheet.stylesheet
-  nameWithType: Worksheet.stylesheet
 - uid: FileFormat.Cells.Worksheet.stylesPart
   name: stylesPart
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_stylesPart
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: F:FileFormat.Cells.Worksheet.stylesPart
   fullName: FileFormat.Cells.Worksheet.stylesPart
   nameWithType: Worksheet.stylesPart
+- uid: FileFormat.Cells.Worksheet.stylesheet
+  name: stylesheet
+  href: api/FileFormat.Cells.Worksheet.yml
+  commentId: F:FileFormat.Cells.Worksheet.stylesheet
+  fullName: FileFormat.Cells.Worksheet.stylesheet
+  nameWithType: Worksheet.stylesheet
 - uid: FileFormat.Cells.Worksheet.workbookpart
   name: workbookpart
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_workbookpart
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: F:FileFormat.Cells.Worksheet.workbookpart
   fullName: FileFormat.Cells.Worksheet.workbookpart
   nameWithType: Worksheet.workbookpart
 - uid: FileFormat.Cells.Worksheet.worksheet
   name: worksheet
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_worksheet
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: F:FileFormat.Cells.Worksheet.worksheet
   fullName: FileFormat.Cells.Worksheet.worksheet
   nameWithType: Worksheet.worksheet
 - uid: FileFormat.Cells.Worksheet.worksheetPart
   name: worksheetPart
-  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_worksheetPart
+  href: api/FileFormat.Cells.Worksheet.yml
   commentId: F:FileFormat.Cells.Worksheet.worksheetPart
   fullName: FileFormat.Cells.Worksheet.worksheetPart
   nameWithType: Worksheet.worksheetPart

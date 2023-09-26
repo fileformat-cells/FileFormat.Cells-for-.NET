@@ -353,6 +353,47 @@
   </table>
   
   
+  <a id="FileFormat_Cells_Worksheet_AddFormulaToCell_" data-uid="FileFormat.Cells.Worksheet.AddFormulaToCell*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_AddFormulaToCell_System_String_UInt32_System_String_" data-uid="FileFormat.Cells.Worksheet.AddFormulaToCell(System.String,UInt32,System.String)">AddFormulaToCell(String, UInt32, String)</h4>
+  <div class="markdown level1 summary"><p>Adds a formula to a specified cell in a spreadsheet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddFormulaToCell(string cellRef, UInt32 rowIndex, string formula)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">cellRef</span></td>
+        <td><p>Reference of the cell to which formula needs to be added (e.g., &quot;A1&quot;).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">UInt32</span></td>
+        <td><span class="parametername">rowIndex</span></td>
+        <td><p>The index of the row for the specified cell.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">formula</span></td>
+        <td><p>The formula to be added to the specified cell.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="FileFormat_Cells_Worksheet_insertStyle_" data-uid="FileFormat.Cells.Worksheet.insertStyle*"></a>
   <h4 id="FileFormat_Cells_Worksheet_insertStyle_FileFormat_Cells_CellStyle_" data-uid="FileFormat.Cells.Worksheet.insertStyle(FileFormat.Cells.CellStyle)">insertStyle(CellStyle)</h4>
   <div class="markdown level1 summary"><p>Insert a new cell style into the spreadsheet's styles part.</p>
@@ -480,6 +521,41 @@
   </table>
   
   
+  <a id="FileFormat_Cells_Worksheet_ProtectSheet_" data-uid="FileFormat.Cells.Worksheet.ProtectSheet*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_ProtectSheet_System_String_System_Int32_" data-uid="FileFormat.Cells.Worksheet.ProtectSheet(System.String,System.Int32)">ProtectSheet(String, Int32)</h4>
+  <div class="markdown level1 summary"><p>Protects a specified worksheet in the spreadsheet document with a password.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ProtectSheet(string password, int sheetIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">password</span></td>
+        <td><p>The password to protect the worksheet.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">sheetIndex</span></td>
+        <td><p>The zero-based index of the worksheet to be protected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="FileFormat_Cells_Worksheet_saveDataToSheet_" data-uid="FileFormat.Cells.Worksheet.saveDataToSheet*"></a>
   <h4 id="FileFormat_Cells_Worksheet_saveDataToSheet_System_Int32_" data-uid="FileFormat.Cells.Worksheet.saveDataToSheet(System.Int32)">saveDataToSheet(Int32)</h4>
   <div class="markdown level1 summary"><p>Invoke this function to save data into the Worksheet</p>
@@ -507,6 +583,17 @@
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="FileFormat_Cells_Worksheet_UnProtectSheet_" data-uid="FileFormat.Cells.Worksheet.UnProtectSheet*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_UnProtectSheet" data-uid="FileFormat.Cells.Worksheet.UnProtectSheet">UnProtectSheet()</h4>
+  <div class="markdown level1 summary"><p>Removes protection from the current worksheet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnProtectSheet()</code></pre>
+  </div>
 </article>
           </div>
           
