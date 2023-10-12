@@ -1,79 +1,72 @@
-﻿using DocumentFormat.OpenXml;
+﻿using System;
+using DocumentFormat.OpenXml;
+using System.Globalization;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace FileFormat.Cells
 {
-    /// <summary>
-    /// Represents a cell in a row.
-    /// </summary>
-    public class Cell
+    public sealed class Cell
     {
-        /// <value>
-        /// An object of the Parent Cell class.
-        /// </value>
-        protected internal DocumentFormat.OpenXml.Spreadsheet.Cell cell;
+        private readonly DocumentFormat.OpenXml.Spreadsheet.Cell _cell;
+        private readonly SheetData _sheetData;
 
-        /// <summary>
-        /// Instantiate a new instance of the Cell class.
-        /// </summary>
-        public Cell()
+        public string CellReference => _cell.CellReference;
+
+        public Cell(DocumentFormat.OpenXml.Spreadsheet.Cell cell, SheetData sheetData)
         {
-            this.cell = new DocumentFormat.OpenXml.Spreadsheet.Cell();
-            //this.styles = new Styles();
+            _cell = cell ?? throw new ArgumentNullException(nameof(cell));
+            _sheetData = sheetData ?? throw new ArgumentNullException(nameof(sheetData));
         }
 
-        /// <summary>
-        /// This method is used to set the Cell Reference in a worksheet. 
-        /// </summary>
-        /// <param name="value">A string value.</param>
-        public void setCellReference(string value)
+        public void PutValue(string value)
         {
-            this.cell.CellReference = value;
+            PutValue(value, CellValues.String);
         }
 
-        /// <summary>
-        /// This method is used to set the Cell data type to String.
-        /// </summary>
-        public void setStringDataType()
+        public void PutValue(double value)
         {
-            this.cell.DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.String;
-        }
-        /// <summary>
-        /// This method is used to set the Cell data type to Number.
-        /// </summary>
-        public void setNumberDataType()
-        {
-            this.cell.DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.Number;
+            PutValue(value.ToString(CultureInfo.InvariantCulture), CellValues.Number);
         }
 
-        /// <summary>
-        /// This method is used to set the value of a Cell.
-        /// </summary>
-        /// <param name="value">A dynamic value.</param>
-        public void CellValue(dynamic value)
+        public void PutValue(DateTime value)
         {
-            this.cell.CellValue = new DocumentFormat.OpenXml.Spreadsheet.CellValue(value);
+            PutValue(value.ToOADate().ToString(CultureInfo.InvariantCulture), CellValues.Date);
         }
 
-        /// <summary>
-        /// Sets the style index of the cell to 1.
-        /// </summary>
-        public void CellIndex()
+        private void PutValue(string value, CellValues dataType)
         {
-            this.cell.StyleIndex = 1;
+            _cell.DataType = new EnumValue<CellValues>(dataType);
+            _cell.CellValue = new CellValue(value);
+
         }
 
-        /// <summary>
-        /// Sets the style index of the cell to the specified value.
-        /// </summary>
-        /// <param name="num">The style index is to be set for the cell.</param>
-
-        public void CellIndex(UInt32Value num)
+        public void PutFormula(string formula)
         {
-            this.cell.StyleIndex = num;
+            _cell.CellFormula = new CellFormula(formula);
+            _cell.CellValue = new CellValue(); // You might want to set some default value or calculated value here
         }
 
+        public string GetValue()
+        {
+            return _cell.CellValue?.Text;
+        }
 
-        // Other properties and methods...
+        public CellValues? GetDataType()
+        {
+            return _cell.DataType?.Value;
+        }
+
+        
+
+        public string GetFormula()
+        {
+            return _cell.CellFormula?.Text;
+        }
+
+        public void ApplyStyle(uint styleIndex)
+        {
+            _cell.StyleIndex = styleIndex;
+        }
     }
 
 }
