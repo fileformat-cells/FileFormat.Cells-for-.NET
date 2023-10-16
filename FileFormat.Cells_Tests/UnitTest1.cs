@@ -5,7 +5,7 @@ using FileFormat.Cells;
 public class UnitTest1
 {
 
-    string testFilePath = "/Users/fahadadeelqazi/Downloads/test_fahad_new_protected111.xlsx";
+    string testFilePath = "/Users/fahadadeelqazi/Downloads/test_fahad_new_protected_image.xlsx";
     private string imageInputPath = "/Users/fahadadeelqazi/Downloads/ImageCells.png";
     string outputDirectory = "/Users/fahadadeelqazi/Downloads/";
 
@@ -294,44 +294,51 @@ public class UnitTest1
     {
         using (Workbook wb = new Workbook(testFilePath))
         {
+
             var worksheet = wb.Worksheets[0];
-            var images = worksheet.ExtractImages();
+            var image = new Image(imageInputPath);
+
+            worksheet.AddImage(image, 6, 1, 8, 3);
+
+            wb.Save(testFilePath);
+
+            Workbook wb1 = new Workbook(testFilePath);
+
+            var worksheet1 = wb1.Worksheets[0];
+
+            var images = worksheet1.ExtractImages();
 
             Assert.IsTrue(images.Any(), "No images extracted from the worksheet.");
 
             if (!Directory.Exists(outputDirectory))
                 Directory.CreateDirectory(outputDirectory);
 
-            foreach (var image in images)
+            foreach (var extracted_image in images)
             {
-                var outputFilePath = Path.Combine(outputDirectory, $"Image_{Guid.NewGuid()}.{image.Extension}");
+                var outputFilePath = Path.Combine(outputDirectory, $"Image_{Guid.NewGuid()}.{extracted_image.Extension}");
 
                 using (var fileStream = File.Create(outputFilePath))
                 {
-                    image.Data.CopyTo(fileStream);
+                    extracted_image.Data.CopyTo(fileStream);
                 }
 
                 // Assert that the image has been saved correctly
                 Assert.IsTrue(File.Exists(outputFilePath), $"Image not found at {outputFilePath}");
             }
         }
+
+
     }
-
-
-
-
-
 
 
 
     [TestCleanup]
     public void Cleanup()
     {
-        // Clean up test artifacts
-        //if (File.Exists(testFilePath))
-            //File.Delete(testFilePath);
+        //Clean up test artifacts
+        if (File.Exists(testFilePath))
+            File.Delete(testFilePath);
 
-        
     }
 
 }

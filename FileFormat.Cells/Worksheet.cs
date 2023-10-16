@@ -9,13 +9,13 @@ namespace FileFormat.Cells
 {
     public sealed class Worksheet
     {
-        private readonly WorksheetPart _worksheetPart;
-        private readonly SheetData _sheetData;
+        private WorksheetPart _worksheetPart;
+        private SheetData _sheetData;
 
         // New Cells property
         public CellIndexer Cells { get; }
 
-        public Worksheet(WorksheetPart worksheetPart, DocumentFormat.OpenXml.Spreadsheet.Worksheet worksheet)
+        internal Worksheet(WorksheetPart worksheetPart, DocumentFormat.OpenXml.Spreadsheet.Worksheet worksheet)
         {
             _worksheetPart = worksheetPart ?? throw new ArgumentNullException(nameof(worksheetPart));
 
@@ -314,7 +314,5 @@ namespace FileFormat.Cells
             }
         }
     }
-
-
 }
 
