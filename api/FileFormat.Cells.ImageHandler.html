@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class Image
+      <title>Class ImageHandler
  </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class Image
+      <meta name="title" content="Class ImageHandler
  ">
     
       <link rel="shortcut icon" href="../favicon.ico">
@@ -67,19 +67,18 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FileFormat.Cells.Image">
+            <article class="content wrap" id="_content" data-uid="FileFormat.Cells.ImageHandler">
 
 
 
-  <h1 id="FileFormat_Cells_Image" data-uid="FileFormat.Cells.Image" class="text-break">Class Image
+  <h1 id="FileFormat_Cells_ImageHandler" data-uid="FileFormat.Cells.ImageHandler" class="text-break">Class ImageHandler
 </h1>
-  <div class="markdown level0 summary"><p>Represents an image, providing methods and properties to handle its path, data, and extension.</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">Image</span></div>
+    <div class="level1"><span class="xref">ImageHandler</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -107,22 +106,21 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="FileFormat.html">FileFormat</a>.<a class="xref" href="FileFormat.Cells.html">Cells</a></h6>
   <h6><strong>Assembly</strong>: FileFormat.Cells.dll</h6>
-  <h5 id="FileFormat_Cells_Image_syntax">Syntax</h5>
+  <h5 id="FileFormat_Cells_ImageHandler_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Image</code></pre>
+    <pre><code class="lang-csharp hljs">public class ImageHandler</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
 
 
-  <a id="FileFormat_Cells_Image__ctor_" data-uid="FileFormat.Cells.Image.#ctor*"></a>
-  <h4 id="FileFormat_Cells_Image__ctor_System_IO_Stream_System_String_" data-uid="FileFormat.Cells.Image.#ctor(System.IO.Stream,System.String)">Image(Stream, string)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FileFormat.Cells.Image.html">Image</a> class using a stream and a file extension.</p>
-</div>
+  <a id="FileFormat_Cells_ImageHandler__ctor_" data-uid="FileFormat.Cells.ImageHandler.#ctor*"></a>
+  <h4 id="FileFormat_Cells_ImageHandler__ctor_DocumentFormat_OpenXml_Packaging_WorksheetPart_" data-uid="FileFormat.Cells.ImageHandler.#ctor(DocumentFormat.OpenXml.Packaging.WorksheetPart)">ImageHandler(WorksheetPart)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Image(Stream data, string extension)</code></pre>
+    <pre><code class="lang-csharp hljs">public ImageHandler(WorksheetPart worksheetPart)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -135,94 +133,24 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
-        <td><span class="parametername">data</span></td>
-        <td><p>The stream containing the image data.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">extension</span></td>
-        <td><p>The file extension of the image.</p>
-</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/documentformat.openxml.packaging.worksheetpart">WorksheetPart</a></td>
+        <td><span class="parametername">worksheetPart</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p>Thrown when <code class="paramref">data</code> or <code class="paramref">extension</code> is null.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="FileFormat_Cells_Image__ctor_" data-uid="FileFormat.Cells.Image.#ctor*"></a>
-  <h4 id="FileFormat_Cells_Image__ctor_System_String_" data-uid="FileFormat.Cells.Image.#ctor(System.String)">Image(string)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FileFormat.Cells.Image.html">Image</a> class using a file path.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Image(string path)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">path</span></td>
-        <td><p>The path to the image file.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
-        <td><p>Thrown when <code class="paramref">path</code> is null or empty or when the file does not exist.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
+  <h3 id="fields">Fields
 </h3>
 
 
-  <a id="FileFormat_Cells_Image_Data_" data-uid="FileFormat.Cells.Image.Data*"></a>
-  <h4 id="FileFormat_Cells_Image_Data" data-uid="FileFormat.Cells.Image.Data">Data</h4>
-  <div class="markdown level1 summary"><p>Gets the stream data of the image if initialized using a stream.</p>
-</div>
+  <h4 id="FileFormat_Cells_ImageHandler_drawing" data-uid="FileFormat.Cells.ImageHandler.drawing">drawing</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Stream Data { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">protected Drawing drawing</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
@@ -232,59 +160,56 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/documentformat.openxml.spreadsheet.drawing">Drawing</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+</h3>
 
 
-  <a id="FileFormat_Cells_Image_Extension_" data-uid="FileFormat.Cells.Image.Extension*"></a>
-  <h4 id="FileFormat_Cells_Image_Extension" data-uid="FileFormat.Cells.Image.Extension">Extension</h4>
-  <div class="markdown level1 summary"><p>Gets the file extension of the image.</p>
-</div>
+  <a id="FileFormat_Cells_ImageHandler_Add_" data-uid="FileFormat.Cells.ImageHandler.Add*"></a>
+  <h4 id="FileFormat_Cells_ImageHandler_Add_System_String_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="FileFormat.Cells.ImageHandler.Add(System.String,System.Int32,System.Int32,System.Int32,System.Int32)">Add(string, int, int, int, int)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Extension { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public void Add(string imagePath, int startRowIndex, int startColumnIndex, int endRowIndex, int endColumnIndex)</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">imagePath</span></td>
         <td></td>
       </tr>
-    </tbody>
-  </table>
-
-
-  <a id="FileFormat_Cells_Image_Path_" data-uid="FileFormat.Cells.Image.Path*"></a>
-  <h4 id="FileFormat_Cells_Image_Path" data-uid="FileFormat.Cells.Image.Path">Path</h4>
-  <div class="markdown level1 summary"><p>Gets the path of the image if initialized using a file path.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Path { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
       <tr>
-        <th>Type</th>
-        <th>Description</th>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">startRowIndex</span></td>
+        <td></td>
       </tr>
-    </thead>
-    <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">startColumnIndex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">endRowIndex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">endColumnIndex</span></td>
         <td></td>
       </tr>
     </tbody>

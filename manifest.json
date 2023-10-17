@@ -1,14 +1,149 @@
 {
-  "homepages": [],
-  "source_base_path": "/Users/fahadadeelqazi/Projects/Aspose/docfx_project",
+  "source_base_path": "Z:/Projects/Aspose/docfx_project",
   "xrefmap": "xrefmap.yml",
   "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FileFormat.Cells.BuiltInDocumentProperties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FileFormat.Cells.BuiltInDocumentProperties.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FileFormat.Cells.Cell.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FileFormat.Cells.Cell.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FileFormat.Cells.CellIndexer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FileFormat.Cells.CellIndexer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FileFormat.Cells.Image.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FileFormat.Cells.Image.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FileFormat.Cells.ImageHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FileFormat.Cells.ImageHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FileFormat.Cells.Workbook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FileFormat.Cells.Workbook.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FileFormat.Cells.Worksheet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FileFormat.Cells.Worksheet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FileFormat.Cells.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FileFormat.Cells.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html"
+        }
+      },
+      "version": ""
+    },
     {
       "type": "Resource",
       "source_relative_path": "favicon.ico",
       "output": {
         "resource": {
           "relative_path": "favicon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
         }
       },
       "version": ""
@@ -22,9 +157,18 @@
         }
       },
       "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        }
+      },
+      "version": ""
     }
   ],
-  "version_info": {},
   "groups": [
     {
       "xrefmap": "xrefmap.yml"

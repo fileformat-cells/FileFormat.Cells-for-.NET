@@ -1,23 +1,22 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Worksheet
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Worksheet
-   ">
-    <meta name="generator" content="docfx 2.59.2.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class Worksheet
+ </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class Worksheet
+ ">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     
     
@@ -25,7 +24,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -35,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
@@ -49,7 +48,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -59,7 +58,7 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -69,68 +68,87 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="FileFormat.Cells.Worksheet">
-  
-  
+
+
+
   <h1 id="FileFormat_Cells_Worksheet" data-uid="FileFormat.Cells.Worksheet" class="text-break">Class Worksheet
-  </h1>
-  <div class="markdown level0 summary"><p>Represents a sheet definition file that contains the sheet data.</p>
+</h1>
+  <div class="markdown level0 summary"><p>Represents a worksheet within an Excel file, providing methods to manipulate its content.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
     <div class="level1"><span class="xref">Worksheet</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="FileFormat.Cells.html">FileFormat.Cells</a></h6>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FileFormat.html">FileFormat</a>.<a class="xref" href="FileFormat.Cells.html">Cells</a></h6>
   <h6><strong>Assembly</strong>: FileFormat.Cells.dll</h6>
   <h5 id="FileFormat_Cells_Worksheet_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Worksheet : object</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class Worksheet</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-  </h3>
-  
-  
-  <a id="FileFormat_Cells_Worksheet__ctor_" data-uid="FileFormat.Cells.Worksheet.#ctor*"></a>
-  <h4 id="FileFormat_Cells_Worksheet__ctor_FileFormat_Cells_Workbook_" data-uid="FileFormat.Cells.Worksheet.#ctor(FileFormat.Cells.Workbook)">Worksheet(Workbook)</h4>
-  <div class="markdown level1 summary"><p>Instantiates a new instance of the Worksheet class.</p>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <a id="FileFormat_Cells_Worksheet_Cells_" data-uid="FileFormat.Cells.Worksheet.Cells*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_Cells" data-uid="FileFormat.Cells.Worksheet.Cells">Cells</h4>
+  <div class="markdown level1 summary"><p>Gets the indexer for cells within the worksheet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Worksheet(Workbook workbook)</code></pre>
+    <pre><code class="lang-csharp hljs">public CellIndexer Cells { get; }</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="FileFormat.Cells.Workbook.html">Workbook</a></td>
-        <td><span class="parametername">workbook</span></td>
-        <td><p>An object of the Workbook class.</p>
-</td>
+        <td><a class="xref" href="FileFormat.Cells.CellIndexer.html">CellIndexer</a></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="fields">Fields
-  </h3>
-  
-  
-  <h4 id="FileFormat_Cells_Worksheet_mergeCells" data-uid="FileFormat.Cells.Worksheet.mergeCells">mergeCells</h4>
-  <div class="markdown level1 summary"></div>
+
+
+  <a id="FileFormat_Cells_Worksheet_Name_" data-uid="FileFormat.Cells.Worksheet.Name*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_Name" data-uid="FileFormat.Cells.Worksheet.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the name of the worksheet.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected MergeCells mergeCells</code></pre>
+    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -139,202 +157,26 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MergeCells</span></td>
-        <td><p>An object of the Parent MergeCells class.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="FileFormat_Cells_Worksheet_sheets" data-uid="FileFormat.Cells.Worksheet.sheets">sheets</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected DocumentFormat.OpenXml.Spreadsheet.Sheets sheets</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">DocumentFormat.OpenXml.Spreadsheet.Sheets</span></td>
-        <td><p>An object of the Parent Sheets class.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="FileFormat_Cells_Worksheet_spreadsheetDocument" data-uid="FileFormat.Cells.Worksheet.spreadsheetDocument">spreadsheetDocument</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected DocumentFormat.OpenXml.Packaging.SpreadsheetDocument spreadsheetDocument</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">DocumentFormat.OpenXml.Packaging.SpreadsheetDocument</span></td>
-        <td><p>An object of the Parent SpreadsheetDocument class.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="FileFormat_Cells_Worksheet_stylesheet" data-uid="FileFormat.Cells.Worksheet.stylesheet">stylesheet</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Stylesheet stylesheet</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Stylesheet</span></td>
-        <td><p>An object of the Parent Stylesheet class.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="FileFormat_Cells_Worksheet_stylesPart" data-uid="FileFormat.Cells.Worksheet.stylesPart">stylesPart</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected WorkbookStylesPart stylesPart</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">WorkbookStylesPart</span></td>
-        <td><p>An object of the Parent WorkbookStylesPart class.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="FileFormat_Cells_Worksheet_workbookpart" data-uid="FileFormat.Cells.Worksheet.workbookpart">workbookpart</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected DocumentFormat.OpenXml.Packaging.WorkbookPart workbookpart</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">DocumentFormat.OpenXml.Packaging.WorkbookPart</span></td>
-        <td><p>An object of the Parent WorkbookPart class.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="FileFormat_Cells_Worksheet_worksheet" data-uid="FileFormat.Cells.Worksheet.worksheet">worksheet</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected DocumentFormat.OpenXml.Spreadsheet.Worksheet worksheet</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">DocumentFormat.OpenXml.Spreadsheet.Worksheet</span></td>
-        <td><p>An object of the Parent Worksheet class.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="FileFormat_Cells_Worksheet_worksheetPart" data-uid="FileFormat.Cells.Worksheet.worksheetPart">worksheetPart</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected DocumentFormat.OpenXml.Packaging.WorksheetPart worksheetPart</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">DocumentFormat.OpenXml.Packaging.WorksheetPart</span></td>
-        <td><p>An object of the Parent WorksheetPart class.</p>
-</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="methods">Methods
-  </h3>
-  
-  
-  <a id="FileFormat_Cells_Worksheet_Add_" data-uid="FileFormat.Cells.Worksheet.Add*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_Add_System_String_" data-uid="FileFormat.Cells.Worksheet.Add(System.String)">Add(String)</h4>
-  <div class="markdown level1 summary"><p>Invoke this function to add a Worksheet into a Workbook.</p>
+</h3>
+
+
+  <a id="FileFormat_Cells_Worksheet_AddImage_" data-uid="FileFormat.Cells.Worksheet.AddImage*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_AddImage_FileFormat_Cells_Image_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="FileFormat.Cells.Worksheet.AddImage(FileFormat.Cells.Image,System.Int32,System.Int32,System.Int32,System.Int32)">AddImage(Image, int, int, int, int)</h4>
+  <div class="markdown level1 summary"><p>Adds an image to the worksheet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Add(string name)</code></pre>
+    <pre><code class="lang-csharp hljs">public void AddImage(Image image, int startRowIndex, int startColumnIndex, int endRowIndex, int endColumnIndex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -344,67 +186,77 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>A string value.</p>
+        <td><a class="xref" href="FileFormat.Cells.Image.html">Image</a></td>
+        <td><span class="parametername">image</span></td>
+        <td><p>The image to be added.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">startRowIndex</span></td>
+        <td><p>The starting row index.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">startColumnIndex</span></td>
+        <td><p>The starting column index.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">endRowIndex</span></td>
+        <td><p>The ending row index.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">endColumnIndex</span></td>
+        <td><p>The ending column index.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="FileFormat_Cells_Worksheet_AddFormulaToCell_" data-uid="FileFormat.Cells.Worksheet.AddFormulaToCell*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_AddFormulaToCell_System_String_UInt32_System_String_" data-uid="FileFormat.Cells.Worksheet.AddFormulaToCell(System.String,UInt32,System.String)">AddFormulaToCell(String, UInt32, String)</h4>
-  <div class="markdown level1 summary"><p>Adds a formula to a specified cell in a spreadsheet.</p>
+
+
+  <a id="FileFormat_Cells_Worksheet_ExtractImages_" data-uid="FileFormat.Cells.Worksheet.ExtractImages*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_ExtractImages" data-uid="FileFormat.Cells.Worksheet.ExtractImages">ExtractImages()</h4>
+  <div class="markdown level1 summary"><p>Extracts images from the worksheet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddFormulaToCell(string cellRef, UInt32 rowIndex, string formula)</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;Image&gt; ExtractImages()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">cellRef</span></td>
-        <td><p>Reference of the cell to which formula needs to be added (e.g., &quot;A1&quot;).</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">UInt32</span></td>
-        <td><span class="parametername">rowIndex</span></td>
-        <td><p>The index of the row for the specified cell.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">formula</span></td>
-        <td><p>The formula to be added to the specified cell.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="FileFormat.Cells.Image.html">Image</a>&gt;</td>
+        <td><p>A list of images present in the worksheet.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="FileFormat_Cells_Worksheet_insertStyle_" data-uid="FileFormat.Cells.Worksheet.insertStyle*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_insertStyle_FileFormat_Cells_CellStyle_" data-uid="FileFormat.Cells.Worksheet.insertStyle(FileFormat.Cells.CellStyle)">insertStyle(CellStyle)</h4>
-  <div class="markdown level1 summary"><p>Insert a new cell style into the spreadsheet's styles part.</p>
+
+
+  <a id="FileFormat_Cells_Worksheet_GetCell_" data-uid="FileFormat.Cells.Worksheet.GetCell*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_GetCell_System_String_" data-uid="FileFormat.Cells.Worksheet.GetCell(System.String)">GetCell(string)</h4>
+  <div class="markdown level1 summary"><p>Retrieves a cell based on its reference.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public UInt32 insertStyle(CellStyle cellStyle)</code></pre>
+    <pre><code class="lang-csharp hljs">public Cell GetCell(string cellReference)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -414,15 +266,15 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="FileFormat.Cells.CellStyle.html">CellStyle</a></td>
-        <td><span class="parametername">cellStyle</span></td>
-        <td><p>The <a class="xref" href="FileFormat.Cells.CellStyle.html">CellStyle</a> contains the desired font family, size, and cell color.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">cellReference</span></td>
+        <td><p>The cell reference in A1 notation.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -431,72 +283,79 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UInt32</span></td>
-        <td><p>The index of the inserted style within the stylesheet's cell formats.</p>
+        <td><a class="xref" href="FileFormat.Cells.Cell.html">Cell</a></td>
+        <td><p>The cell at the specified reference.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="FileFormat_Cells_Worksheet_insertValue_" data-uid="FileFormat.Cells.Worksheet.insertValue*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_insertValue_System_String_UInt32_System_Object_UInt32_" data-uid="FileFormat.Cells.Worksheet.insertValue(System.String,UInt32,System.Object,UInt32)">insertValue(String, UInt32, Object, UInt32)</h4>
-  <div class="markdown level1 summary"><p>Invoke this function to insert text into a Worksheet.</p>
+
+
+  <a id="FileFormat_Cells_Worksheet_GetSheetIndex_" data-uid="FileFormat.Cells.Worksheet.GetSheetIndex*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_GetSheetIndex" data-uid="FileFormat.Cells.Worksheet.GetSheetIndex">GetSheetIndex()</h4>
+  <div class="markdown level1 summary"><p>Retrieves the index of the worksheet within the workbook.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void insertValue(string cellRef, UInt32 rowIndex, dynamic value, UInt32 format_cell_id)</code></pre>
+    <pre><code class="lang-csharp hljs">public int GetSheetIndex()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">cellRef</span></td>
-        <td><p>A string value.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">UInt32</span></td>
-        <td><span class="parametername">rowIndex</span></td>
-        <td><p>An integer value.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>A string value.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">UInt32</span></td>
-        <td><span class="parametername">format_cell_id</span></td>
-        <td><p>An integer value.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><p>The index of the worksheet.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  
-  
+
+
+  <a id="FileFormat_Cells_Worksheet_IsProtected_" data-uid="FileFormat.Cells.Worksheet.IsProtected*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_IsProtected" data-uid="FileFormat.Cells.Worksheet.IsProtected">IsProtected()</h4>
+  <div class="markdown level1 summary"><p>Checks if the worksheet is protected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsProtected()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True if the worksheet is protected, otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="FileFormat_Cells_Worksheet_MergeCells_" data-uid="FileFormat.Cells.Worksheet.MergeCells*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_MergeCells_System_String_System_String_" data-uid="FileFormat.Cells.Worksheet.MergeCells(System.String,System.String)">MergeCells(String, String)</h4>
-  <div class="markdown level1 summary"><p>Merge two cells by range (e.g., &quot;A1&quot; to &quot;B2&quot;)</p>
+  <h4 id="FileFormat_Cells_Worksheet_MergeCells_System_String_System_String_" data-uid="FileFormat.Cells.Worksheet.MergeCells(System.String,System.String)">MergeCells(string, string)</h4>
+  <div class="markdown level1 summary"><p>Merges cells within a specified range.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void MergeCells(string startCellRef, string endCellRef)</code></pre>
+    <pre><code class="lang-csharp hljs">public void MergeCells(string startCellReference, string endCellReference)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -506,32 +365,32 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">startCellRef</span></td>
-        <td><p>A string value.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">startCellReference</span></td>
+        <td><p>The starting cell reference in A1 notation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">endCellRef</span></td>
-        <td><p>A string value.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">endCellReference</span></td>
+        <td><p>The ending cell reference in A1 notation.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="FileFormat_Cells_Worksheet_ProtectSheet_" data-uid="FileFormat.Cells.Worksheet.ProtectSheet*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_ProtectSheet_System_String_System_Int32_" data-uid="FileFormat.Cells.Worksheet.ProtectSheet(System.String,System.Int32)">ProtectSheet(String, Int32)</h4>
-  <div class="markdown level1 summary"><p>Protects a specified worksheet in the spreadsheet document with a password.</p>
+  <h4 id="FileFormat_Cells_Worksheet_ProtectSheet_System_String_" data-uid="FileFormat.Cells.Worksheet.ProtectSheet(System.String)">ProtectSheet(string)</h4>
+  <div class="markdown level1 summary"><p>Protects the worksheet with the specified password.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ProtectSheet(string password, int sheetIndex)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ProtectSheet(string password)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -541,32 +400,26 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">password</span></td>
         <td><p>The password to protect the worksheet.</p>
 </td>
       </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">sheetIndex</span></td>
-        <td><p>The zero-based index of the worksheet to be protected.</p>
-</td>
-      </tr>
     </tbody>
   </table>
-  
-  
-  <a id="FileFormat_Cells_Worksheet_saveDataToSheet_" data-uid="FileFormat.Cells.Worksheet.saveDataToSheet*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_saveDataToSheet_System_Int32_" data-uid="FileFormat.Cells.Worksheet.saveDataToSheet(System.Int32)">saveDataToSheet(Int32)</h4>
-  <div class="markdown level1 summary"><p>Invoke this function to save data into the Worksheet</p>
+
+
+  <a id="FileFormat_Cells_Worksheet_SetColumnWidth_" data-uid="FileFormat.Cells.Worksheet.SetColumnWidth*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_SetColumnWidth_System_String_System_Double_" data-uid="FileFormat.Cells.Worksheet.SetColumnWidth(System.String,System.Double)">SetColumnWidth(string, double)</h4>
+  <div class="markdown level1 summary"><p>Sets the width of a specific column.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void saveDataToSheet(int sheetIndex)</code></pre>
+    <pre><code class="lang-csharp hljs">public void SetColumnWidth(string columnName, double width)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -576,27 +429,69 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">sheetIndex</span></td>
-        <td><p>An integer value.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">columnName</span></td>
+        <td><p>The name of the column (e.g., &quot;A&quot;, &quot;B&quot;, ...).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td><span class="parametername">width</span></td>
+        <td><p>The desired width.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="FileFormat_Cells_Worksheet_UnProtectSheet_" data-uid="FileFormat.Cells.Worksheet.UnProtectSheet*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_UnProtectSheet" data-uid="FileFormat.Cells.Worksheet.UnProtectSheet">UnProtectSheet()</h4>
-  <div class="markdown level1 summary"><p>Removes protection from the current worksheet.</p>
+
+
+  <a id="FileFormat_Cells_Worksheet_SetRowHeight_" data-uid="FileFormat.Cells.Worksheet.SetRowHeight*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_SetRowHeight_System_UInt32_System_Double_" data-uid="FileFormat.Cells.Worksheet.SetRowHeight(System.UInt32,System.Double)">SetRowHeight(uint, double)</h4>
+  <div class="markdown level1 summary"><p>Sets the height of a specific row.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void UnProtectSheet()</code></pre>
+    <pre><code class="lang-csharp hljs">public void SetRowHeight(uint rowIndex, double height)</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">rowIndex</span></td>
+        <td><p>The index of the row.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>The desired height.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="FileFormat_Cells_Worksheet_UnprotectSheet_" data-uid="FileFormat.Cells.Worksheet.UnprotectSheet*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_UnprotectSheet" data-uid="FileFormat.Cells.Worksheet.UnprotectSheet">UnprotectSheet()</h4>
+  <div class="markdown level1 summary"><p>Removes protection from the worksheet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnprotectSheet()</code></pre>
+  </div>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -604,14 +499,14 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -619,14 +514,14 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            <span></span>
-            
+      <span></span>
+      
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>
