@@ -9,6 +9,9 @@ using System.Linq;
 
 namespace FileFormat.Cells
 {
+    /// <summary>
+    /// Represents an Excel workbook with methods for creating, modifying, and saving content.
+    /// </summary>
     public class Workbook : IDisposable
     {
 
@@ -29,10 +32,15 @@ namespace FileFormat.Cells
 
         private uint defaultStyleId;
 
+        // Public property to get the list of worksheets in the workbook.
         public List<Worksheet> Worksheets { get; private set; }
 
+        // Utility to manage styles within the workbook.
         private StyleUtility styleUtility; // private member
 
+        /// <summary>
+        /// Default constructor to create a new workbook.
+        /// </summary>
         public Workbook()
         {
             this.ms = new MemoryStream();
@@ -73,6 +81,9 @@ namespace FileFormat.Cells
 
         }
 
+        /// <summary>
+        /// Overloaded constructor to open an existing workbook from a file.
+        /// </summary>
         public Workbook(string filePath)
         {
             if (string.IsNullOrEmpty(filePath))
@@ -100,6 +111,9 @@ namespace FileFormat.Cells
             InitializeWorksheets();
         }
 
+        /// <summary>
+        /// Initializes the Worksheets list with the sheets present in the opened workbook.
+        /// </summary>
         private void InitializeWorksheets()
         {
             this.Worksheets = new List<Worksheet>();
@@ -114,6 +128,9 @@ namespace FileFormat.Cells
             }
         }
 
+        /// <summary>
+        /// Update the default style of the workbook.
+        /// </summary>
         public void UpdateDefaultStyle(string newFontName, double newFontSize, string hexColor)
         {
             // Validate inputs
@@ -174,24 +191,34 @@ namespace FileFormat.Cells
             stylesheet.Save();
         }
 
+        /// <summary>
+        /// Validates if a string is a valid hex color.
+        /// </summary>
         private static bool IsHexColor(string color)
         {
             return System.Text.RegularExpressions.Regex.IsMatch(color, "^(#)?([0-9a-fA-F]{3})([0-9a-fA-F]{3})?$");
         }
 
+        /// <summary>
+        /// Get the ID of the default style.
+        /// </summary>
         public uint DefaultStyleId
         {
             get { return this.defaultStyleId; }
         }
 
-        // Add a public method to create a style, hiding the OpenXML details:
+        /// <summary>
+        /// Create a custom style for the workbook.
+        /// </summary>
         public uint CreateStyle(string fontName, double fontSize, string hexColor)
         {
             return this.styleUtility.CreateStyle(fontName, fontSize, hexColor);
         }
 
-        
 
+        /// <summary>
+        /// Add a new worksheet to the workbook.
+        /// </summary>
         public Worksheet AddSheet(string sheetName)
         {
             // Create new WorksheetPart and SheetData
@@ -217,6 +244,9 @@ namespace FileFormat.Cells
             return newWorksheet; // Return the newly created Worksheet
         }
 
+        /// <summary>
+        /// Remove a worksheet from the workbook.
+        /// </summary>
         public bool RemoveSheet(string sheetName)
         {
             // Find the sheet in the workbook by its name
@@ -243,8 +273,9 @@ namespace FileFormat.Cells
         }
 
 
-
-
+        /// <summary>
+        /// Synchronize the Worksheets property with the actual sheets present in the workbook.
+        /// </summary>
         private void SyncWorksheets()
         {
             this.Worksheets = new List<Worksheet>();
@@ -259,8 +290,9 @@ namespace FileFormat.Cells
         }
 
 
-
-
+        /// <summary>
+        /// Save the workbook using the original file path.
+        /// </summary>
         public void Save()
         {
             if (string.IsNullOrEmpty(this.originalFilePath))
@@ -269,7 +301,9 @@ namespace FileFormat.Cells
             Save(this.originalFilePath); // use the stored original file path
         }
 
-
+        /// <summary>
+        /// Save the workbook to a specified file path.
+        /// </summary>
         public void Save(string filePath)
         {
             this.workbookpart.Workbook.Save();
@@ -278,6 +312,9 @@ namespace FileFormat.Cells
             File.WriteAllBytes(filePath, this.ms.ToArray()); // Write the MemoryStream back to the file
         }
 
+        /// <summary>
+        /// Save the workbook to a given stream.
+        /// </summary>
         public void Save(Stream stream)
         {
 
@@ -288,6 +325,9 @@ namespace FileFormat.Cells
 
         }
 
+        /// <summary>
+        /// Get or set built-in document properties of the workbook.
+        /// </summary>
         public BuiltInDocumentProperties BuiltinDocumentProperties
         {
             get
@@ -325,7 +365,9 @@ namespace FileFormat.Cells
         }
 
 
-
+        /// <summary>
+        /// Releases the unmanaged resources and optionally releases the managed resources.
+        /// </summary>
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)

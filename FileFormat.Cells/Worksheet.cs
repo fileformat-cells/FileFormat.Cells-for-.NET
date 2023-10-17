@@ -7,14 +7,24 @@ using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace FileFormat.Cells
 {
+    /// <summary>
+    /// Represents a worksheet within an Excel file, providing methods to manipulate its content.
+    /// </summary>
     public sealed class Worksheet
     {
         private WorksheetPart _worksheetPart;
         private SheetData _sheetData;
 
-        // New Cells property
+        /// <summary>
+        /// Gets the indexer for cells within the worksheet.
+        /// </summary>
         public CellIndexer Cells { get; }
 
+        /// <summary>
+        /// Initializes a new instance of the Worksheet class.
+        /// </summary>
+        /// <param name="worksheetPart">The worksheet part of the document.</param>
+        /// <param name="worksheet">The underlying OpenXML worksheet instance.</param>
         internal Worksheet(WorksheetPart worksheetPart, DocumentFormat.OpenXml.Spreadsheet.Worksheet worksheet)
         {
             _worksheetPart = worksheetPart ?? throw new ArgumentNullException(nameof(worksheetPart));
@@ -26,6 +36,9 @@ namespace FileFormat.Cells
             this.Cells = new CellIndexer(this);
         }
 
+        /// <summary>
+        /// Gets or sets the name of the worksheet.
+        /// </summary>
         public string Name
         {
             get
@@ -62,14 +75,25 @@ namespace FileFormat.Cells
         }
 
 
-
-        // New GetCell method
+        /// <summary>
+        /// Retrieves a cell based on its reference.
+        /// </summary>
+        /// <param name="cellReference">The cell reference in A1 notation.</param>
+        /// <returns>The cell at the specified reference.</returns>
         public Cell GetCell(string cellReference)
         {
             // This logic used to be in your indexer
             return new Cell(GetOrCreateCell(cellReference), _sheetData);
         }
 
+        /// <summary>
+        /// Adds an image to the worksheet.
+        /// </summary>
+        /// <param name="image">The image to be added.</param>
+        /// <param name="startRowIndex">The starting row index.</param>
+        /// <param name="startColumnIndex">The starting column index.</param>
+        /// <param name="endRowIndex">The ending row index.</param>
+        /// <param name="endColumnIndex">The ending column index.</param>
         public void AddImage(Image image, int startRowIndex, int startColumnIndex, int endRowIndex, int endColumnIndex)
         {
             if (image == null) throw new ArgumentNullException(nameof(image));
@@ -79,7 +103,10 @@ namespace FileFormat.Cells
             imgHandler.Add(image.Path, startRowIndex, startColumnIndex, endRowIndex, endColumnIndex);
         }
 
-
+        /// <summary>
+        /// Extracts images from the worksheet.
+        /// </summary>
+        /// <returns>A list of images present in the worksheet.</returns>
         public List<Image> ExtractImages()
         {
             List<Image> imagePartsCollection = new List<Image>();
@@ -96,6 +123,11 @@ namespace FileFormat.Cells
             return imagePartsCollection;
         }
 
+        /// <summary>
+        /// Sets the height of a specific row.
+        /// </summary>
+        /// <param name="rowIndex">The index of the row.</param>
+        /// <param name="height">The desired height.</param>
         public void SetRowHeight(uint rowIndex, double height)
         {
             var row = GetOrCreateRow(rowIndex);
@@ -103,6 +135,11 @@ namespace FileFormat.Cells
             row.CustomHeight = true;
         }
 
+        /// <summary>
+        /// Sets the width of a specific column.
+        /// </summary>
+        /// <param name="columnName">The name of the column (e.g., "A", "B", ...).</param>
+        /// <param name="width">The desired width.</param>
         public void SetColumnWidth(string columnName, double width)
         {
             Columns columns = _worksheetPart.Worksheet.GetFirstChild<Columns>();
@@ -126,6 +163,10 @@ namespace FileFormat.Cells
             }
         }
 
+        /// <summary>
+        /// Protects the worksheet with the specified password.
+        /// </summary>
+        /// <param name="password">The password to protect the worksheet.</param>
         public void ProtectSheet(string password)
         {
             SheetProtection sheetProtection = new SheetProtection()
@@ -161,11 +202,19 @@ namespace FileFormat.Cells
             _worksheetPart.Worksheet.Save();
         }
 
+        /// <summary>
+        /// Checks if the worksheet is protected.
+        /// </summary>
+        /// <returns>True if the worksheet is protected, otherwise false.</returns>
         public bool IsProtected()
         {
             return _worksheetPart.Worksheet.Elements<SheetProtection>().Any();
         }
 
+
+        /// <summary>
+        /// Removes protection from the worksheet.
+        /// </summary>
         public void UnprotectSheet()
         {
             if (IsProtected())
@@ -178,7 +227,11 @@ namespace FileFormat.Cells
             _worksheetPart.Worksheet.Save();
         }
 
-
+        /// <summary>
+        /// Hashes the given password.
+        /// </summary>
+        /// <param name="password">The password to hash.</param>
+        /// <returns>The hashed password.</returns>
         private string HashPassword(string password)
         {
             return Convert.ToBase64String(Encoding.UTF8.GetBytes(password));
@@ -186,7 +239,11 @@ namespace FileFormat.Cells
 
 
 
-
+        /// <summary>
+        /// Converts a column letter to its corresponding index.
+        /// </summary>
+        /// <param name="column">The column letter (e.g., "A", "B", ...).</param>
+        /// <returns>The index corresponding to the column letter.</returns>
         private static int ColumnLetterToIndex(string column)
         {
             int index = 0;
@@ -198,9 +255,11 @@ namespace FileFormat.Cells
         }
 
 
-
-
-
+        /// <summary>
+        /// Gets the file extension corresponding to a specific image content type.
+        /// </summary>
+        /// <param name="contentType">The image content type.</param>
+        /// <returns>The file extension.</returns>
         private static string GetImageExtension(string contentType)
         {
             switch (contentType.ToLower())
@@ -215,8 +274,11 @@ namespace FileFormat.Cells
         }
 
 
-
-
+        /// <summary>
+        /// Retrieves or creates a cell for a specific cell reference.
+        /// </summary>
+        /// <param name="cellReference">The cell reference in A1 notation.</param>
+        /// <returns>The corresponding cell.</returns>
         private DocumentFormat.OpenXml.Spreadsheet.Cell GetOrCreateCell(string cellReference)
         {
 
@@ -234,6 +296,11 @@ namespace FileFormat.Cells
             return cell;
         }
 
+        /// <summary>
+        /// Retrieves the row index from a cell reference.
+        /// </summary>
+        /// <param name="cellReference">The cell reference in A1 notation.</param>
+        /// <returns>The row index.</returns>
         private uint GetRowIndex(string cellReference)
         {
             var match = Regex.Match(cellReference, @"\d+");
@@ -243,6 +310,11 @@ namespace FileFormat.Cells
             return uint.Parse(match.Value);
         }
 
+        /// <summary>
+        /// Retrieves or creates a row for a specific row index.
+        /// </summary>
+        /// <param name="rowIndex">The row index.</param>
+        /// <returns>The corresponding row.</returns>
         private Row GetOrCreateRow(uint rowIndex)
         {
             var row = _sheetData.Elements<Row>().FirstOrDefault(r => r.RowIndex == rowIndex);
@@ -255,7 +327,11 @@ namespace FileFormat.Cells
         }
 
 
-
+        /// <summary>
+        /// Merges cells within a specified range.
+        /// </summary>
+        /// <param name="startCellReference">The starting cell reference in A1 notation.</param>
+        /// <param name="endCellReference">The ending cell reference in A1 notation.</param>
         public void MergeCells(string startCellReference, string endCellReference)
         {
             if (_worksheetPart.Worksheet.Elements<MergeCells>().Any())
@@ -278,6 +354,10 @@ namespace FileFormat.Cells
             _worksheetPart.Worksheet.Save();
         }
 
+        /// <summary>
+        /// Retrieves the index of the worksheet within the workbook.
+        /// </summary>
+        /// <returns>The index of the worksheet.</returns>
         public int GetSheetIndex()
         {
             var workbookPart = _worksheetPart.GetParentParts().OfType<WorkbookPart>().FirstOrDefault();
@@ -300,11 +380,21 @@ namespace FileFormat.Cells
     {
         private readonly Worksheet _worksheet;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CellIndexer"/> class.
+        /// </summary>
+        /// <param name="worksheet">The worksheet to index.</param>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="worksheet"/> is null.</exception>
         public CellIndexer(Worksheet worksheet)
         {
             _worksheet = worksheet ?? throw new ArgumentNullException(nameof(worksheet));
         }
 
+        /// <summary>
+        /// Gets the cell at the specified reference.
+        /// </summary>
+        /// <param name="cellReference">The cell reference in A1 notation.</param>
+        /// <returns>The cell at the specified reference.</returns>
         public Cell this[string cellReference]
         {
             get
