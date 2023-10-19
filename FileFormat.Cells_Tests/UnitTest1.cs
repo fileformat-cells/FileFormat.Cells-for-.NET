@@ -5,9 +5,9 @@ using FileFormat.Cells;
 public class UnitTest1
 {
 
-    string testFilePath = "/Users/fahadadeelqazi/Downloads/test_fahad_new_protected_image.xlsx";
-    private string imageInputPath = "/Users/fahadadeelqazi/Downloads/ImageCells.png";
-    string outputDirectory = "/Users/fahadadeelqazi/Downloads/";
+    string testFilePath = "Z:\\Downloads\\test_fahad_new_protected_image.xlsx";
+    private string imageInputPath = "Z:\\Downloads\\ImageCells.png";
+    string outputDirectory = "Z:\\Downloads\\";
 
     [TestInitialize]
     public void Setup()

@@ -25,7 +25,7 @@ namespace FileFormat.Cells
         /// </summary>
         /// <param name="worksheetPart">The worksheet part of the document.</param>
         /// <param name="worksheet">The underlying OpenXML worksheet instance.</param>
-        internal Worksheet(WorksheetPart worksheetPart, DocumentFormat.OpenXml.Spreadsheet.Worksheet worksheet)
+        private Worksheet(WorksheetPart worksheetPart, DocumentFormat.OpenXml.Spreadsheet.Worksheet worksheet)
         {
             _worksheetPart = worksheetPart ?? throw new ArgumentNullException(nameof(worksheetPart));
 
@@ -34,6 +34,14 @@ namespace FileFormat.Cells
 
             // Initialize the Cells property
             this.Cells = new CellIndexer(this);
+        }
+
+        public class WorksheetFactory
+        {
+            public static Worksheet CreateInstance(WorksheetPart worksheetPart, DocumentFormat.OpenXml.Spreadsheet.Worksheet worksheet)
+            {
+                return new Worksheet(worksheetPart, worksheet);
+            }
         }
 
         /// <summary>
