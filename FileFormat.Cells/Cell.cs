@@ -1,79 +1,119 @@
-﻿using DocumentFormat.OpenXml;
+﻿using System;
+using DocumentFormat.OpenXml;
+using System.Globalization;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace FileFormat.Cells
 {
-    /// <summary>
-    /// Represents a cell in a row.
-    /// </summary>
-    public class Cell
+    public sealed class Cell
     {
-        /// <value>
-        /// An object of the Parent Cell class.
-        /// </value>
-        protected internal DocumentFormat.OpenXml.Spreadsheet.Cell cell;
+        private readonly DocumentFormat.OpenXml.Spreadsheet.Cell _cell;
+        private readonly SheetData _sheetData;
 
         /// <summary>
-        /// Instantiate a new instance of the Cell class.
+        /// Gets the cell reference in A1 notation.
         /// </summary>
-        public Cell()
+        public string CellReference => _cell.CellReference;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Cell"/> class.
+        /// </summary>
+        /// <param name="cell">The underlying OpenXML cell object.</param>
+        /// <param name="sheetData">The sheet data containing the cell.</param>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown when <paramref name="cell"/> or <paramref name="sheetData"/> is null.
+        /// </exception>
+        public Cell(DocumentFormat.OpenXml.Spreadsheet.Cell cell, SheetData sheetData)
         {
-            this.cell = new DocumentFormat.OpenXml.Spreadsheet.Cell();
-            //this.styles = new Styles();
+            _cell = cell ?? throw new ArgumentNullException(nameof(cell));
+            _sheetData = sheetData ?? throw new ArgumentNullException(nameof(sheetData));
         }
 
         /// <summary>
-        /// This method is used to set the Cell Reference in a worksheet. 
+        /// Sets the value of the cell as a string.
         /// </summary>
-        /// <param name="value">A string value.</param>
-        public void setCellReference(string value)
+        /// <param name="value">The value to set.</param>
+        public void PutValue(string value)
         {
-            this.cell.CellReference = value;
+            PutValue(value, CellValues.String);
         }
 
         /// <summary>
-        /// This method is used to set the Cell data type to String.
+        /// Sets the value of the cell as a number.
         /// </summary>
-        public void setStringDataType()
+        /// <param name="value">The numeric value to set.</param>
+        public void PutValue(double value)
         {
-            this.cell.DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.String;
-        }
-        /// <summary>
-        /// This method is used to set the Cell data type to Number.
-        /// </summary>
-        public void setNumberDataType()
-        {
-            this.cell.DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.Number;
+            PutValue(value.ToString(CultureInfo.InvariantCulture), CellValues.Number);
         }
 
         /// <summary>
-        /// This method is used to set the value of a Cell.
+        /// Sets the value of the cell as a date.
         /// </summary>
-        /// <param name="value">A dynamic value.</param>
-        public void CellValue(dynamic value)
+        /// <param name="value">The date value to set.</param>
+        public void PutValue(DateTime value)
         {
-            this.cell.CellValue = new DocumentFormat.OpenXml.Spreadsheet.CellValue(value);
+            PutValue(value.ToOADate().ToString(CultureInfo.InvariantCulture), CellValues.Date);
         }
 
         /// <summary>
-        /// Sets the style index of the cell to 1.
+        /// Sets the cell's value with a specific data type.
         /// </summary>
-        public void CellIndex()
+        /// <param name="value">The value to set.</param>
+        /// <param name="dataType">The data type of the value.</param>
+        private void PutValue(string value, CellValues dataType)
         {
-            this.cell.StyleIndex = 1;
+            _cell.DataType = new EnumValue<CellValues>(dataType);
+            _cell.CellValue = new CellValue(value);
+
         }
 
         /// <summary>
-        /// Sets the style index of the cell to the specified value.
+        /// Sets a formula for the cell.
         /// </summary>
-        /// <param name="num">The style index is to be set for the cell.</param>
-
-        public void CellIndex(UInt32Value num)
+        /// <param name="formula">The formula to set.</param>
+        public void PutFormula(string formula)
         {
-            this.cell.StyleIndex = num;
+            _cell.CellFormula = new CellFormula(formula);
+            _cell.CellValue = new CellValue(); // You might want to set some default value or calculated value here
+        }
+
+        /// <summary>
+        /// Gets the value of the cell.
+        /// </summary>
+        /// <returns>The cell value as a string.</returns>
+        public string GetValue()
+        {
+            return _cell.CellValue?.Text;
+        }
+
+        /// <summary>
+        /// Gets the data type of the cell's value.
+        /// </summary>
+        /// <returns>The cell's value data type, or null if not set.</returns>
+        public CellValues? GetDataType()
+        {
+            return _cell.DataType?.Value;
         }
 
 
-        // Other properties and methods...
+        /// <summary>
+        /// Gets the formula set for the cell.
+        /// </summary>
+        /// <returns>The cell's formula as a string, or null if not set.</returns>
+        public string GetFormula()
+        {
+            return _cell.CellFormula?.Text;
+        }
+
+        /// <summary>
+        /// Applies a style to the cell.
+        /// </summary>
+        /// <param name="styleIndex">The index of the style to apply.</param>
+        public void ApplyStyle(uint styleIndex)
+        {
+            _cell.StyleIndex = styleIndex;
+        }
     }
 
 }
