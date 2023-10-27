@@ -382,6 +382,30 @@ namespace FileFormat.Cells
             // If you specifically need the index, you may need to implement a different approach.
             return int.Parse(sheet.SheetId);
         }
+
+        public Range GetRange(uint startRowIndex, uint startColumnIndex, uint endRowIndex, uint endColumnIndex)
+        {
+            return new Range(this, startRowIndex, startColumnIndex, endRowIndex, endColumnIndex);
+        }
+
+        public Range GetRange(string startCellReference, string endCellReference)
+        {
+            var startCellParts = ParseCellReference(startCellReference);
+            var endCellParts = ParseCellReference(endCellReference);
+            return GetRange(startCellParts.row, startCellParts.column, endCellParts.row, endCellParts.column);
+        }
+
+        private (uint row, uint column) ParseCellReference(string cellReference)
+        {
+            var match = Regex.Match(cellReference, @"([A-Z]+)(\d+)");
+            if (!match.Success)
+                throw new FormatException("Invalid cell reference format.");
+
+            uint row = uint.Parse(match.Groups[2].Value);
+            uint column = (uint)ColumnLetterToIndex(match.Groups[1].Value);
+
+            return (row, column);
+        }
     }
 
     public class CellIndexer
