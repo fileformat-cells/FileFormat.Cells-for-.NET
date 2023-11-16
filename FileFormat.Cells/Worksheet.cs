@@ -5,6 +5,7 @@ using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 
+
 namespace FileFormat.Cells
 {
     /// <summary>
@@ -14,6 +15,10 @@ namespace FileFormat.Cells
     {
         private WorksheetPart _worksheetPart;
         private SheetData _sheetData;
+
+        public const double DefaultColumnWidth = 8.43; // Default width in character units
+        public const double DefaultRowHeight = 15.0;   // Default height in points
+
 
         /// <summary>
         /// Gets the indexer for cells within the worksheet.
@@ -170,6 +175,51 @@ namespace FileFormat.Cells
                 column.CustomWidth = true;
             }
         }
+
+        public double GetColumnWidth(uint columnIndex)
+        {            
+            // Access the Columns collection
+            var columns = _worksheetPart.Worksheet.GetFirstChild<DocumentFormat.OpenXml.Spreadsheet.Columns>();
+            if (columns != null)
+            {
+                foreach (var column in columns.Elements<Column>())
+                {
+                    
+                    // Explicitly cast Min and Max to uint and check for null
+                    uint min = column.Min.HasValue ? column.Min.Value : uint.MinValue;
+                    uint max = column.Max.HasValue ? column.Max.Value : uint.MaxValue;
+
+                    if (columnIndex >= min && columnIndex <= max)
+                    {
+                        // Also check if Width is set
+                        return column.Width.HasValue ? column.Width.Value : DefaultColumnWidth;
+                    }
+                }
+            }
+
+            return DefaultColumnWidth;
+        }
+
+        public double GetRowHeight(uint rowIndex)
+        {
+            // Assuming _worksheetPart is the OpenXML WorksheetPart
+            var rows = _worksheetPart.Worksheet.GetFirstChild<DocumentFormat.OpenXml.Spreadsheet.SheetData>().Elements<Row>();
+
+            foreach (var row in rows)
+            {
+                // Check if this is the row we are looking for
+                if (row.RowIndex.Value == rowIndex)
+                {
+                    // If Height is set, return it, otherwise return default height
+                    return row.Height.HasValue ? row.Height.Value : DefaultRowHeight;
+                }
+            }
+
+            return DefaultRowHeight; // Return default height if no specific height is set
+        }
+
+
+
 
         /// <summary>
         /// Protects the worksheet with the specified password.
@@ -381,6 +431,59 @@ namespace FileFormat.Cells
             // Note: SheetId is not the same as the index of the sheet in the workbook.
             // If you specifically need the index, you may need to implement a different approach.
             return int.Parse(sheet.SheetId);
+        }
+
+        public Range GetRange(uint startRowIndex, uint startColumnIndex, uint endRowIndex, uint endColumnIndex)
+        {
+            return new Range(this, startRowIndex, startColumnIndex, endRowIndex, endColumnIndex);
+        }
+
+        public Range GetRange(string startCellReference, string endCellReference)
+        {
+            var startCellParts = ParseCellReference(startCellReference);
+            var endCellParts = ParseCellReference(endCellReference);
+            return GetRange(startCellParts.row, startCellParts.column, endCellParts.row, endCellParts.column);
+        }
+
+        public void AddDropdownListValidation(string cellReference, string[] options)
+        {
+            // Convert options array into a comma-separated string
+            string formula = string.Join(",", options);
+
+            // Create the data validation object
+            DataValidation dataValidation = new DataValidation
+            {
+                Type = DataValidationValues.List,
+                ShowDropDown = true,
+                ShowErrorMessage = true,
+                ErrorTitle = "Invalid input",
+                Error = "The value entered is not in the list.",
+                Formula1 = new Formula1("\"" + formula + "\""), // The formula is enclosed in quotes
+                SequenceOfReferences = new ListValue<StringValue> { InnerText = cellReference }
+            };
+
+            // Add the data validation to the worksheet
+            var dataValidations = _worksheetPart.Worksheet.GetFirstChild<DataValidations>();
+            if (dataValidations == null)
+            {
+                dataValidations = new DataValidations();
+                _worksheetPart.Worksheet.AppendChild(dataValidations);
+            }
+
+            dataValidations.AppendChild(dataValidation);
+        }
+
+
+        private (uint row, uint column) ParseCellReference(string cellReference)
+        {
+            var match = Regex.Match(cellReference, @"([A-Z]+)(\d+)");
+            if (!match.Success)
+                throw new FormatException("Invalid cell reference format.");
+
+            uint row = uint.Parse(match.Groups[2].Value);
+            uint column = (uint)ColumnLetterToIndex(match.Groups[1].Value);
+
+            return (row, column);
         }
     }
 
