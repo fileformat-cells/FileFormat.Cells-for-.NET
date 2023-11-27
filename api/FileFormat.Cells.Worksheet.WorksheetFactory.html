@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class CellIndexer
+      <title>Class Worksheet.WorksheetFactory
  </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class CellIndexer
+      <meta name="title" content="Class Worksheet.WorksheetFactory
  ">
     
       <link rel="shortcut icon" href="../favicon.ico">
@@ -67,18 +67,20 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FileFormat.Cells.CellIndexer">
+            <article class="content wrap" id="_content" data-uid="FileFormat.Cells.Worksheet.WorksheetFactory">
 
 
 
-  <h1 id="FileFormat_Cells_CellIndexer" data-uid="FileFormat.Cells.CellIndexer" class="text-break">Class CellIndexer
+  <h1 id="FileFormat_Cells_Worksheet_WorksheetFactory" data-uid="FileFormat.Cells.Worksheet.WorksheetFactory" class="text-break">Class Worksheet.WorksheetFactory
 </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Creates an instance of the Worksheet class using the provided WorksheetPart and Worksheet.
+This method serves as a factory for creating Worksheet objects, encapsulating the instantiation logic.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">CellIndexer</span></div>
+    <div class="level1"><span class="xref">Worksheet.WorksheetFactory</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -106,22 +108,21 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="FileFormat.html">FileFormat</a>.<a class="xref" href="FileFormat.Cells.html">Cells</a></h6>
   <h6><strong>Assembly</strong>: FileFormat.Cells.dll</h6>
-  <h5 id="FileFormat_Cells_CellIndexer_syntax">Syntax</h5>
+  <h5 id="FileFormat_Cells_Worksheet_WorksheetFactory_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class CellIndexer</code></pre>
+    <pre><code class="lang-csharp hljs">public class Worksheet.WorksheetFactory</code></pre>
   </div>
-  <h3 id="constructors">Constructors
+  <h3 id="methods">Methods
 </h3>
 
 
-  <a id="FileFormat_Cells_CellIndexer__ctor_" data-uid="FileFormat.Cells.CellIndexer.#ctor*"></a>
-  <h4 id="FileFormat_Cells_CellIndexer__ctor_FileFormat_Cells_Worksheet_" data-uid="FileFormat.Cells.CellIndexer.#ctor(FileFormat.Cells.Worksheet)">CellIndexer(Worksheet)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="FileFormat.Cells.CellIndexer.html">CellIndexer</a> class.</p>
-</div>
+  <a id="FileFormat_Cells_Worksheet_WorksheetFactory_CreateInstance_" data-uid="FileFormat.Cells.Worksheet.WorksheetFactory.CreateInstance*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_WorksheetFactory_CreateInstance_DocumentFormat_OpenXml_Packaging_WorksheetPart_DocumentFormat_OpenXml_Spreadsheet_Worksheet_" data-uid="FileFormat.Cells.Worksheet.WorksheetFactory.CreateInstance(DocumentFormat.OpenXml.Packaging.WorksheetPart,DocumentFormat.OpenXml.Spreadsheet.Worksheet)">CreateInstance(WorksheetPart, Worksheet)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CellIndexer(Worksheet worksheet)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Worksheet CreateInstance(WorksheetPart worksheetPart, Worksheet worksheet)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -129,78 +130,34 @@
       <tr>
         <th>Type</th>
         <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/documentformat.openxml.packaging.worksheetpart">WorksheetPart</a></td>
+        <td><span class="parametername">worksheetPart</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/documentformat.openxml.spreadsheet.worksheet">Worksheet</a></td>
+        <td><span class="parametername">worksheet</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><a class="xref" href="FileFormat.Cells.Worksheet.html">Worksheet</a></td>
-        <td><span class="parametername">worksheet</span></td>
-        <td><p>The worksheet to index.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p>Thrown when <code class="paramref">worksheet</code> is null.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
-
-
-  <a id="FileFormat_Cells_CellIndexer_Item_" data-uid="FileFormat.Cells.CellIndexer.Item*"></a>
-  <h4 id="FileFormat_Cells_CellIndexer_Item_System_String_" data-uid="FileFormat.Cells.CellIndexer.Item(System.String)">this[string]</h4>
-  <div class="markdown level1 summary"><p>Gets the cell at the specified reference in A1 notation. This indexer provides a convenient way to access cells within the worksheet.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Cell this[string cellReference] { get; }</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">cellReference</span></td>
-        <td><p>The cell reference in A1 notation.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="FileFormat.Cells.Cell.html">Cell</a></td>
-        <td><p>The cell at the specified reference.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>

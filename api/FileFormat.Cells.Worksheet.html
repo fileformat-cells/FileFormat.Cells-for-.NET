@@ -108,13 +108,63 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public sealed class Worksheet</code></pre>
   </div>
+  <h3 id="fields">Fields
+</h3>
+
+
+  <h4 id="FileFormat_Cells_Worksheet_DefaultColumnWidth" data-uid="FileFormat.Cells.Worksheet.DefaultColumnWidth">DefaultColumnWidth</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultColumnWidth = 8.43</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="FileFormat_Cells_Worksheet_DefaultRowHeight" data-uid="FileFormat.Cells.Worksheet.DefaultRowHeight">DefaultRowHeight</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultRowHeight = 15</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
 </h3>
 
 
   <a id="FileFormat_Cells_Worksheet_Cells_" data-uid="FileFormat.Cells.Worksheet.Cells*"></a>
   <h4 id="FileFormat_Cells_Worksheet_Cells" data-uid="FileFormat.Cells.Worksheet.Cells">Cells</h4>
-  <div class="markdown level1 summary"><p>Gets the indexer for cells within the worksheet.</p>
+  <div class="markdown level1 summary"><p>Gets the CellIndexer for the worksheet. This property provides indexed access to the cells of the worksheet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -132,7 +182,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="FileFormat.Cells.CellIndexer.html">CellIndexer</a></td>
-        <td></td>
+        <td><p>The CellIndexer for the worksheet.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -140,7 +191,7 @@
 
   <a id="FileFormat_Cells_Worksheet_Name_" data-uid="FileFormat.Cells.Worksheet.Name*"></a>
   <h4 id="FileFormat_Cells_Worksheet_Name" data-uid="FileFormat.Cells.Worksheet.Name">Name</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the name of the worksheet.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the name of the worksheet. This property performs several checks to ensure the integrity and validity of the worksheet and workbook parts.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -158,12 +209,88 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
+        <td><p>The name of the worksheet.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Thrown if the WorksheetPart is null, if the WorkbookPart is not found as a parent, if the ID of the part is null or empty, or if no sheet is found with the specified ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown when attempting to set the name with a null or empty value.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h3 id="methods">Methods
 </h3>
+
+
+  <a id="FileFormat_Cells_Worksheet_AddDropdownListValidation_" data-uid="FileFormat.Cells.Worksheet.AddDropdownListValidation*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_AddDropdownListValidation_System_String_System_String___" data-uid="FileFormat.Cells.Worksheet.AddDropdownListValidation(System.String,System.String[])">AddDropdownListValidation(string, string[])</h4>
+  <div class="markdown level1 summary"><p>Adds a dropdown list validation to a specified cell. The dropdown list contains the options provided.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddDropdownListValidation(string cellReference, string[] options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">cellReference</span></td>
+        <td><p>The cell reference in A1 notation where the dropdown should be added.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
+        <td><span class="parametername">options</span></td>
+        <td><p>An array of string values that will appear as options in the dropdown list.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="FileFormat_Cells_Worksheet_AddDropdownListValidation_System_String_System_String____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method creates a data validation rule that restricts input to the cell to the provided list of options.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown when <code class="paramref">cellReference</code> is null or invalid, or if <code class="paramref">options</code> is empty or null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="FileFormat_Cells_Worksheet_AddImage_" data-uid="FileFormat.Cells.Worksheet.AddImage*"></a>
@@ -291,9 +418,260 @@
   </table>
 
 
+  <a id="FileFormat_Cells_Worksheet_GetColumnWidth_" data-uid="FileFormat.Cells.Worksheet.GetColumnWidth*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_GetColumnWidth_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.GetColumnWidth(System.UInt32)">GetColumnWidth(uint)</h4>
+  <div class="markdown level1 summary"><p>Retrieves the width of the specified column in the worksheet.
+If the width of the column has been explicitly set, it returns that value; otherwise, it returns the default column width.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double GetColumnWidth(uint columnIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">columnIndex</span></td>
+        <td><p>The 1-based index of the column for which the width is to be retrieved.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td><p>The width of the specified column. If the column's width is explicitly set, that value is returned;
+otherwise, the default column width is returned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></td>
+        <td><p>Thrown if the columnIndex is less than 1.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Thrown if the worksheet part or the worksheet is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="FileFormat_Cells_Worksheet_GetRange_" data-uid="FileFormat.Cells.Worksheet.GetRange*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_GetRange_System_String_System_String_" data-uid="FileFormat.Cells.Worksheet.GetRange(System.String,System.String)">GetRange(string, string)</h4>
+  <div class="markdown level1 summary"><p>Retrieves a range of cells specified by the start and end cell references in A1 notation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Range GetRange(string startCellReference, string endCellReference)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">startCellReference</span></td>
+        <td><p>The start cell reference in A1 notation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">endCellReference</span></td>
+        <td><p>The end cell reference in A1 notation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FileFormat.Cells.Range.html">Range</a></td>
+        <td><p>A <a class="xref" href="FileFormat.Cells.Range.html">Range</a> object representing the specified range of cells.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="FileFormat_Cells_Worksheet_GetRange_" data-uid="FileFormat.Cells.Worksheet.GetRange*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_GetRange_System_UInt32_System_UInt32_System_UInt32_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.GetRange(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">GetRange(uint, uint, uint, uint)</h4>
+  <div class="markdown level1 summary"><p>Retrieves a range of cells specified by the start and end row and column indices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Range GetRange(uint startRowIndex, uint startColumnIndex, uint endRowIndex, uint endColumnIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">startRowIndex</span></td>
+        <td><p>The starting row index of the range.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">startColumnIndex</span></td>
+        <td><p>The starting column index of the range.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">endRowIndex</span></td>
+        <td><p>The ending row index of the range.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">endColumnIndex</span></td>
+        <td><p>The ending column index of the range.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FileFormat.Cells.Range.html">Range</a></td>
+        <td><p>A <a class="xref" href="FileFormat.Cells.Range.html">Range</a> object representing the specified range of cells.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="FileFormat_Cells_Worksheet_GetRowHeight_" data-uid="FileFormat.Cells.Worksheet.GetRowHeight*"></a>
+  <h4 id="FileFormat_Cells_Worksheet_GetRowHeight_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.GetRowHeight(System.UInt32)">GetRowHeight(uint)</h4>
+  <div class="markdown level1 summary"><p>Retrieves the height of the specified row in the worksheet.
+If the height of the row has been explicitly set, it returns that value; otherwise, it returns the default row height.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double GetRowHeight(uint rowIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">rowIndex</span></td>
+        <td><p>The 1-based index of the row for which the height is to be retrieved.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
+        <td><p>The height of the specified row. If the row's height is explicitly set, that value is returned;
+otherwise, the default row height is returned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></td>
+        <td><p>Thrown if the rowIndex is less than 1.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Thrown if the worksheet part or the worksheet is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="FileFormat_Cells_Worksheet_GetSheetIndex_" data-uid="FileFormat.Cells.Worksheet.GetSheetIndex*"></a>
   <h4 id="FileFormat_Cells_Worksheet_GetSheetIndex" data-uid="FileFormat.Cells.Worksheet.GetSheetIndex">GetSheetIndex()</h4>
-  <div class="markdown level1 summary"><p>Retrieves the index of the worksheet within the workbook.</p>
+  <div class="markdown level1 summary"><p>Retrieves the index of the current worksheet within the workbook. This method locates the worksheet within the workbook's collection of sheets and returns its index.
+Note that the SheetId property of a worksheet is different from its index in the workbook's sheet collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -311,7 +689,23 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><p>The index of the worksheet.</p>
+        <td><p>The index of the sheet within the workbook. This is not the same as the SheetId.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Thrown if no WorkbookPart is found, or if the worksheet is not found in the workbook.</p>
 </td>
       </tr>
     </tbody>
@@ -320,7 +714,8 @@
 
   <a id="FileFormat_Cells_Worksheet_IsProtected_" data-uid="FileFormat.Cells.Worksheet.IsProtected*"></a>
   <h4 id="FileFormat_Cells_Worksheet_IsProtected" data-uid="FileFormat.Cells.Worksheet.IsProtected">IsProtected()</h4>
-  <div class="markdown level1 summary"><p>Checks if the worksheet is protected.</p>
+  <div class="markdown level1 summary"><p>Determines whether the worksheet is protected.
+This method checks for the presence of a SheetProtection element within the worksheet to ascertain its protection status.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -338,16 +733,20 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p>True if the worksheet is protected, otherwise false.</p>
+        <td><p>A boolean value indicating whether the worksheet is protected. Returns <code>true</code> if the worksheet is protected, otherwise <code>false</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="FileFormat_Cells_Worksheet_IsProtected_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>A worksheet is considered protected if there is at least one SheetProtection element present in its elements.</p>
+</div>
 
 
   <a id="FileFormat_Cells_Worksheet_MergeCells_" data-uid="FileFormat.Cells.Worksheet.MergeCells*"></a>
   <h4 id="FileFormat_Cells_Worksheet_MergeCells_System_String_System_String_" data-uid="FileFormat.Cells.Worksheet.MergeCells(System.String,System.String)">MergeCells(string, string)</h4>
-  <div class="markdown level1 summary"><p>Merges cells within a specified range.</p>
+  <div class="markdown level1 summary"><p>Merges a range of cells specified by the start and end cell references in A1 notation.
+This method creates a merged cell area that spans from the start cell to the end cell.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -367,13 +766,34 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">startCellReference</span></td>
-        <td><p>The starting cell reference in A1 notation.</p>
+        <td><p>The start cell reference in A1 notation for the merge range.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">endCellReference</span></td>
-        <td><p>The ending cell reference in A1 notation.</p>
+        <td><p>The end cell reference in A1 notation for the merge range.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="FileFormat_Cells_Worksheet_MergeCells_System_String_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If a MergeCells element already exists in the worksheet, this method appends a new merge cell reference to it.
+If no MergeCells element exists, it creates a new one and then appends the merge cell reference.
+After defining the merge cell range, it saves the changes to the WorksheetPart.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown when either <code class="paramref">startCellReference</code> or <code class="paramref">endCellReference</code> is null, empty, or invalid.</p>
 </td>
       </tr>
     </tbody>
@@ -382,8 +802,7 @@
 
   <a id="FileFormat_Cells_Worksheet_ProtectSheet_" data-uid="FileFormat.Cells.Worksheet.ProtectSheet*"></a>
   <h4 id="FileFormat_Cells_Worksheet_ProtectSheet_System_String_" data-uid="FileFormat.Cells.Worksheet.ProtectSheet(System.String)">ProtectSheet(string)</h4>
-  <div class="markdown level1 summary"><p>Protects the worksheet with the specified password.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -402,8 +821,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">password</span></td>
-        <td><p>The password to protect the worksheet.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -411,7 +829,7 @@
 
   <a id="FileFormat_Cells_Worksheet_SetColumnWidth_" data-uid="FileFormat.Cells.Worksheet.SetColumnWidth*"></a>
   <h4 id="FileFormat_Cells_Worksheet_SetColumnWidth_System_String_System_Double_" data-uid="FileFormat.Cells.Worksheet.SetColumnWidth(System.String,System.Double)">SetColumnWidth(string, double)</h4>
-  <div class="markdown level1 summary"><p>Sets the width of a specific column.</p>
+  <div class="markdown level1 summary"><p>Sets the width of the specified column in the worksheet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -431,13 +849,39 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">columnName</span></td>
-        <td><p>The name of the column (e.g., &quot;A&quot;, &quot;B&quot;, ...).</p>
+        <td><p>The name of the column (e.g., &quot;A&quot;, &quot;B&quot;, &quot;C&quot;) for which the width is to be set.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
         <td><span class="parametername">width</span></td>
-        <td><p>The desired width.</p>
+        <td><p>The width to set for the specified column.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if the columnName is null or empty.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></td>
+        <td><p>Thrown if the width is less than 0 or if the columnName is invalid or represents a column index out of range.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Thrown if the worksheet part or the worksheet is null.</p>
 </td>
       </tr>
     </tbody>
@@ -446,7 +890,7 @@
 
   <a id="FileFormat_Cells_Worksheet_SetRowHeight_" data-uid="FileFormat.Cells.Worksheet.SetRowHeight*"></a>
   <h4 id="FileFormat_Cells_Worksheet_SetRowHeight_System_UInt32_System_Double_" data-uid="FileFormat.Cells.Worksheet.SetRowHeight(System.UInt32,System.Double)">SetRowHeight(uint, double)</h4>
-  <div class="markdown level1 summary"><p>Sets the height of a specific row.</p>
+  <div class="markdown level1 summary"><p>Sets the height of the specified row in the worksheet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -466,13 +910,34 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">rowIndex</span></td>
-        <td><p>The index of the row.</p>
+        <td><p>The 1-based index of the row for which the height is to be set.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
         <td><span class="parametername">height</span></td>
-        <td><p>The desired height.</p>
+        <td><p>The height to set for the specified row.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></td>
+        <td><p>Thrown if the rowIndex is less than 1 or if the height is less than 0.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Thrown if the worksheet part or the worksheet is null.</p>
 </td>
       </tr>
     </tbody>
@@ -481,13 +946,35 @@
 
   <a id="FileFormat_Cells_Worksheet_UnprotectSheet_" data-uid="FileFormat.Cells.Worksheet.UnprotectSheet*"></a>
   <h4 id="FileFormat_Cells_Worksheet_UnprotectSheet" data-uid="FileFormat.Cells.Worksheet.UnprotectSheet">UnprotectSheet()</h4>
-  <div class="markdown level1 summary"><p>Removes protection from the worksheet.</p>
+  <div class="markdown level1 summary"><p>Removes protection from the worksheet, if it is currently protected.
+This method checks for the presence of a SheetProtection element and removes it to unprotect the sheet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void UnprotectSheet()</code></pre>
   </div>
+  <h5 id="FileFormat_Cells_Worksheet_UnprotectSheet_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If the worksheet is protected (indicated by the presence of a SheetProtection element), this method removes the protection.
+After altering the protection status, it saves the changes to the worksheet.
+If the worksheet is not protected, this method performs no action.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Thrown if an attempt is made to remove protection but no SheetProtection element is found. This should not normally occur, as the method first checks if the sheet is protected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 </article>
           </div>

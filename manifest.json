@@ -1,5 +1,5 @@
 {
-  "source_base_path": "Z:/Projects/Aspose/docfx_project",
+  "source_base_path": "//Mac/Home/Projects/Aspose/docfx_project",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -54,10 +54,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/FileFormat.Cells.Range.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FileFormat.Cells.Range.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/FileFormat.Cells.Workbook.yml",
       "output": {
         ".html": {
           "relative_path": "api/FileFormat.Cells.Workbook.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FileFormat.Cells.Worksheet.WorksheetFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FileFormat.Cells.Worksheet.WorksheetFactory.html"
         }
       },
       "version": ""
