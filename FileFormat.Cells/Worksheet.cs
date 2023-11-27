@@ -21,15 +21,25 @@ namespace FileFormat.Cells
 
 
         /// <summary>
-        /// Gets the indexer for cells within the worksheet.
+        /// Gets the CellIndexer for the worksheet. This property provides indexed access to the cells of the worksheet.
         /// </summary>
+        /// <value>
+        /// The CellIndexer for the worksheet.
+        /// </value>
         public CellIndexer Cells { get; }
 
         /// <summary>
-        /// Initializes a new instance of the Worksheet class.
+        /// Initializes a new instance of the Worksheet class with the specified WorksheetPart and Worksheet.
+        /// This constructor sets up the internal structure of the Worksheet object, including initializing the Cells property.
         /// </summary>
-        /// <param name="worksheetPart">The worksheet part of the document.</param>
-        /// <param name="worksheet">The underlying OpenXML worksheet instance.</param>
+        /// <param name="worksheetPart">The WorksheetPart associated with this Worksheet. Cannot be null.</param>
+        /// <param name="worksheet">The OpenXml Spreadsheet.Worksheet object. Cannot be null.</param>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if the provided worksheetPart is null.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if SheetData is not found in the provided worksheet.
+        /// </exception>
         private Worksheet(WorksheetPart worksheetPart, DocumentFormat.OpenXml.Spreadsheet.Worksheet worksheet)
         {
             _worksheetPart = worksheetPart ?? throw new ArgumentNullException(nameof(worksheetPart));
@@ -41,6 +51,13 @@ namespace FileFormat.Cells
             this.Cells = new CellIndexer(this);
         }
 
+        /// <summary>
+        /// Creates an instance of the Worksheet class using the provided WorksheetPart and Worksheet.
+        /// This method serves as a factory for creating Worksheet objects, encapsulating the instantiation logic.
+        /// </summary>
+        /// <param name="worksheetPart">The WorksheetPart to be associated with the Worksheet. Cannot be null.</param>
+        /// <param name="worksheet">The OpenXml Spreadsheet.Worksheet object to be associated with the Worksheet. Cannot be null.</param>
+        /// <returns>A new instance of the Worksheet class.</returns>
         public class WorksheetFactory
         {
             public static Worksheet CreateInstance(WorksheetPart worksheetPart, DocumentFormat.OpenXml.Spreadsheet.Worksheet worksheet)
@@ -50,8 +67,17 @@ namespace FileFormat.Cells
         }
 
         /// <summary>
-        /// Gets or sets the name of the worksheet.
+        /// Gets or sets the name of the worksheet. This property performs several checks to ensure the integrity and validity of the worksheet and workbook parts.
         /// </summary>
+        /// <value>
+        /// The name of the worksheet.
+        /// </value>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if the WorksheetPart is null, if the WorkbookPart is not found as a parent, if the ID of the part is null or empty, or if no sheet is found with the specified ID.
+        /// </exception>
+        /// <exception cref="ArgumentException">
+        /// Thrown when attempting to set the name with a null or empty value.
+        /// </exception>
         public string Name
         {
             get
@@ -137,24 +163,68 @@ namespace FileFormat.Cells
         }
 
         /// <summary>
-        /// Sets the height of a specific row.
+        /// Sets the height of the specified row in the worksheet.
         /// </summary>
-        /// <param name="rowIndex">The index of the row.</param>
-        /// <param name="height">The desired height.</param>
+        /// <param name="rowIndex">The 1-based index of the row for which the height is to be set.</param>
+        /// <param name="height">The height to set for the specified row.</param>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown if the rowIndex is less than 1 or if the height is less than 0.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if the worksheet part or the worksheet is null.
+        /// </exception>
         public void SetRowHeight(uint rowIndex, double height)
         {
+            if (rowIndex < 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(rowIndex), "Row index must be greater than 0.");
+            }
+
+            if (height < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(height), "Row height must be a positive number.");
+            }
+
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
             var row = GetOrCreateRow(rowIndex);
             row.Height = height;
             row.CustomHeight = true;
         }
 
         /// <summary>
-        /// Sets the width of a specific column.
+        /// Sets the width of the specified column in the worksheet.
         /// </summary>
-        /// <param name="columnName">The name of the column (e.g., "A", "B", ...).</param>
-        /// <param name="width">The desired width.</param>
+        /// <param name="columnName">The name of the column (e.g., "A", "B", "C") for which the width is to be set.</param>
+        /// <param name="width">The width to set for the specified column.</param>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if the columnName is null or empty.
+        /// </exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown if the width is less than 0 or if the columnName is invalid or represents a column index out of range.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if the worksheet part or the worksheet is null.
+        /// </exception>
         public void SetColumnWidth(string columnName, double width)
         {
+            if (string.IsNullOrWhiteSpace(columnName))
+            {
+                throw new ArgumentNullException(nameof(columnName), "Column name cannot be null or empty.");
+            }
+
+            if (width < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(width), "Column width must be a positive number.");
+            }
+
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
+
             Columns columns = _worksheetPart.Worksheet.GetFirstChild<Columns>();
             if (columns == null)
             {
@@ -176,8 +246,32 @@ namespace FileFormat.Cells
             }
         }
 
+        /// <summary>
+        /// Retrieves the width of the specified column in the worksheet.
+        /// If the width of the column has been explicitly set, it returns that value; otherwise, it returns the default column width.
+        /// </summary>
+        /// <param name="columnIndex">The 1-based index of the column for which the width is to be retrieved.</param>
+        /// <returns>
+        /// The width of the specified column. If the column's width is explicitly set, that value is returned; 
+        /// otherwise, the default column width is returned.
+        /// </returns>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown if the columnIndex is less than 1.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if the worksheet part or the worksheet is null.
+        /// </exception>
         public double GetColumnWidth(uint columnIndex)
-        {            
+        {
+            if (columnIndex < 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(columnIndex), "Column index must be greater than 0.");
+            }
+
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
             // Access the Columns collection
             var columns = _worksheetPart.Worksheet.GetFirstChild<DocumentFormat.OpenXml.Spreadsheet.Columns>();
             if (columns != null)
@@ -199,9 +293,33 @@ namespace FileFormat.Cells
 
             return DefaultColumnWidth;
         }
-
+        /// <summary>
+        /// Retrieves the height of the specified row in the worksheet.
+        /// If the height of the row has been explicitly set, it returns that value; otherwise, it returns the default row height.
+        /// </summary>
+        /// <param name="rowIndex">The 1-based index of the row for which the height is to be retrieved.</param>
+        /// <returns>
+        /// The height of the specified row. If the row's height is explicitly set, that value is returned; 
+        /// otherwise, the default row height is returned.
+        /// </returns>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown if the rowIndex is less than 1.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if the worksheet part or the worksheet is null.
+        /// </exception>
         public double GetRowHeight(uint rowIndex)
         {
+            if (rowIndex < 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(rowIndex), "Row index must be greater than 0.");
+            }
+
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
+
             // Assuming _worksheetPart is the OpenXML WorksheetPart
             var rows = _worksheetPart.Worksheet.GetFirstChild<DocumentFormat.OpenXml.Spreadsheet.SheetData>().Elements<Row>();
 
@@ -222,9 +340,21 @@ namespace FileFormat.Cells
 
 
         /// <summary>
-        /// Protects the worksheet with the specified password.
+        /// Protects the worksheet with the specified password. This method applies various protection settings to the sheet, 
+        /// including locking objects, scenarios, auto-filters, pivot tables, and other elements from editing.
         /// </summary>
-        /// <param name="password">The password to protect the worksheet.</param>
+        /// <param name="password">The password used to protect the worksheet. The password is hashed before being applied.</param>
+        /// <remarks>
+        /// This method creates a new SheetProtection object with specific settings and applies it to the worksheet.
+        /// If an existing SheetProtection element is present, it is removed before applying the new protection.
+        /// After setting the protection, it saves the changes to the worksheet.
+        /// </remarks>
+        /// <exception cref="ArgumentException">
+        /// Thrown if the provided <paramref name="password"/> is null or empty.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if an error occurs while applying the protection, such as failing to save the changes.
+        /// </exception
         public void ProtectSheet(string password)
         {
             SheetProtection sheetProtection = new SheetProtection()
@@ -261,9 +391,15 @@ namespace FileFormat.Cells
         }
 
         /// <summary>
-        /// Checks if the worksheet is protected.
+        /// Determines whether the worksheet is protected.
+        /// This method checks for the presence of a SheetProtection element within the worksheet to ascertain its protection status.
         /// </summary>
-        /// <returns>True if the worksheet is protected, otherwise false.</returns>
+        /// <returns>
+        /// A boolean value indicating whether the worksheet is protected. Returns <c>true</c> if the worksheet is protected, otherwise <c>false</c>.
+        /// </returns>
+        /// <remarks>
+        /// A worksheet is considered protected if there is at least one SheetProtection element present in its elements.
+        /// </remarks>
         public bool IsProtected()
         {
             return _worksheetPart.Worksheet.Elements<SheetProtection>().Any();
@@ -271,8 +407,17 @@ namespace FileFormat.Cells
 
 
         /// <summary>
-        /// Removes protection from the worksheet.
+        /// Removes protection from the worksheet, if it is currently protected.
+        /// This method checks for the presence of a SheetProtection element and removes it to unprotect the sheet.
         /// </summary>
+        /// <remarks>
+        /// If the worksheet is protected (indicated by the presence of a SheetProtection element), this method removes the protection.
+        /// After altering the protection status, it saves the changes to the worksheet.
+        /// If the worksheet is not protected, this method performs no action.
+        /// </remarks>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if an attempt is made to remove protection but no SheetProtection element is found. This should not normally occur, as the method first checks if the sheet is protected.
+        /// </exception>
         public void UnprotectSheet()
         {
             if (IsProtected())
@@ -386,10 +531,19 @@ namespace FileFormat.Cells
 
 
         /// <summary>
-        /// Merges cells within a specified range.
+        /// Merges a range of cells specified by the start and end cell references in A1 notation.
+        /// This method creates a merged cell area that spans from the start cell to the end cell.
         /// </summary>
-        /// <param name="startCellReference">The starting cell reference in A1 notation.</param>
-        /// <param name="endCellReference">The ending cell reference in A1 notation.</param>
+        /// <param name="startCellReference">The start cell reference in A1 notation for the merge range.</param>
+        /// <param name="endCellReference">The end cell reference in A1 notation for the merge range.</param>
+        /// <remarks>
+        /// If a MergeCells element already exists in the worksheet, this method appends a new merge cell reference to it.
+        /// If no MergeCells element exists, it creates a new one and then appends the merge cell reference.
+        /// After defining the merge cell range, it saves the changes to the WorksheetPart.
+        /// </remarks>
+        /// <exception cref="ArgumentException">
+        /// Thrown when either <paramref name="startCellReference"/> or <paramref name="endCellReference"/> is null, empty, or invalid.
+        /// </exception>
         public void MergeCells(string startCellReference, string endCellReference)
         {
             if (_worksheetPart.Worksheet.Elements<MergeCells>().Any())
@@ -413,9 +567,15 @@ namespace FileFormat.Cells
         }
 
         /// <summary>
-        /// Retrieves the index of the worksheet within the workbook.
+        /// Retrieves the index of the current worksheet within the workbook. This method locates the worksheet within the workbook's collection of sheets and returns its index.
+        /// Note that the SheetId property of a worksheet is different from its index in the workbook's sheet collection.
         /// </summary>
-        /// <returns>The index of the worksheet.</returns>
+        /// <returns>
+        /// The index of the sheet within the workbook. This is not the same as the SheetId.
+        /// </returns>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if no WorkbookPart is found, or if the worksheet is not found in the workbook.
+        /// </exception>
         public int GetSheetIndex()
         {
             var workbookPart = _worksheetPart.GetParentParts().OfType<WorkbookPart>().FirstOrDefault();
@@ -433,11 +593,30 @@ namespace FileFormat.Cells
             return int.Parse(sheet.SheetId);
         }
 
+
+        /// <summary>
+        /// Retrieves a range of cells specified by the start and end row and column indices.
+        /// </summary>
+        /// <param name="startRowIndex">The starting row index of the range.</param>
+        /// <param name="startColumnIndex">The starting column index of the range.</param>
+        /// <param name="endRowIndex">The ending row index of the range.</param>
+        /// <param name="endColumnIndex">The ending column index of the range.</param>
+        /// <returns>
+        /// A <see cref="Range"/> object representing the specified range of cells.
+        /// </returns>
         public Range GetRange(uint startRowIndex, uint startColumnIndex, uint endRowIndex, uint endColumnIndex)
         {
             return new Range(this, startRowIndex, startColumnIndex, endRowIndex, endColumnIndex);
         }
 
+        /// <summary>
+        /// Retrieves a range of cells specified by the start and end cell references in A1 notation.
+        /// </summary>
+        /// <param name="startCellReference">The start cell reference in A1 notation.</param>
+        /// <param name="endCellReference">The end cell reference in A1 notation.</param>
+        /// <returns>
+        /// A <see cref="Range"/> object representing the specified range of cells.
+        /// </returns>
         public Range GetRange(string startCellReference, string endCellReference)
         {
             var startCellParts = ParseCellReference(startCellReference);
@@ -445,6 +624,17 @@ namespace FileFormat.Cells
             return GetRange(startCellParts.row, startCellParts.column, endCellParts.row, endCellParts.column);
         }
 
+        /// <summary>
+        /// Adds a dropdown list validation to a specified cell. The dropdown list contains the options provided.
+        /// </summary>
+        /// <param name="cellReference">The cell reference in A1 notation where the dropdown should be added.</param>
+        /// <param name="options">An array of string values that will appear as options in the dropdown list.</param>
+        /// <exception cref="ArgumentException">
+        /// Thrown when <paramref name="cellReference"/> is null or invalid, or if <paramref name="options"/> is empty or null.
+        /// </exception>
+        /// <remarks>
+        /// This method creates a data validation rule that restricts input to the cell to the provided list of options.
+        /// </remarks>
         public void AddDropdownListValidation(string cellReference, string[] options)
         {
             // Convert options array into a comma-separated string
@@ -502,7 +692,7 @@ namespace FileFormat.Cells
         }
 
         /// <summary>
-        /// Gets the cell at the specified reference.
+        /// Gets the cell at the specified reference in A1 notation. This indexer provides a convenient way to access cells within the worksheet.
         /// </summary>
         /// <param name="cellReference">The cell reference in A1 notation.</param>
         /// <returns>The cell at the specified reference.</returns>
