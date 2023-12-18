@@ -663,6 +663,144 @@ namespace FileFormat.Cells
             dataValidations.AppendChild(dataValidation);
         }
 
+        public void ApplyValidation(string cellReference, ValidationRule rule)
+        {
+            DataValidation dataValidation = CreateDataValidation(cellReference, rule);
+            AddDataValidation(dataValidation);
+        }
+
+        public ValidationRule GetValidationRule(string cellReference)
+        {
+            if (_worksheetPart == null)
+            {
+                throw new InvalidOperationException("Worksheet part is not loaded.");
+            }
+
+            var dataValidations = _worksheetPart.Worksheet.Descendants<DataValidation>();
+
+            foreach (var dataValidation in dataValidations)
+            {
+                if (dataValidation.SequenceOfReferences.InnerText.Contains(cellReference))
+                {
+                    return CreateValidationRuleFromDataValidation(dataValidation);
+                }
+            }
+
+            return null; // No validation rule found for the specified cell
+        }
+
+        private ValidationRule CreateValidationRuleFromDataValidation(DataValidation dataValidation)
+        {
+            // Determine the type of validation
+            ValidationType type = DetermineValidationType(dataValidation.Type);
+
+            // Depending on the type, create a corresponding ValidationRule
+            switch (type)
+            {
+                case ValidationType.List:
+                    // Assuming list validations use a comma-separated list of options in Formula1
+                    var options = dataValidation.Formula1.Text.Split(',');
+                    return new ValidationRule(options);
+
+                case ValidationType.CustomFormula:
+                    return new ValidationRule(dataValidation.Formula1.Text);
+
+                // Add cases for other validation types (e.g., Date, WholeNumber, Decimal, TextLength)
+                // ...
+
+                default:
+                    throw new NotImplementedException("Validation type not supported.");
+            }
+        }
+
+        private ValidationType DetermineValidationType(DataValidationValues openXmlType)
+        {
+            // Map the OpenXML DataValidationValues to your ValidationType enum
+            // This mapping depends on how closely your ValidationType enum aligns with OpenXML's types
+            // Example mapping:
+            switch (openXmlType)
+            {
+                case DataValidationValues.List:
+                    return ValidationType.List;
+                case DataValidationValues.Custom:
+                    return ValidationType.CustomFormula;
+                // Map other types...
+                default:
+                    throw new NotImplementedException("Validation type not supported.");
+            }
+        }
+
+
+
+        private DataValidation CreateDataValidation(string cellReference, ValidationRule rule)
+        {
+            DataValidation dataValidation = new DataValidation
+            {
+                SequenceOfReferences = new ListValue<StringValue> { InnerText = cellReference },
+                ShowErrorMessage = true,
+                ErrorTitle = rule.ErrorTitle,
+                Error = rule.ErrorMessage
+            };
+
+            switch (rule.Type)
+            {
+                case ValidationType.List:
+                    dataValidation.Type = DataValidationValues.List;
+                    dataValidation.Formula1 = new Formula1($"\"{string.Join(",", rule.Options)}\"");
+                    break;
+
+                case ValidationType.Date:
+                    dataValidation.Type = DataValidationValues.Date;
+                    dataValidation.Operator = DataValidationOperatorValues.Between;
+                    dataValidation.Formula1 = new Formula1(rule.MinValue.HasValue ? rule.MinValue.Value.ToString() : "0");
+                    dataValidation.Formula2 = new Formula2(rule.MaxValue.HasValue ? rule.MaxValue.Value.ToString() : "0");
+                    break;
+
+                case ValidationType.WholeNumber:
+                    dataValidation.Type = DataValidationValues.Whole;
+                    dataValidation.Operator = DataValidationOperatorValues.Between;
+                    dataValidation.Formula1 = new Formula1(rule.MinValue.HasValue ? rule.MinValue.Value.ToString() : "0");
+                    dataValidation.Formula2 = new Formula2(rule.MaxValue.HasValue ? rule.MaxValue.Value.ToString() : "0");
+                    break;
+
+                case ValidationType.Decimal:
+                    dataValidation.Type = DataValidationValues.Decimal;
+                    dataValidation.Operator = DataValidationOperatorValues.Between;
+                    dataValidation.Formula1 = new Formula1(rule.MinValue.HasValue ? rule.MinValue.Value.ToString() : "0");
+                    dataValidation.Formula2 = new Formula2(rule.MaxValue.HasValue ? rule.MaxValue.Value.ToString() : "0");
+                    break;
+
+                case ValidationType.TextLength:
+                    dataValidation.Type = DataValidationValues.TextLength;
+                    dataValidation.Operator = DataValidationOperatorValues.Between;
+                    dataValidation.Formula1 = new Formula1(rule.MinValue.HasValue ? rule.MinValue.Value.ToString() : "0");
+                    dataValidation.Formula2 = new Formula2(rule.MaxValue.HasValue ? rule.MaxValue.Value.ToString() : "0");
+                    break;
+
+                case ValidationType.CustomFormula:
+                    dataValidation.Type = DataValidationValues.Custom;
+                    dataValidation.Formula1 = new Formula1(rule.CustomFormula);
+                    break;
+
+                default:
+                    throw new ArgumentException("Unsupported validation type.");
+            }
+
+            return dataValidation;
+        }
+
+
+        private void AddDataValidation(DataValidation dataValidation)
+        {
+            var dataValidations = _worksheetPart.Worksheet.GetFirstChild<DataValidations>();
+            if (dataValidations == null)
+            {
+                dataValidations = new DataValidations();
+                _worksheetPart.Worksheet.AppendChild(dataValidations);
+            }
+            dataValidations.AppendChild(dataValidation);
+        }
+
 
         private (uint row, uint column) ParseCellReference(string cellReference)
         {
