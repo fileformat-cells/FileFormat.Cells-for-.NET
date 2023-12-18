@@ -163,6 +163,19 @@ namespace FileFormat.Cells
             }
         }
 
+        public void ApplyValidation(ValidationRule rule)
+        {
+            // Iterate over all cells in the range and apply the validation rule
+            for (uint row = StartRowIndex; row <= EndRowIndex; row++)
+            {
+                for (uint column = StartColumnIndex; column <= EndColumnIndex; column++)
+                {
+                    var cellReference = $"{ColumnIndexToLetter(column)}{row}";
+                    _worksheet.ApplyValidation(cellReference, rule);
+                }
+            }
+        }
+
 
 
         private static string ColumnIndexToLetter(uint columnIndex)

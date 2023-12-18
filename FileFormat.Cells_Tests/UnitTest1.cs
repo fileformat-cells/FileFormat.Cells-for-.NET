@@ -330,8 +330,78 @@ public class UnitTest1
 
     }
 
+    [TestMethod]
+    public void ListValidationRule_CreatesCorrectType()
+    {
+        var options = new[] { "Option1", "Option2", "Option3" };
+        var rule = new ValidationRule(options);
 
+        Assert.AreEqual(ValidationType.List, rule.Type);
+        CollectionAssert.AreEqual(options, rule.Options);
+    }
 
+    [TestMethod]
+    public void NumericValidationRule_CreatesCorrectTypeAndValues()
+    {
+        var minValue = 10.0;
+        var maxValue = 100.0;
+        var rule = new ValidationRule(ValidationType.Decimal, minValue, maxValue);
+
+        Assert.AreEqual(ValidationType.Decimal, rule.Type);
+        Assert.AreEqual(minValue, rule.MinValue);
+        Assert.AreEqual(maxValue, rule.MaxValue);
+    }
+
+    [TestMethod]
+    public void CustomFormulaValidationRule_CreatesCorrectFormula()
+    {
+        var formula = "=A1>0";
+        var rule = new ValidationRule(formula);
+
+        Assert.AreEqual(ValidationType.CustomFormula, rule.Type);
+        Assert.AreEqual(formula, rule.CustomFormula);
+    }
+
+    [TestMethod]
+    public void ApplyListValidation_And_Verify()
+    {
+        var expectedOptions = new[] { "Apple", "Banana", "Orange" };
+        using (var workbook = new Workbook())
+        {
+            var worksheet = workbook.Worksheets[0];
+
+            // Act: Apply a list validation rule to a cell
+            var listRule = new ValidationRule(expectedOptions);
+            worksheet.ApplyValidation("A1", listRule); // Applying to cell A1
+
+            // Act: Save the workbook
+            workbook.Save(testFilePath);
+        }
+
+        // Assert: Reopen the workbook and verify the validation rule
+        using (var workbook = new Workbook(testFilePath))
+        {
+            var worksheet = workbook.Worksheets[0];
+            var retrievedRule = worksheet.GetValidationRule("A1");
+
+            Console.WriteLine("Expected Options: " + string.Join(", ", expectedOptions));
+            Console.WriteLine("Retrieved Options: " + string.Join(", ", retrievedRule.Options));
+
+            // Assert: Check that the retrieved rule matches what was applied
+            Assert.IsNotNull(retrievedRule, "Validation rule should not be null.");
+            
+            Assert.AreEqual(ValidationType.List, retrievedRule.Type, "Validation type should be List.");
+
+            // Verify each option individually
+            var processedRetrievedOptions = retrievedRule.Options
+                                        .Select(option => option.Trim(new char[] { ' ', '"' }))
+                                        .ToArray();
+
+            CollectionAssert.AreEqual(expectedOptions, processedRetrievedOptions, "Validation options do not match.");
+        }
+    }
+
+    
     [TestCleanup]
     public void Cleanup()
     {
