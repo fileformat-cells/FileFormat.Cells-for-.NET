@@ -13,6 +13,24 @@ references:
   commentId: T:FileFormat.Cells.BuiltInDocumentProperties
   fullName: FileFormat.Cells.BuiltInDocumentProperties
   nameWithType: BuiltInDocumentProperties
+- uid: FileFormat.Cells.BuiltInDocumentProperties.#ctor
+  name: BuiltInDocumentProperties()
+  href: api/FileFormat.Cells.BuiltInDocumentProperties.html#FileFormat_Cells_BuiltInDocumentProperties__ctor
+  commentId: M:FileFormat.Cells.BuiltInDocumentProperties.#ctor
+  name.vb: New()
+  fullName: FileFormat.Cells.BuiltInDocumentProperties.BuiltInDocumentProperties()
+  fullName.vb: FileFormat.Cells.BuiltInDocumentProperties.New()
+  nameWithType: BuiltInDocumentProperties.BuiltInDocumentProperties()
+  nameWithType.vb: BuiltInDocumentProperties.New()
+- uid: FileFormat.Cells.BuiltInDocumentProperties.#ctor*
+  name: BuiltInDocumentProperties
+  href: api/FileFormat.Cells.BuiltInDocumentProperties.html#FileFormat_Cells_BuiltInDocumentProperties__ctor_
+  commentId: Overload:FileFormat.Cells.BuiltInDocumentProperties.#ctor
+  name.vb: New
+  fullName: FileFormat.Cells.BuiltInDocumentProperties.BuiltInDocumentProperties
+  fullName.vb: FileFormat.Cells.BuiltInDocumentProperties.New
+  nameWithType: BuiltInDocumentProperties.BuiltInDocumentProperties
+  nameWithType.vb: BuiltInDocumentProperties.New
 - uid: FileFormat.Cells.BuiltInDocumentProperties.Author
   name: Author
   href: api/FileFormat.Cells.BuiltInDocumentProperties.html#FileFormat_Cells_BuiltInDocumentProperties_Author
@@ -23,7 +41,6 @@ references:
   name: Author
   href: api/FileFormat.Cells.BuiltInDocumentProperties.html#FileFormat_Cells_BuiltInDocumentProperties_Author_
   commentId: Overload:FileFormat.Cells.BuiltInDocumentProperties.Author
-  isSpec: "True"
   fullName: FileFormat.Cells.BuiltInDocumentProperties.Author
   nameWithType: BuiltInDocumentProperties.Author
 - uid: FileFormat.Cells.BuiltInDocumentProperties.CreatedDate
@@ -36,7 +53,6 @@ references:
   name: CreatedDate
   href: api/FileFormat.Cells.BuiltInDocumentProperties.html#FileFormat_Cells_BuiltInDocumentProperties_CreatedDate_
   commentId: Overload:FileFormat.Cells.BuiltInDocumentProperties.CreatedDate
-  isSpec: "True"
   fullName: FileFormat.Cells.BuiltInDocumentProperties.CreatedDate
   nameWithType: BuiltInDocumentProperties.CreatedDate
 - uid: FileFormat.Cells.BuiltInDocumentProperties.ModifiedBy
@@ -49,7 +65,6 @@ references:
   name: ModifiedBy
   href: api/FileFormat.Cells.BuiltInDocumentProperties.html#FileFormat_Cells_BuiltInDocumentProperties_ModifiedBy_
   commentId: Overload:FileFormat.Cells.BuiltInDocumentProperties.ModifiedBy
-  isSpec: "True"
   fullName: FileFormat.Cells.BuiltInDocumentProperties.ModifiedBy
   nameWithType: BuiltInDocumentProperties.ModifiedBy
 - uid: FileFormat.Cells.BuiltInDocumentProperties.ModifiedDate
@@ -62,7 +77,6 @@ references:
   name: ModifiedDate
   href: api/FileFormat.Cells.BuiltInDocumentProperties.html#FileFormat_Cells_BuiltInDocumentProperties_ModifiedDate_
   commentId: Overload:FileFormat.Cells.BuiltInDocumentProperties.ModifiedDate
-  isSpec: "True"
   fullName: FileFormat.Cells.BuiltInDocumentProperties.ModifiedDate
   nameWithType: BuiltInDocumentProperties.ModifiedDate
 - uid: FileFormat.Cells.BuiltInDocumentProperties.Subject
@@ -75,7 +89,6 @@ references:
   name: Subject
   href: api/FileFormat.Cells.BuiltInDocumentProperties.html#FileFormat_Cells_BuiltInDocumentProperties_Subject_
   commentId: Overload:FileFormat.Cells.BuiltInDocumentProperties.Subject
-  isSpec: "True"
   fullName: FileFormat.Cells.BuiltInDocumentProperties.Subject
   nameWithType: BuiltInDocumentProperties.Subject
 - uid: FileFormat.Cells.BuiltInDocumentProperties.Title
@@ -88,7 +101,6 @@ references:
   name: Title
   href: api/FileFormat.Cells.BuiltInDocumentProperties.html#FileFormat_Cells_BuiltInDocumentProperties_Title_
   commentId: Overload:FileFormat.Cells.BuiltInDocumentProperties.Title
-  isSpec: "True"
   fullName: FileFormat.Cells.BuiltInDocumentProperties.Title
   nameWithType: BuiltInDocumentProperties.Title
 - uid: FileFormat.Cells.Cell
@@ -110,7 +122,6 @@ references:
   name: Cell
   href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell__ctor_
   commentId: Overload:FileFormat.Cells.Cell.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: FileFormat.Cells.Cell.Cell
   fullName.vb: FileFormat.Cells.Cell.New
@@ -129,7 +140,6 @@ references:
   name: ApplyStyle
   href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_ApplyStyle_
   commentId: Overload:FileFormat.Cells.Cell.ApplyStyle
-  isSpec: "True"
   fullName: FileFormat.Cells.Cell.ApplyStyle
   nameWithType: Cell.ApplyStyle
 - uid: FileFormat.Cells.Cell.CellReference
@@ -142,7 +152,6 @@ references:
   name: CellReference
   href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_CellReference_
   commentId: Overload:FileFormat.Cells.Cell.CellReference
-  isSpec: "True"
   fullName: FileFormat.Cells.Cell.CellReference
   nameWithType: Cell.CellReference
 - uid: FileFormat.Cells.Cell.GetDataType
@@ -155,7 +164,6 @@ references:
   name: GetDataType
   href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_GetDataType_
   commentId: Overload:FileFormat.Cells.Cell.GetDataType
-  isSpec: "True"
   fullName: FileFormat.Cells.Cell.GetDataType
   nameWithType: Cell.GetDataType
 - uid: FileFormat.Cells.Cell.GetFormula
@@ -168,7 +176,6 @@ references:
   name: GetFormula
   href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_GetFormula_
   commentId: Overload:FileFormat.Cells.Cell.GetFormula
-  isSpec: "True"
   fullName: FileFormat.Cells.Cell.GetFormula
   nameWithType: Cell.GetFormula
 - uid: FileFormat.Cells.Cell.GetValue
@@ -181,7 +188,6 @@ references:
   name: GetValue
   href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_GetValue_
   commentId: Overload:FileFormat.Cells.Cell.GetValue
-  isSpec: "True"
   fullName: FileFormat.Cells.Cell.GetValue
   nameWithType: Cell.GetValue
 - uid: FileFormat.Cells.Cell.PutFormula(System.String)
@@ -197,7 +203,6 @@ references:
   name: PutFormula
   href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_PutFormula_
   commentId: Overload:FileFormat.Cells.Cell.PutFormula
-  isSpec: "True"
   fullName: FileFormat.Cells.Cell.PutFormula
   nameWithType: Cell.PutFormula
 - uid: FileFormat.Cells.Cell.PutValue(System.DateTime)
@@ -231,7 +236,6 @@ references:
   name: PutValue
   href: api/FileFormat.Cells.Cell.html#FileFormat_Cells_Cell_PutValue_
   commentId: Overload:FileFormat.Cells.Cell.PutValue
-  isSpec: "True"
   fullName: FileFormat.Cells.Cell.PutValue
   nameWithType: Cell.PutValue
 - uid: FileFormat.Cells.CellIndexer
@@ -253,7 +257,6 @@ references:
   name: CellIndexer
   href: api/FileFormat.Cells.CellIndexer.html#FileFormat_Cells_CellIndexer__ctor_
   commentId: Overload:FileFormat.Cells.CellIndexer.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: FileFormat.Cells.CellIndexer.CellIndexer
   fullName.vb: FileFormat.Cells.CellIndexer.New
@@ -272,7 +275,6 @@ references:
   name: this
   href: api/FileFormat.Cells.CellIndexer.html#FileFormat_Cells_CellIndexer_Item_
   commentId: Overload:FileFormat.Cells.CellIndexer.Item
-  isSpec: "True"
   name.vb: this[]
   fullName: FileFormat.Cells.CellIndexer.this
   fullName.vb: FileFormat.Cells.CellIndexer.this[]
@@ -306,7 +308,6 @@ references:
   name: Image
   href: api/FileFormat.Cells.Image.html#FileFormat_Cells_Image__ctor_
   commentId: Overload:FileFormat.Cells.Image.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: FileFormat.Cells.Image.Image
   fullName.vb: FileFormat.Cells.Image.New
@@ -322,7 +323,6 @@ references:
   name: Data
   href: api/FileFormat.Cells.Image.html#FileFormat_Cells_Image_Data_
   commentId: Overload:FileFormat.Cells.Image.Data
-  isSpec: "True"
   fullName: FileFormat.Cells.Image.Data
   nameWithType: Image.Data
 - uid: FileFormat.Cells.Image.Extension
@@ -335,7 +335,6 @@ references:
   name: Extension
   href: api/FileFormat.Cells.Image.html#FileFormat_Cells_Image_Extension_
   commentId: Overload:FileFormat.Cells.Image.Extension
-  isSpec: "True"
   fullName: FileFormat.Cells.Image.Extension
   nameWithType: Image.Extension
 - uid: FileFormat.Cells.Image.Path
@@ -348,7 +347,6 @@ references:
   name: Path
   href: api/FileFormat.Cells.Image.html#FileFormat_Cells_Image_Path_
   commentId: Overload:FileFormat.Cells.Image.Path
-  isSpec: "True"
   fullName: FileFormat.Cells.Image.Path
   nameWithType: Image.Path
 - uid: FileFormat.Cells.ImageHandler
@@ -370,7 +368,6 @@ references:
   name: ImageHandler
   href: api/FileFormat.Cells.ImageHandler.html#FileFormat_Cells_ImageHandler__ctor_
   commentId: Overload:FileFormat.Cells.ImageHandler.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: FileFormat.Cells.ImageHandler.ImageHandler
   fullName.vb: FileFormat.Cells.ImageHandler.New
@@ -389,7 +386,6 @@ references:
   name: Add
   href: api/FileFormat.Cells.ImageHandler.html#FileFormat_Cells_ImageHandler_Add_
   commentId: Overload:FileFormat.Cells.ImageHandler.Add
-  isSpec: "True"
   fullName: FileFormat.Cells.ImageHandler.Add
   nameWithType: ImageHandler.Add
 - uid: FileFormat.Cells.ImageHandler.drawing
@@ -417,7 +413,6 @@ references:
   name: Range
   href: api/FileFormat.Cells.Range.html#FileFormat_Cells_Range__ctor_
   commentId: Overload:FileFormat.Cells.Range.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: FileFormat.Cells.Range.Range
   fullName.vb: FileFormat.Cells.Range.New
@@ -436,9 +431,20 @@ references:
   name: AddDropdownListValidation
   href: api/FileFormat.Cells.Range.html#FileFormat_Cells_Range_AddDropdownListValidation_
   commentId: Overload:FileFormat.Cells.Range.AddDropdownListValidation
-  isSpec: "True"
   fullName: FileFormat.Cells.Range.AddDropdownListValidation
   nameWithType: Range.AddDropdownListValidation
+- uid: FileFormat.Cells.Range.ApplyValidation(FileFormat.Cells.ValidationRule)
+  name: ApplyValidation(ValidationRule)
+  href: api/FileFormat.Cells.Range.html#FileFormat_Cells_Range_ApplyValidation_FileFormat_Cells_ValidationRule_
+  commentId: M:FileFormat.Cells.Range.ApplyValidation(FileFormat.Cells.ValidationRule)
+  fullName: FileFormat.Cells.Range.ApplyValidation(FileFormat.Cells.ValidationRule)
+  nameWithType: Range.ApplyValidation(ValidationRule)
+- uid: FileFormat.Cells.Range.ApplyValidation*
+  name: ApplyValidation
+  href: api/FileFormat.Cells.Range.html#FileFormat_Cells_Range_ApplyValidation_
+  commentId: Overload:FileFormat.Cells.Range.ApplyValidation
+  fullName: FileFormat.Cells.Range.ApplyValidation
+  nameWithType: Range.ApplyValidation
 - uid: FileFormat.Cells.Range.ClearCells
   name: ClearCells()
   href: api/FileFormat.Cells.Range.html#FileFormat_Cells_Range_ClearCells
@@ -449,7 +455,6 @@ references:
   name: ClearCells
   href: api/FileFormat.Cells.Range.html#FileFormat_Cells_Range_ClearCells_
   commentId: Overload:FileFormat.Cells.Range.ClearCells
-  isSpec: "True"
   fullName: FileFormat.Cells.Range.ClearCells
   nameWithType: Range.ClearCells
 - uid: FileFormat.Cells.Range.ColumnCount
@@ -462,7 +467,6 @@ references:
   name: ColumnCount
   href: api/FileFormat.Cells.Range.html#FileFormat_Cells_Range_ColumnCount_
   commentId: Overload:FileFormat.Cells.Range.ColumnCount
-  isSpec: "True"
   fullName: FileFormat.Cells.Range.ColumnCount
   nameWithType: Range.ColumnCount
 - uid: FileFormat.Cells.Range.EndColumnIndex
@@ -475,7 +479,6 @@ references:
   name: EndColumnIndex
   href: api/FileFormat.Cells.Range.html#FileFormat_Cells_Range_EndColumnIndex_
   commentId: Overload:FileFormat.Cells.Range.EndColumnIndex
-  isSpec: "True"
   fullName: FileFormat.Cells.Range.EndColumnIndex
   nameWithType: Range.EndColumnIndex
 - uid: FileFormat.Cells.Range.EndRowIndex
@@ -488,7 +491,6 @@ references:
   name: EndRowIndex
   href: api/FileFormat.Cells.Range.html#FileFormat_Cells_Range_EndRowIndex_
   commentId: Overload:FileFormat.Cells.Range.EndRowIndex
-  isSpec: "True"
   fullName: FileFormat.Cells.Range.EndRowIndex
   nameWithType: Range.EndRowIndex
 - uid: FileFormat.Cells.Range.MergeCells
@@ -501,7 +503,6 @@ references:
   name: MergeCells
   href: api/FileFormat.Cells.Range.html#FileFormat_Cells_Range_MergeCells_
   commentId: Overload:FileFormat.Cells.Range.MergeCells
-  isSpec: "True"
   fullName: FileFormat.Cells.Range.MergeCells
   nameWithType: Range.MergeCells
 - uid: FileFormat.Cells.Range.RowCount
@@ -514,7 +515,6 @@ references:
   name: RowCount
   href: api/FileFormat.Cells.Range.html#FileFormat_Cells_Range_RowCount_
   commentId: Overload:FileFormat.Cells.Range.RowCount
-  isSpec: "True"
   fullName: FileFormat.Cells.Range.RowCount
   nameWithType: Range.RowCount
 - uid: FileFormat.Cells.Range.SetValue(System.String)
@@ -530,7 +530,6 @@ references:
   name: SetValue
   href: api/FileFormat.Cells.Range.html#FileFormat_Cells_Range_SetValue_
   commentId: Overload:FileFormat.Cells.Range.SetValue
-  isSpec: "True"
   fullName: FileFormat.Cells.Range.SetValue
   nameWithType: Range.SetValue
 - uid: FileFormat.Cells.Range.StartColumnIndex
@@ -543,7 +542,6 @@ references:
   name: StartColumnIndex
   href: api/FileFormat.Cells.Range.html#FileFormat_Cells_Range_StartColumnIndex_
   commentId: Overload:FileFormat.Cells.Range.StartColumnIndex
-  isSpec: "True"
   fullName: FileFormat.Cells.Range.StartColumnIndex
   nameWithType: Range.StartColumnIndex
 - uid: FileFormat.Cells.Range.StartRowIndex
@@ -556,9 +554,176 @@ references:
   name: StartRowIndex
   href: api/FileFormat.Cells.Range.html#FileFormat_Cells_Range_StartRowIndex_
   commentId: Overload:FileFormat.Cells.Range.StartRowIndex
-  isSpec: "True"
   fullName: FileFormat.Cells.Range.StartRowIndex
   nameWithType: Range.StartRowIndex
+- uid: FileFormat.Cells.ValidationRule
+  name: ValidationRule
+  href: api/FileFormat.Cells.ValidationRule.html
+  commentId: T:FileFormat.Cells.ValidationRule
+  fullName: FileFormat.Cells.ValidationRule
+  nameWithType: ValidationRule
+- uid: FileFormat.Cells.ValidationRule.#ctor(FileFormat.Cells.ValidationType,System.Double,System.Double)
+  name: ValidationRule(ValidationType, double, double)
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule__ctor_FileFormat_Cells_ValidationType_System_Double_System_Double_
+  commentId: M:FileFormat.Cells.ValidationRule.#ctor(FileFormat.Cells.ValidationType,System.Double,System.Double)
+  name.vb: New(ValidationType, Double, Double)
+  fullName: FileFormat.Cells.ValidationRule.ValidationRule(FileFormat.Cells.ValidationType, double, double)
+  fullName.vb: FileFormat.Cells.ValidationRule.New(FileFormat.Cells.ValidationType, Double, Double)
+  nameWithType: ValidationRule.ValidationRule(ValidationType, double, double)
+  nameWithType.vb: ValidationRule.New(ValidationType, Double, Double)
+- uid: FileFormat.Cells.ValidationRule.#ctor(System.String)
+  name: ValidationRule(string)
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule__ctor_System_String_
+  commentId: M:FileFormat.Cells.ValidationRule.#ctor(System.String)
+  name.vb: New(String)
+  fullName: FileFormat.Cells.ValidationRule.ValidationRule(string)
+  fullName.vb: FileFormat.Cells.ValidationRule.New(String)
+  nameWithType: ValidationRule.ValidationRule(string)
+  nameWithType.vb: ValidationRule.New(String)
+- uid: FileFormat.Cells.ValidationRule.#ctor(System.String[])
+  name: ValidationRule(string[])
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule__ctor_System_String___
+  commentId: M:FileFormat.Cells.ValidationRule.#ctor(System.String[])
+  name.vb: New(String())
+  fullName: FileFormat.Cells.ValidationRule.ValidationRule(string[])
+  fullName.vb: FileFormat.Cells.ValidationRule.New(String())
+  nameWithType: ValidationRule.ValidationRule(string[])
+  nameWithType.vb: ValidationRule.New(String())
+- uid: FileFormat.Cells.ValidationRule.#ctor*
+  name: ValidationRule
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule__ctor_
+  commentId: Overload:FileFormat.Cells.ValidationRule.#ctor
+  name.vb: New
+  fullName: FileFormat.Cells.ValidationRule.ValidationRule
+  fullName.vb: FileFormat.Cells.ValidationRule.New
+  nameWithType: ValidationRule.ValidationRule
+  nameWithType.vb: ValidationRule.New
+- uid: FileFormat.Cells.ValidationRule.CustomFormula
+  name: CustomFormula
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule_CustomFormula
+  commentId: P:FileFormat.Cells.ValidationRule.CustomFormula
+  fullName: FileFormat.Cells.ValidationRule.CustomFormula
+  nameWithType: ValidationRule.CustomFormula
+- uid: FileFormat.Cells.ValidationRule.CustomFormula*
+  name: CustomFormula
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule_CustomFormula_
+  commentId: Overload:FileFormat.Cells.ValidationRule.CustomFormula
+  fullName: FileFormat.Cells.ValidationRule.CustomFormula
+  nameWithType: ValidationRule.CustomFormula
+- uid: FileFormat.Cells.ValidationRule.ErrorMessage
+  name: ErrorMessage
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule_ErrorMessage
+  commentId: P:FileFormat.Cells.ValidationRule.ErrorMessage
+  fullName: FileFormat.Cells.ValidationRule.ErrorMessage
+  nameWithType: ValidationRule.ErrorMessage
+- uid: FileFormat.Cells.ValidationRule.ErrorMessage*
+  name: ErrorMessage
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule_ErrorMessage_
+  commentId: Overload:FileFormat.Cells.ValidationRule.ErrorMessage
+  fullName: FileFormat.Cells.ValidationRule.ErrorMessage
+  nameWithType: ValidationRule.ErrorMessage
+- uid: FileFormat.Cells.ValidationRule.ErrorTitle
+  name: ErrorTitle
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule_ErrorTitle
+  commentId: P:FileFormat.Cells.ValidationRule.ErrorTitle
+  fullName: FileFormat.Cells.ValidationRule.ErrorTitle
+  nameWithType: ValidationRule.ErrorTitle
+- uid: FileFormat.Cells.ValidationRule.ErrorTitle*
+  name: ErrorTitle
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule_ErrorTitle_
+  commentId: Overload:FileFormat.Cells.ValidationRule.ErrorTitle
+  fullName: FileFormat.Cells.ValidationRule.ErrorTitle
+  nameWithType: ValidationRule.ErrorTitle
+- uid: FileFormat.Cells.ValidationRule.MaxValue
+  name: MaxValue
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule_MaxValue
+  commentId: P:FileFormat.Cells.ValidationRule.MaxValue
+  fullName: FileFormat.Cells.ValidationRule.MaxValue
+  nameWithType: ValidationRule.MaxValue
+- uid: FileFormat.Cells.ValidationRule.MaxValue*
+  name: MaxValue
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule_MaxValue_
+  commentId: Overload:FileFormat.Cells.ValidationRule.MaxValue
+  fullName: FileFormat.Cells.ValidationRule.MaxValue
+  nameWithType: ValidationRule.MaxValue
+- uid: FileFormat.Cells.ValidationRule.MinValue
+  name: MinValue
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule_MinValue
+  commentId: P:FileFormat.Cells.ValidationRule.MinValue
+  fullName: FileFormat.Cells.ValidationRule.MinValue
+  nameWithType: ValidationRule.MinValue
+- uid: FileFormat.Cells.ValidationRule.MinValue*
+  name: MinValue
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule_MinValue_
+  commentId: Overload:FileFormat.Cells.ValidationRule.MinValue
+  fullName: FileFormat.Cells.ValidationRule.MinValue
+  nameWithType: ValidationRule.MinValue
+- uid: FileFormat.Cells.ValidationRule.Options
+  name: Options
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule_Options
+  commentId: P:FileFormat.Cells.ValidationRule.Options
+  fullName: FileFormat.Cells.ValidationRule.Options
+  nameWithType: ValidationRule.Options
+- uid: FileFormat.Cells.ValidationRule.Options*
+  name: Options
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule_Options_
+  commentId: Overload:FileFormat.Cells.ValidationRule.Options
+  fullName: FileFormat.Cells.ValidationRule.Options
+  nameWithType: ValidationRule.Options
+- uid: FileFormat.Cells.ValidationRule.Type
+  name: Type
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule_Type
+  commentId: P:FileFormat.Cells.ValidationRule.Type
+  fullName: FileFormat.Cells.ValidationRule.Type
+  nameWithType: ValidationRule.Type
+- uid: FileFormat.Cells.ValidationRule.Type*
+  name: Type
+  href: api/FileFormat.Cells.ValidationRule.html#FileFormat_Cells_ValidationRule_Type_
+  commentId: Overload:FileFormat.Cells.ValidationRule.Type
+  fullName: FileFormat.Cells.ValidationRule.Type
+  nameWithType: ValidationRule.Type
+- uid: FileFormat.Cells.ValidationType
+  name: ValidationType
+  href: api/FileFormat.Cells.ValidationType.html
+  commentId: T:FileFormat.Cells.ValidationType
+  fullName: FileFormat.Cells.ValidationType
+  nameWithType: ValidationType
+- uid: FileFormat.Cells.ValidationType.CustomFormula
+  name: CustomFormula
+  href: api/FileFormat.Cells.ValidationType.html#FileFormat_Cells_ValidationType_CustomFormula
+  commentId: F:FileFormat.Cells.ValidationType.CustomFormula
+  fullName: FileFormat.Cells.ValidationType.CustomFormula
+  nameWithType: ValidationType.CustomFormula
+- uid: FileFormat.Cells.ValidationType.Date
+  name: Date
+  href: api/FileFormat.Cells.ValidationType.html#FileFormat_Cells_ValidationType_Date
+  commentId: F:FileFormat.Cells.ValidationType.Date
+  fullName: FileFormat.Cells.ValidationType.Date
+  nameWithType: ValidationType.Date
+- uid: FileFormat.Cells.ValidationType.Decimal
+  name: Decimal
+  href: api/FileFormat.Cells.ValidationType.html#FileFormat_Cells_ValidationType_Decimal
+  commentId: F:FileFormat.Cells.ValidationType.Decimal
+  fullName: FileFormat.Cells.ValidationType.Decimal
+  nameWithType: ValidationType.Decimal
+- uid: FileFormat.Cells.ValidationType.List
+  name: List
+  href: api/FileFormat.Cells.ValidationType.html#FileFormat_Cells_ValidationType_List
+  commentId: F:FileFormat.Cells.ValidationType.List
+  fullName: FileFormat.Cells.ValidationType.List
+  nameWithType: ValidationType.List
+- uid: FileFormat.Cells.ValidationType.TextLength
+  name: TextLength
+  href: api/FileFormat.Cells.ValidationType.html#FileFormat_Cells_ValidationType_TextLength
+  commentId: F:FileFormat.Cells.ValidationType.TextLength
+  fullName: FileFormat.Cells.ValidationType.TextLength
+  nameWithType: ValidationType.TextLength
+- uid: FileFormat.Cells.ValidationType.WholeNumber
+  name: WholeNumber
+  href: api/FileFormat.Cells.ValidationType.html#FileFormat_Cells_ValidationType_WholeNumber
+  commentId: F:FileFormat.Cells.ValidationType.WholeNumber
+  fullName: FileFormat.Cells.ValidationType.WholeNumber
+  nameWithType: ValidationType.WholeNumber
 - uid: FileFormat.Cells.Workbook
   name: Workbook
   href: api/FileFormat.Cells.Workbook.html
@@ -587,7 +752,6 @@ references:
   name: Workbook
   href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook__ctor_
   commentId: Overload:FileFormat.Cells.Workbook.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: FileFormat.Cells.Workbook.Workbook
   fullName.vb: FileFormat.Cells.Workbook.New
@@ -606,7 +770,6 @@ references:
   name: AddSheet
   href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_AddSheet_
   commentId: Overload:FileFormat.Cells.Workbook.AddSheet
-  isSpec: "True"
   fullName: FileFormat.Cells.Workbook.AddSheet
   nameWithType: Workbook.AddSheet
 - uid: FileFormat.Cells.Workbook.BuiltinDocumentProperties
@@ -619,7 +782,6 @@ references:
   name: BuiltinDocumentProperties
   href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_BuiltinDocumentProperties_
   commentId: Overload:FileFormat.Cells.Workbook.BuiltinDocumentProperties
-  isSpec: "True"
   fullName: FileFormat.Cells.Workbook.BuiltinDocumentProperties
   nameWithType: Workbook.BuiltinDocumentProperties
 - uid: FileFormat.Cells.Workbook.CreateStyle(System.String,System.Double,System.String)
@@ -635,7 +797,6 @@ references:
   name: CreateStyle
   href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_CreateStyle_
   commentId: Overload:FileFormat.Cells.Workbook.CreateStyle
-  isSpec: "True"
   fullName: FileFormat.Cells.Workbook.CreateStyle
   nameWithType: Workbook.CreateStyle
 - uid: FileFormat.Cells.Workbook.DefaultStyleId
@@ -648,7 +809,6 @@ references:
   name: DefaultStyleId
   href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_DefaultStyleId_
   commentId: Overload:FileFormat.Cells.Workbook.DefaultStyleId
-  isSpec: "True"
   fullName: FileFormat.Cells.Workbook.DefaultStyleId
   nameWithType: Workbook.DefaultStyleId
 - uid: FileFormat.Cells.Workbook.Dispose
@@ -670,7 +830,6 @@ references:
   name: Dispose
   href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_Dispose_
   commentId: Overload:FileFormat.Cells.Workbook.Dispose
-  isSpec: "True"
   fullName: FileFormat.Cells.Workbook.Dispose
   nameWithType: Workbook.Dispose
 - uid: FileFormat.Cells.Workbook.RemoveSheet(System.String)
@@ -686,7 +845,6 @@ references:
   name: RemoveSheet
   href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_RemoveSheet_
   commentId: Overload:FileFormat.Cells.Workbook.RemoveSheet
-  isSpec: "True"
   fullName: FileFormat.Cells.Workbook.RemoveSheet
   nameWithType: Workbook.RemoveSheet
 - uid: FileFormat.Cells.Workbook.Save
@@ -714,7 +872,6 @@ references:
   name: Save
   href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_Save_
   commentId: Overload:FileFormat.Cells.Workbook.Save
-  isSpec: "True"
   fullName: FileFormat.Cells.Workbook.Save
   nameWithType: Workbook.Save
 - uid: FileFormat.Cells.Workbook.UpdateDefaultStyle(System.String,System.Double,System.String)
@@ -730,7 +887,6 @@ references:
   name: UpdateDefaultStyle
   href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_UpdateDefaultStyle_
   commentId: Overload:FileFormat.Cells.Workbook.UpdateDefaultStyle
-  isSpec: "True"
   fullName: FileFormat.Cells.Workbook.UpdateDefaultStyle
   nameWithType: Workbook.UpdateDefaultStyle
 - uid: FileFormat.Cells.Workbook.Worksheets
@@ -743,7 +899,6 @@ references:
   name: Worksheets
   href: api/FileFormat.Cells.Workbook.html#FileFormat_Cells_Workbook_Worksheets_
   commentId: Overload:FileFormat.Cells.Workbook.Worksheets
-  isSpec: "True"
   fullName: FileFormat.Cells.Workbook.Worksheets
   nameWithType: Workbook.Worksheets
 - uid: FileFormat.Cells.Workbook.spreadsheetDocument
@@ -789,7 +944,6 @@ references:
   name: AddDropdownListValidation
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_AddDropdownListValidation_
   commentId: Overload:FileFormat.Cells.Worksheet.AddDropdownListValidation
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.AddDropdownListValidation
   nameWithType: Worksheet.AddDropdownListValidation
 - uid: FileFormat.Cells.Worksheet.AddImage(FileFormat.Cells.Image,System.Int32,System.Int32,System.Int32,System.Int32)
@@ -805,9 +959,23 @@ references:
   name: AddImage
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_AddImage_
   commentId: Overload:FileFormat.Cells.Worksheet.AddImage
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.AddImage
   nameWithType: Worksheet.AddImage
+- uid: FileFormat.Cells.Worksheet.ApplyValidation(System.String,FileFormat.Cells.ValidationRule)
+  name: ApplyValidation(string, ValidationRule)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_ApplyValidation_System_String_FileFormat_Cells_ValidationRule_
+  commentId: M:FileFormat.Cells.Worksheet.ApplyValidation(System.String,FileFormat.Cells.ValidationRule)
+  name.vb: ApplyValidation(String, ValidationRule)
+  fullName: FileFormat.Cells.Worksheet.ApplyValidation(string, FileFormat.Cells.ValidationRule)
+  fullName.vb: FileFormat.Cells.Worksheet.ApplyValidation(String, FileFormat.Cells.ValidationRule)
+  nameWithType: Worksheet.ApplyValidation(string, ValidationRule)
+  nameWithType.vb: Worksheet.ApplyValidation(String, ValidationRule)
+- uid: FileFormat.Cells.Worksheet.ApplyValidation*
+  name: ApplyValidation
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_ApplyValidation_
+  commentId: Overload:FileFormat.Cells.Worksheet.ApplyValidation
+  fullName: FileFormat.Cells.Worksheet.ApplyValidation
+  nameWithType: Worksheet.ApplyValidation
 - uid: FileFormat.Cells.Worksheet.Cells
   name: Cells
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_Cells
@@ -818,7 +986,6 @@ references:
   name: Cells
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_Cells_
   commentId: Overload:FileFormat.Cells.Worksheet.Cells
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.Cells
   nameWithType: Worksheet.Cells
 - uid: FileFormat.Cells.Worksheet.DefaultColumnWidth
@@ -843,7 +1010,6 @@ references:
   name: ExtractImages
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_ExtractImages_
   commentId: Overload:FileFormat.Cells.Worksheet.ExtractImages
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.ExtractImages
   nameWithType: Worksheet.ExtractImages
 - uid: FileFormat.Cells.Worksheet.GetCell(System.String)
@@ -859,7 +1025,6 @@ references:
   name: GetCell
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_GetCell_
   commentId: Overload:FileFormat.Cells.Worksheet.GetCell
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.GetCell
   nameWithType: Worksheet.GetCell
 - uid: FileFormat.Cells.Worksheet.GetColumnWidth(System.UInt32)
@@ -875,7 +1040,6 @@ references:
   name: GetColumnWidth
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_GetColumnWidth_
   commentId: Overload:FileFormat.Cells.Worksheet.GetColumnWidth
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.GetColumnWidth
   nameWithType: Worksheet.GetColumnWidth
 - uid: FileFormat.Cells.Worksheet.GetRange(System.String,System.String)
@@ -900,7 +1064,6 @@ references:
   name: GetRange
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_GetRange_
   commentId: Overload:FileFormat.Cells.Worksheet.GetRange
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.GetRange
   nameWithType: Worksheet.GetRange
 - uid: FileFormat.Cells.Worksheet.GetRowHeight(System.UInt32)
@@ -916,7 +1079,6 @@ references:
   name: GetRowHeight
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_GetRowHeight_
   commentId: Overload:FileFormat.Cells.Worksheet.GetRowHeight
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.GetRowHeight
   nameWithType: Worksheet.GetRowHeight
 - uid: FileFormat.Cells.Worksheet.GetSheetIndex
@@ -929,9 +1091,23 @@ references:
   name: GetSheetIndex
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_GetSheetIndex_
   commentId: Overload:FileFormat.Cells.Worksheet.GetSheetIndex
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.GetSheetIndex
   nameWithType: Worksheet.GetSheetIndex
+- uid: FileFormat.Cells.Worksheet.GetValidationRule(System.String)
+  name: GetValidationRule(string)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_GetValidationRule_System_String_
+  commentId: M:FileFormat.Cells.Worksheet.GetValidationRule(System.String)
+  name.vb: GetValidationRule(String)
+  fullName: FileFormat.Cells.Worksheet.GetValidationRule(string)
+  fullName.vb: FileFormat.Cells.Worksheet.GetValidationRule(String)
+  nameWithType: Worksheet.GetValidationRule(string)
+  nameWithType.vb: Worksheet.GetValidationRule(String)
+- uid: FileFormat.Cells.Worksheet.GetValidationRule*
+  name: GetValidationRule
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_GetValidationRule_
+  commentId: Overload:FileFormat.Cells.Worksheet.GetValidationRule
+  fullName: FileFormat.Cells.Worksheet.GetValidationRule
+  nameWithType: Worksheet.GetValidationRule
 - uid: FileFormat.Cells.Worksheet.IsProtected
   name: IsProtected()
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_IsProtected
@@ -942,7 +1118,6 @@ references:
   name: IsProtected
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_IsProtected_
   commentId: Overload:FileFormat.Cells.Worksheet.IsProtected
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.IsProtected
   nameWithType: Worksheet.IsProtected
 - uid: FileFormat.Cells.Worksheet.MergeCells(System.String,System.String)
@@ -958,7 +1133,6 @@ references:
   name: MergeCells
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_MergeCells_
   commentId: Overload:FileFormat.Cells.Worksheet.MergeCells
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.MergeCells
   nameWithType: Worksheet.MergeCells
 - uid: FileFormat.Cells.Worksheet.Name
@@ -971,7 +1145,6 @@ references:
   name: Name
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_Name_
   commentId: Overload:FileFormat.Cells.Worksheet.Name
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.Name
   nameWithType: Worksheet.Name
 - uid: FileFormat.Cells.Worksheet.ProtectSheet(System.String)
@@ -987,7 +1160,6 @@ references:
   name: ProtectSheet
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_ProtectSheet_
   commentId: Overload:FileFormat.Cells.Worksheet.ProtectSheet
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.ProtectSheet
   nameWithType: Worksheet.ProtectSheet
 - uid: FileFormat.Cells.Worksheet.SetColumnWidth(System.String,System.Double)
@@ -1003,7 +1175,6 @@ references:
   name: SetColumnWidth
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_SetColumnWidth_
   commentId: Overload:FileFormat.Cells.Worksheet.SetColumnWidth
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.SetColumnWidth
   nameWithType: Worksheet.SetColumnWidth
 - uid: FileFormat.Cells.Worksheet.SetRowHeight(System.UInt32,System.Double)
@@ -1019,7 +1190,6 @@ references:
   name: SetRowHeight
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_SetRowHeight_
   commentId: Overload:FileFormat.Cells.Worksheet.SetRowHeight
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.SetRowHeight
   nameWithType: Worksheet.SetRowHeight
 - uid: FileFormat.Cells.Worksheet.UnprotectSheet
@@ -1032,7 +1202,6 @@ references:
   name: UnprotectSheet
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_UnprotectSheet_
   commentId: Overload:FileFormat.Cells.Worksheet.UnprotectSheet
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.UnprotectSheet
   nameWithType: Worksheet.UnprotectSheet
 - uid: FileFormat.Cells.Worksheet.WorksheetFactory
@@ -1041,6 +1210,24 @@ references:
   commentId: T:FileFormat.Cells.Worksheet.WorksheetFactory
   fullName: FileFormat.Cells.Worksheet.WorksheetFactory
   nameWithType: Worksheet.WorksheetFactory
+- uid: FileFormat.Cells.Worksheet.WorksheetFactory.#ctor
+  name: WorksheetFactory()
+  href: api/FileFormat.Cells.Worksheet.WorksheetFactory.html#FileFormat_Cells_Worksheet_WorksheetFactory__ctor
+  commentId: M:FileFormat.Cells.Worksheet.WorksheetFactory.#ctor
+  name.vb: New()
+  fullName: FileFormat.Cells.Worksheet.WorksheetFactory.WorksheetFactory()
+  fullName.vb: FileFormat.Cells.Worksheet.WorksheetFactory.New()
+  nameWithType: Worksheet.WorksheetFactory.WorksheetFactory()
+  nameWithType.vb: Worksheet.WorksheetFactory.New()
+- uid: FileFormat.Cells.Worksheet.WorksheetFactory.#ctor*
+  name: WorksheetFactory
+  href: api/FileFormat.Cells.Worksheet.WorksheetFactory.html#FileFormat_Cells_Worksheet_WorksheetFactory__ctor_
+  commentId: Overload:FileFormat.Cells.Worksheet.WorksheetFactory.#ctor
+  name.vb: New
+  fullName: FileFormat.Cells.Worksheet.WorksheetFactory.WorksheetFactory
+  fullName.vb: FileFormat.Cells.Worksheet.WorksheetFactory.New
+  nameWithType: Worksheet.WorksheetFactory.WorksheetFactory
+  nameWithType.vb: Worksheet.WorksheetFactory.New
 - uid: FileFormat.Cells.Worksheet.WorksheetFactory.CreateInstance(DocumentFormat.OpenXml.Packaging.WorksheetPart,DocumentFormat.OpenXml.Spreadsheet.Worksheet)
   name: CreateInstance(WorksheetPart, Worksheet)
   href: api/FileFormat.Cells.Worksheet.WorksheetFactory.html#FileFormat_Cells_Worksheet_WorksheetFactory_CreateInstance_DocumentFormat_OpenXml_Packaging_WorksheetPart_DocumentFormat_OpenXml_Spreadsheet_Worksheet_
@@ -1051,6 +1238,5 @@ references:
   name: CreateInstance
   href: api/FileFormat.Cells.Worksheet.WorksheetFactory.html#FileFormat_Cells_Worksheet_WorksheetFactory_CreateInstance_
   commentId: Overload:FileFormat.Cells.Worksheet.WorksheetFactory.CreateInstance
-  isSpec: "True"
   fullName: FileFormat.Cells.Worksheet.WorksheetFactory.CreateInstance
   nameWithType: Worksheet.WorksheetFactory.CreateInstance

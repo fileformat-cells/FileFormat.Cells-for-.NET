@@ -1,7 +1,17 @@
 {
-  "source_base_path": "//Mac/Home/Projects/Aspose/docfx_project",
+  "source_base_path": "//Mac/Home/Projects/Aspose/docfx_Sabir",
   "xrefmap": "xrefmap.yml",
   "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html"
+        }
+      },
+      "version": ""
+    },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/FileFormat.Cells.BuiltInDocumentProperties.yml",
@@ -58,6 +68,26 @@
       "output": {
         ".html": {
           "relative_path": "api/FileFormat.Cells.Range.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FileFormat.Cells.ValidationRule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FileFormat.Cells.ValidationRule.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FileFormat.Cells.ValidationType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FileFormat.Cells.ValidationType.html"
         }
       },
       "version": ""
@@ -121,16 +151,29 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/intro.md",
+      "source_relative_path": "articles/index.md",
       "output": {
         ".html": {
-          "relative_path": "articles/intro.html"
+          "relative_path": "articles/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/open-workbook.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/open-workbook.html"
         }
       },
       "version": ""
@@ -141,16 +184,29 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
         }
       },
       "version": ""
     },
     {
-      "type": "Resource",
-      "source_relative_path": "favicon.ico",
+      "type": "Conceptual",
+      "source_relative_path": "articles/workbook.md",
       "output": {
-        "resource": {
-          "relative_path": "favicon.ico"
+        ".html": {
+          "relative_path": "articles/workbook.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/worksheet.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/worksheet.html"
         }
       },
       "version": ""
@@ -169,21 +225,14 @@
       "version": ""
     },
     {
-      "type": "Resource",
-      "source_relative_path": "logo.svg",
-      "output": {
-        "resource": {
-          "relative_path": "logo.svg"
-        }
-      },
-      "version": ""
-    },
-    {
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
         ".html": {
           "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
       "version": ""
