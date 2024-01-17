@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Vml;
 
 
 namespace FileFormat.Cells
@@ -663,12 +664,33 @@ namespace FileFormat.Cells
             dataValidations.AppendChild(dataValidation);
         }
 
+        // <summary>
+        /// Applies a data validation rule to a specific cell in the worksheet.
+        /// </summary>
+        /// <param name="cellReference">The reference of the cell to which the validation rule will be applied, e.g., "A1".</param>
+        /// <param name="rule">The validation rule to apply to the cell.</param>
+        /// <remarks>
+        /// This method applies a specified data validation rule to a single cell in the worksheet. It first creates a <see cref="DataValidation"/> object based on the provided cell reference and validation rule, and then adds this data validation to the worksheet. This allows for dynamic application of validation criteria to cells, which is useful in scenarios where data integrity and input validation are required.
+        /// </remarks>
         public void ApplyValidation(string cellReference, ValidationRule rule)
         {
             DataValidation dataValidation = CreateDataValidation(cellReference, rule);
             AddDataValidation(dataValidation);
         }
 
+        /// <summary>
+        /// Retrieves the validation rule applied to a specific cell in the worksheet.
+        /// </summary>
+        /// <param name="cellReference">The reference of the cell for which to retrieve the validation rule, e.g., "A1".</param>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the Worksheet part is not loaded or is null.
+        /// </exception>
+        /// <returns>
+        /// The validation rule applied to the specified cell if one exists; otherwise, null.
+        /// </returns>
+        /// <remarks>
+        /// This method searches for a data validation rule that applies to the specified cell. It iterates through all the data validation rules present in the worksheet. If a rule is found that includes the cell reference, the method constructs and returns a corresponding <see cref="ValidationRule"/> object. If no such rule is found, the method returns null. This is useful for dynamically determining validation criteria or rules applied to specific cells.
+        /// </remarks>
         public ValidationRule GetValidationRule(string cellReference)
         {
             if (_worksheetPart == null)
@@ -813,6 +835,777 @@ namespace FileFormat.Cells
 
             return (row, column);
         }
+
+        /// <summary>
+        /// Hides a specific column in the worksheet.
+        /// </summary>
+        /// <param name="columnName">The letter of the column to hide. Cannot be null or whitespace.</param>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown when <paramref name="columnName"/> is null or whitespace, indicating that the column name cannot be null or empty.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the Worksheet or WorksheetPart is null.
+        /// </exception>
+        /// <remarks>
+        /// This method hides a single column in the worksheet, specified by the column name. If the column does not already exist in the worksheet's column collection, it is created with the Hidden property set to true. If the column already exists, the Hidden property is set to true, effectively hiding the column. The method ensures that the specified column is hidden, whether it was previously defined or not.
+        /// </remarks>
+        public void HideColumn(string columnName)
+        {
+            if (string.IsNullOrWhiteSpace(columnName))
+            {
+                throw new ArgumentNullException(nameof(columnName), "Column name cannot be null or empty.");
+            }
+
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
+
+            Columns columns = _worksheetPart.Worksheet.GetFirstChild<Columns>();
+            if (columns == null)
+            {
+                columns = new Columns();
+                _worksheetPart.Worksheet.InsertAt(columns, 0);
+            }
+
+            uint columnIndex = (uint)ColumnLetterToIndex(columnName);
+            Column column = columns.Elements<Column>().FirstOrDefault(c => c.Min == columnIndex);
+            if (column == null)
+            {
+                // If the column doesn't exist, create it and set it as hidden
+                column = new Column { Min = columnIndex, Max = columnIndex, Hidden = true };
+                columns.Append(column);
+            }
+            else
+            {
+                // If the column exists, just set it as hidden
+                column.Hidden = true;
+            }
+
+            // Save the changes to the worksheet part
+            _worksheetPart.Worksheet.Save();
+        }
+
+        /// <summary>
+        /// Unhides a specific column in the worksheet.
+        /// </summary>
+        /// <param name="columnName">The letter of the column to unhide. Cannot be null or whitespace.</param>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown when <paramref name="columnName"/> is null or whitespace, as the column name cannot be null or empty.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the Worksheet or WorksheetPart is null.
+        /// </exception>
+        /// <remarks>
+        /// This method unhides a single column specified by the column name. If the column does not exist in the worksheet's column collection, it is added with the Hidden property set to false. If the column exists, the Hidden property is set to false. This ensures that the specified column is effectively unhidden regardless of its initial state. The method checks for the existence of the column and adjusts the Hidden property accordingly.
+        /// </remarks>
+        public void UnhideColumn(string columnName)
+        {
+            if (string.IsNullOrWhiteSpace(columnName))
+            {
+                throw new ArgumentNullException(nameof(columnName), "Column name cannot be null or empty.");
+            }
+
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
+
+            Columns columns = _worksheetPart.Worksheet.Elements<Columns>().FirstOrDefault();
+            if (columns == null)
+            {
+                columns = new Columns();
+                _worksheetPart.Worksheet.InsertAt(columns, 0);
+            }
+
+            uint columnIndex = (uint)ColumnLetterToIndex(columnName);
+            Column column = columns.Elements<Column>().FirstOrDefault(c => c.Min == columnIndex);
+
+            if (column == null)
+            {
+                // If the column doesn't exist in the collection, add it and set Hidden to false
+                column = new Column { Min = columnIndex, Max = columnIndex, Hidden = false };
+                columns.Append(column);
+            }
+            else
+            {
+                // If the column exists, set Hidden to false or clear the attribute
+                column.Hidden = false;
+            }
+
+            _worksheetPart.Worksheet.Save();
+        }
+
+        /// <summary>
+        /// Unhides a range of columns in the worksheet.
+        /// </summary>
+        /// <param name="startColumn">The letter of the starting column to unhide. Cannot be null or empty.</param>
+        /// <param name="numberOfColumns">The number of columns to unhide, starting from the startColumn. Must be greater than 0.</param>
+        /// <exception cref="ArgumentException">
+        /// Thrown when <paramref name="startColumn"/> is null or whitespace.
+        /// </exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown when <paramref name="numberOfColumns"/> is less than or equal to 0, as the number of columns to unhide must be greater than 0.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the Worksheet or WorksheetPart is null.
+        /// </exception>
+        /// <remarks>
+        /// This method unhides a specified range of columns in the worksheet. It calculates the column indices based on the starting column letter and the number of columns to unhide. If the columns within the specified range are not currently hidden or do not exist, no action is taken for those columns. The method only modifies columns that are defined and hidden.
+        /// </remarks>
+        public void UnhideColumns(string startColumn, int numberOfColumns)
+        {
+            if (string.IsNullOrWhiteSpace(startColumn))
+            {
+                throw new ArgumentException("Start column cannot be null or empty.", nameof(startColumn));
+            }
+
+            if (numberOfColumns <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(numberOfColumns), "Number of columns to unhide must be greater than 0.");
+            }
+
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
+
+            int startColumnIndex = ColumnLetterToIndex(startColumn);
+            int endColumnIndex = startColumnIndex + numberOfColumns - 1;
+
+            Columns columns = _worksheetPart.Worksheet.Elements<Columns>().FirstOrDefault();
+            if (columns == null)
+            {
+                // If there are no columns defined, there is nothing to unhide
+                return;
+            }
+
+            bool columnModified = false;
+            foreach (Column column in columns)
+            {
+                if (column.Min <= endColumnIndex + 1 && column.Max >= startColumnIndex + 1)
+                {
+                    column.Hidden = null; // Unhide the column
+                    columnModified = true;
+                }
+            }
+
+            // Save the changes if any column was modified
+            if (columnModified)
+            {
+                _worksheetPart.Worksheet.Save();
+            }
+        }
+
+        /// <summary>
+        /// Hides a specific row in the worksheet.
+        /// </summary>
+        /// <param name="rowIndex">The one-based index of the row to hide. Must be greater than 0.</param>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown when <paramref name="rowIndex"/> is 0, as the row index must be greater than 0.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the Worksheet or WorksheetPart is null, or if SheetData is null.
+        /// </exception>
+        /// <remarks>
+        /// This method hides a single row specified by the rowIndex. If the row does not exist in the worksheet,
+        /// it is created and then hidden. This ensures that the specified row is effectively hidden regardless of its
+        /// initial existence. The method checks the existence of the row and sets the Hidden property accordingly.
+        /// </remarks>
+        public void HideRow(uint rowIndex)
+        {
+            if (rowIndex == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(rowIndex), "Row index must be greater than 0.");
+            }
+
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
+
+            SheetData sheetData = _worksheetPart.Worksheet.GetFirstChild<SheetData>();
+            if (sheetData == null)
+            {
+                throw new InvalidOperationException("SheetData is null.");
+            }
+
+            Row row = sheetData.Elements<Row>().FirstOrDefault(r => r.RowIndex == rowIndex);
+            if (row == null)
+            {
+                // If the row doesn't exist, create it and set it as hidden
+                row = new Row() { RowIndex = rowIndex, Hidden = true };
+                sheetData.Append(row);
+            }
+            else
+            {
+                // If the row exists, just set it as hidden
+                row.Hidden = true;
+            }
+
+            // Save the changes to the worksheet part
+            _worksheetPart.Worksheet.Save();
+        }
+
+        /// <summary>
+        /// Hides a range of rows in the worksheet.
+        /// </summary>
+        /// <param name="startRowIndex">The one-based index of the first row to hide. Must be greater than 0.</param>
+        /// <param name="numberOfRows">The number of rows to hide, starting from the startRowIndex. Must be greater than 0.</param>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown when <paramref name="startRowIndex"/> or <paramref name="numberOfRows"/> is 0.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when Worksheet or WorksheetPart is null, or if SheetData is null.
+        /// </exception>
+        /// <remarks>
+        /// This method hides rows in a consecutive range starting from startRowIndex and spanning numberOfRows.
+        /// If a row within the specified range does not exist, it is created and then hidden, ensuring that
+        /// the entire specified range is effectively hidden. The method iterates through each row in the specified range
+        /// and sets or creates the Hidden property as true.
+        /// </remarks>
+        public void HideRows(uint startRowIndex, uint numberOfRows)
+        {
+            if (startRowIndex == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(startRowIndex), "Start row index must be greater than 0.");
+            }
+
+            if (numberOfRows == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(numberOfRows), "Number of rows must be greater than 0.");
+            }
+
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
+
+            SheetData sheetData = _worksheetPart.Worksheet.GetFirstChild<SheetData>();
+            if (sheetData == null)
+            {
+                throw new InvalidOperationException("SheetData is null.");
+            }
+
+            uint endRowIndex = startRowIndex + numberOfRows - 1;
+            for (uint rowIndex = startRowIndex; rowIndex <= endRowIndex; rowIndex++)
+            {
+                Row row = sheetData.Elements<Row>().FirstOrDefault(r => r.RowIndex == rowIndex);
+                if (row == null)
+                {
+                    // If the row doesn't exist, create it and set it as hidden
+                    row = new Row() { RowIndex = rowIndex, Hidden = true };
+                    sheetData.Append(row);
+                }
+                else
+                {
+                    // If the row exists, just set it as hidden
+                    row.Hidden = true;
+                }
+            }
+
+            // Save the changes to the worksheet part
+            _worksheetPart.Worksheet.Save();
+        }
+
+        /// <summary>
+        /// Unhides a single row in the worksheet.
+        /// </summary>
+        /// <param name="rowIndex">The one-based index of the row to unhide.</param>
+        /// <remarks>
+        /// This method unhides the row at the specified rowIndex. It is a convenience method that 
+        /// internally calls <see cref="UnhideRows"/> with the numberOfRows parameter set to 1.
+        /// If the row at the specified index does not exist or is already visible, 
+        /// the method leaves it unaffected.
+        /// </remarks>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown when the rowIndex is 0, as Excel row indices are 1-based.
+        /// </exception>
+        public void UnhideRow(uint rowIndex)
+        {
+            if (rowIndex == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(rowIndex), "Row index must be greater than 0.");
+            }
+
+            UnhideRows(rowIndex, 1);
+        }
+
+        /// <summary>
+        /// Unhides a specified range of rows in the worksheet.
+        /// </summary>
+        /// <param name="startRowIndex">The one-based index of the first row to unhide.</param>
+        /// <param name="numberOfRows">The number of rows to unhide, starting from the startRowIndex.</param>
+        /// <remarks>
+        /// This method unhides rows in a consecutive range starting from startRowIndex and covering numberOfRows. 
+        /// If any row within the specified range does not exist or is already visible, the method leaves it unaffected.
+        /// The method iterates through each row in the specified range and sets its Hidden property to false.
+        /// </remarks>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown when the startRowIndex is 0 (since Excel row indices are 1-based) or 
+        /// when numberOfRows is 0 (as at least one row must be specified to unhide).
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when either the Worksheet or WorksheetPart is null, indicating that the worksheet has not been properly initialized,
+        /// or when SheetData is null, indicating that the worksheet does not contain any rows.
+        /// </exception>
+        public void UnhideRows(uint startRowIndex, uint numberOfRows)
+        {
+            if (startRowIndex == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(startRowIndex), "Start row index must be greater than 0.");
+            }
+
+            if (numberOfRows == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(numberOfRows), "Number of rows must be greater than 0.");
+            }
+
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
+
+            SheetData sheetData = _worksheetPart.Worksheet.GetFirstChild<SheetData>();
+            if (sheetData == null)
+            {
+                throw new InvalidOperationException("SheetData is null.");
+            }
+
+            uint endRowIndex = startRowIndex + numberOfRows - 1;
+            for (uint rowIndex = startRowIndex; rowIndex <= endRowIndex; rowIndex++)
+            {
+                Row row = sheetData.Elements<Row>().FirstOrDefault(r => r.RowIndex == rowIndex);
+                if (row != null)
+                {
+                    // Only unhide the row if it exists
+                    row.Hidden = false;
+                }
+            }
+
+            // Save the changes to the worksheet part
+            _worksheetPart.Worksheet.Save();
+        }
+
+        /// <summary>
+        /// Inserts a new row into the worksheet at the specified row index.
+        /// </summary>
+        /// <param name="rowIndex">The one-based index at which to insert the new row. Existing rows starting from this index will be shifted down.</param>
+        /// <remarks>
+        /// The method will shift down all existing rows and their cells starting from the specified row index. 
+        /// Each cell's reference in the shifted rows will also be updated to reflect the new row index. 
+        /// If a row already exists at the specified index, it will be shifted down along with subsequent rows.
+        /// </remarks>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when the provided row index is 0, as row indices in Excel are 1-based.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when the Worksheet or WorksheetPart is null, or if the SheetData is not available in the Worksheet.</exception>
+        public void InsertRow(uint rowIndex)
+        {
+            if (rowIndex == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(rowIndex), "Row index must be greater than 0.");
+            }
+
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null || _worksheetPart.Worksheet.GetFirstChild<SheetData>() == null)
+            {
+                throw new InvalidOperationException("Worksheet, WorksheetPart or SheetData is null.");
+            }
+
+            SheetData sheetData = _worksheetPart.Worksheet.GetFirstChild<SheetData>();
+
+            // Shift the existing rows and their cells down by one
+            var rowsToShift = sheetData.Elements<Row>().Where(r => r.RowIndex.Value >= rowIndex).ToList();
+            foreach (Row row in rowsToShift)
+            {
+                row.RowIndex.Value++;
+
+                foreach (DocumentFormat.OpenXml.Spreadsheet.Cell openXmlCell in row.Elements<DocumentFormat.OpenXml.Spreadsheet.Cell>())
+                {
+                    string newCellReference = IncrementCellReference(openXmlCell.CellReference, 1);
+                    openXmlCell.CellReference = new StringValue(newCellReference);
+                }
+            }
+
+            // Insert the new row at the specified position
+            Row newRow = new Row() { RowIndex = rowIndex };
+            sheetData.InsertBefore(newRow, sheetData.Elements<Row>().FirstOrDefault(r => r.RowIndex.Value > rowIndex));
+
+            // Save the changes to the worksheet part
+            _worksheetPart.Worksheet.Save();
+        }
+
+        /// <summary>
+        /// Inserts a specified number of new rows into the worksheet starting at a given row index.
+        /// </summary>
+        /// <param name="startRowIndex">The one-based index of the row from which new rows should start being inserted. Must be greater than 0.</param>
+        /// <param name="numberOfRows">The number of rows to insert. Must be greater than 0.</param>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown when either <paramref name="startRowIndex"/> or <paramref name="numberOfRows"/> is 0, as both values must be greater than 0.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the Worksheet, WorksheetPart, or SheetData is null.
+        /// </exception>
+        /// <remarks>
+        /// This method inserts a number of new rows into the worksheet starting at the specified startRowIndex. Existing rows starting from this index are shifted downwards to make space for the new rows. This includes adjusting the row indices and references of existing cells to maintain data integrity. The method is useful in scenarios where rows need to be dynamically added to the worksheet without overwriting existing data.
+        /// </remarks>
+        public void InsertRows(uint startRowIndex, uint numberOfRows)
+        {
+            if (startRowIndex == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(startRowIndex), "Start row index must be greater than 0.");
+            }
+
+            if (numberOfRows == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(numberOfRows), "Number of rows to insert must be greater than 0.");
+            }
+
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null || _worksheetPart.Worksheet.GetFirstChild<SheetData>() == null)
+            {
+                throw new InvalidOperationException("Worksheet, WorksheetPart, or SheetData is null.");
+            }
+
+            SheetData sheetData = _worksheetPart.Worksheet.GetFirstChild<SheetData>();
+
+            // Shift existing rows and their cells down by the number of rows
+            var rowsToShift = sheetData.Elements<Row>().Where(r => r.RowIndex.Value >= startRowIndex).ToList();
+            foreach (Row row in rowsToShift)
+            {
+                row.RowIndex.Value += numberOfRows;
+
+                foreach (DocumentFormat.OpenXml.Spreadsheet.Cell openXmlCell in row.Elements<DocumentFormat.OpenXml.Spreadsheet.Cell>())
+                {
+                    string newCellReference = IncrementCellReference(openXmlCell.CellReference, (int)numberOfRows);
+                    openXmlCell.CellReference = new StringValue(newCellReference);
+                }
+            }
+
+            // Insert the new rows
+            for (uint i = 0; i < numberOfRows; i++)
+            {
+                Row newRow = new Row() { RowIndex = startRowIndex + i };
+                sheetData.InsertBefore(newRow, sheetData.Elements<Row>().FirstOrDefault(r => r.RowIndex.Value > startRowIndex + i));
+            }
+
+            // Save the changes to the worksheet part
+            _worksheetPart.Worksheet.Save();
+        }
+        /// <summary>
+        /// Retrieves the total number of rows in the worksheet.
+        /// </summary>
+        /// <returns>
+        /// The total number of rows in the worksheet. Returns 0 if the worksheet or sheet data is null.
+        /// </returns>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the Worksheet or WorksheetPart is null.
+        /// </exception>
+        /// <remarks>
+        /// This method calculates and returns the total number of rows present in the worksheet. It does this by counting the number of <see cref="Row"/> elements within the <see cref="SheetData"/>. If the worksheet or sheet data is null, indicating an improperly initialized or corrupted worksheet, the method returns 0. This is useful for dynamically determining the size of the worksheet and iterating through its rows.
+        /// </remarks>
+        public int GetRowCount()
+        {
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
+
+            SheetData sheetData = _worksheetPart.Worksheet.GetFirstChild<SheetData>();
+            if (sheetData == null)
+            {
+                return 0; // No rows if SheetData is null
+            }
+
+            return sheetData.Elements<Row>().Count();
+        }
+
+        /// <summary>
+        /// Retrieves the total number of columns in the worksheet.
+        /// </summary>
+        /// <returns>
+        /// The total number of columns in the worksheet. Returns 0 if the worksheet or sheet data is null.
+        /// </returns>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the Worksheet or WorksheetPart is null.
+        /// </exception>
+        /// <remarks>
+        /// This method calculates and returns the total number of columns present in the worksheet. It does this by analyzing the cell references in each row to determine the unique column indices in use. If the worksheet or sheet data is null, indicating an improperly initialized or corrupted worksheet, the method returns 0. This is useful for dynamically determining the size of the worksheet and iterating through its columns.
+        /// </remarks>
+        public int GetColumnCount()
+        {
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
+
+            SheetData sheetData = _worksheetPart.Worksheet.GetFirstChild<SheetData>();
+            if (sheetData == null)
+            {
+                return 0; // No columns if SheetData is null
+            }
+
+            // HashSet to keep track of unique column indices
+            var columnIndices = new HashSet<int>();
+
+            foreach (Row row in sheetData.Elements<Row>())
+            {
+                foreach (DocumentFormat.OpenXml.Spreadsheet.Cell cell in row.Elements<DocumentFormat.OpenXml.Spreadsheet.Cell>())
+                {
+                    string cellReference = cell.CellReference;
+                    if (!string.IsNullOrEmpty(cellReference))
+                    {
+                        // Extract the column part of the cell reference and convert it to an index
+                        string columnPart = new String(cellReference.TakeWhile(Char.IsLetter).ToArray());
+                        int columnIndex = ColumnLetterToIndex(columnPart);
+                        columnIndices.Add(columnIndex);
+                    }
+                }
+            }
+
+            return columnIndices.Count;
+        }
+
+        /// <summary>
+        /// Checks if a specific row in the worksheet is hidden.
+        /// </summary>
+        /// <param name="rowIndex">The one-based index of the row to check for hidden status.</param>
+        /// <returns>
+        /// <c>true</c> if the specified row is hidden; otherwise, <c>false</c>. Returns <c>false</c> if the worksheet or sheet data is null, or if the row doesn't exist.
+        /// </returns>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the Worksheet or WorksheetPart is null.
+        /// </exception>
+        /// <remarks>
+        /// This method determines whether a specified row in the worksheet is hidden. It checks the existence of the row and its Hidden property. If the worksheet or sheet data is null, or if the row doesn't exist, the method returns <c>false</c>, indicating that the row is not hidden. This is useful for checking the visibility status of rows in the worksheet.
+        /// </remarks>
+        public bool IsRowHidden(uint rowIndex)
+        {
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
+
+            SheetData sheetData = _worksheetPart.Worksheet.GetFirstChild<SheetData>();
+            if (sheetData == null)
+            {
+                // If there's no SheetData, the row is not hidden because it doesn't exist
+                return false;
+            }
+
+            Row row = sheetData.Elements<Row>().FirstOrDefault(r => r.RowIndex == rowIndex);
+            if (row == null)
+            {
+                // If the row doesn't exist, it's not hidden
+                return false;
+            }
+
+            // Check the Hidden property of the Row
+            // If the row doesn't have the Hidden attribute, it's not hidden
+            return row.Hidden != null && row.Hidden.Value;
+        }
+
+        /// <summary>
+        /// Checks if a specific column in the worksheet is hidden.
+        /// </summary>
+        /// <param name="columnName">The letter of the column to check for hidden status. Cannot be null or whitespace.</param>
+        /// <returns>
+        /// <c>true</c> if the specified column is hidden; otherwise, <c>false</c>. Returns <c>false</c> if the worksheet or sheet data is null, or if the column doesn't exist.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown when <paramref name="columnName"/> is null or whitespace, indicating that the column name cannot be null or empty.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the Worksheet or WorksheetPart is null.
+        /// </exception>
+        /// <remarks>
+        /// This method determines whether a specified column in the worksheet is hidden. It checks the existence of the column in the worksheet's Columns collection and its Hidden property. If the worksheet or Columns collection is null, or if the column doesn't exist, the method returns <c>false</c>, indicating that the column is not hidden. This is useful for checking the visibility status of columns in the worksheet.
+        /// </remarks>
+        public bool IsColumnHidden(string columnName)
+        {
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
+
+            Columns columns = _worksheetPart.Worksheet.Elements<Columns>().FirstOrDefault();
+            if (columns == null)
+            {
+                // If there are no Columns defined, the column is not hidden
+                return false;
+            }
+
+            uint columnIndex = (uint)ColumnLetterToIndex(columnName);
+            Column column = columns.Elements<Column>().FirstOrDefault(c => c.Min <= columnIndex && c.Max >= columnIndex);
+
+            if (column == null)
+            {
+                // If the column doesn't exist in the collection, it's not hidden
+                return false;
+            }
+
+            // Check the Hidden property of the Column
+            return column.Hidden != null && column.Hidden.Value;
+        }
+
+
+        private static string IncrementCellReference(string reference, int rowCount)
+        {
+            var regex = new System.Text.RegularExpressions.Regex("([A-Za-z]+)(\\d+)");
+            var match = regex.Match(reference);
+
+            if (!match.Success) return reference;
+
+            string columnReference = match.Groups[1].Value;
+            int rowNumber = int.Parse(match.Groups[2].Value);
+
+            return $"{columnReference}{rowNumber + rowCount}";
+        }
+
+        /// <summary>
+        /// Inserts a new column to the right of a specified starting column.
+        /// </summary>
+        /// <param name="startColumn">The letter of the starting column for insertion. Cannot be null or whitespace.</param>
+        /// <exception cref="ArgumentException">
+        /// Thrown when <paramref name="startColumn"/> is null or whitespace, indicating that the starting column name cannot be null or empty.
+        /// </exception>
+        /// <remarks>
+        /// This method inserts a new column to the right of the specified starting column in the worksheet. It shifts existing columns to the right to make space for the new column. All cell references in each row to the right of the starting column are adjusted accordingly to maintain data integrity. This is useful for dynamically adding columns to the worksheet without overwriting existing data.
+        /// </remarks>
+        public void InsertColumn(string startColumn)
+        {
+            InsertColumns(startColumn, 1);
+        }
+
+        /// <summary>
+        /// Inserts a specified number of new columns to the right of a specified starting column.
+        /// </summary>
+        /// <param name="startColumn">The letter of the starting column for insertion. Cannot be null or whitespace.</param>
+        /// <param name="numberOfColumns">The number of columns to insert. Must be greater than 0.</param>
+        /// <exception cref="ArgumentException">
+        /// Thrown when <paramref name="startColumn"/> is null or whitespace, indicating that the starting column name cannot be null or empty.
+        /// </exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown when <paramref name="numberOfColumns"/> is less than or equal to 0, indicating that the number of columns to insert must be greater than 0.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the Worksheet, WorksheetPart, or SheetData is null.
+        /// </exception>
+        /// <remarks>
+        /// This method inserts a specified number of new columns to the right of the specified starting column in the worksheet. It shifts existing columns to the right to make space for the new columns. All cell references in each row to the right of the starting column are adjusted accordingly to maintain data integrity. This is useful for dynamically adding columns to the worksheet without overwriting existing data.
+        /// </remarks>
+        public void InsertColumns(string startColumn, int numberOfColumns)
+        {
+            if (string.IsNullOrWhiteSpace(startColumn))
+            {
+                throw new ArgumentException("Start column cannot be null or empty.", nameof(startColumn));
+            }
+
+            if (numberOfColumns <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(numberOfColumns), "Number of columns to insert must be greater than 0.");
+            }
+
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null || _worksheetPart.Worksheet.GetFirstChild<SheetData>() == null)
+            {
+                throw new InvalidOperationException("Worksheet, WorksheetPart, or SheetData is null.");
+            }
+
+            int startColumnIndex = ColumnLetterToIndex(startColumn);
+            SheetData sheetData = _worksheetPart.Worksheet.GetFirstChild<SheetData>();
+
+            foreach (Row row in sheetData.Elements<Row>())
+            {
+                // Shift cell references in each row
+                var cells = row.Elements<DocumentFormat.OpenXml.Spreadsheet.Cell>().ToList();
+                foreach (var cell in cells)
+                {
+                    string cellReference = cell.CellReference;
+                    int columnIndex = ColumnLetterToIndex(Regex.Match(cellReference, "[A-Za-z]+").Value);
+                    if (columnIndex >= startColumnIndex)
+                    {
+                        string newCellReference = IncrementColumnReference(cellReference, numberOfColumns);
+                        cell.CellReference = new StringValue(newCellReference);
+                    }
+                }
+            }
+
+            // Save the changes to the worksheet part
+            _worksheetPart.Worksheet.Save();
+        }
+
+        private static string IncrementColumnReference(string reference, int columnCount)
+        {
+            var regex = new System.Text.RegularExpressions.Regex("([A-Za-z]+)(\\d+)");
+            var match = regex.Match(reference);
+
+            if (!match.Success) return reference;
+
+            string columnLetters = match.Groups[1].Value;
+            int rowNumber = int.Parse(match.Groups[2].Value);
+
+            int columnIndex = ColumnLetterToIndex(columnLetters);
+            int newColumnIndex = columnIndex + columnCount;
+            string newColumnLetters = IndexToColumnLetter(newColumnIndex);
+
+            return $"{newColumnLetters}{rowNumber}";
+        }
+
+        private static string IndexToColumnLetter(int index)
+        {
+            index++; // Adjust for 1-based index
+            string columnLetter = string.Empty;
+            while (index > 0)
+            {
+                int modulo = (index - 1) % 26;
+                columnLetter = Convert.ToChar('A' + modulo) + columnLetter;
+                index = (index - modulo) / 26;
+            }
+            return columnLetter;
+        }
+
+
+        public void AddComment(string cellReference, Comment comment)
+        {
+            // Ensure the comments part exists
+            var commentsPart = _worksheetPart.GetPartsOfType<WorksheetCommentsPart>().FirstOrDefault();
+            if (commentsPart == null)
+            {
+                commentsPart = _worksheetPart.AddNewPart<WorksheetCommentsPart>();
+                commentsPart.Comments = new Comments();
+                commentsPart.Comments.AppendChild(new CommentList());
+                commentsPart.Comments.AppendChild(new Authors());
+            }
+
+            // Ensure the author exists
+            var authors = commentsPart.Comments.Elements<Authors>().First();
+            var author = authors.Elements<Author>().FirstOrDefault(a => a.Text == comment.Author);
+            if (author == null)
+            {
+                author = new Author() { Text = comment.Author };
+                authors.Append(author);
+            }
+            uint authorId = (uint)authors.Elements<Author>().ToList().IndexOf(author);
+
+            // Add or update the comment
+            var commentList = commentsPart.Comments.Elements<CommentList>().First();
+            var existingComment = commentList.Elements<DocumentFormat.OpenXml.Spreadsheet.Comment>().FirstOrDefault(c => c.Reference == cellReference);
+            if (existingComment == null)
+            {
+                var newComment = new DocumentFormat.OpenXml.Spreadsheet.Comment() { Reference = cellReference, AuthorId = authorId };
+                newComment.Append(new CommentText(new DocumentFormat.OpenXml.Spreadsheet.Text(comment.Text)));
+                commentList.Append(newComment);
+            }
+            else
+            {
+                // Update the existing comment's text
+                existingComment.CommentText = new CommentText(new DocumentFormat.OpenXml.Spreadsheet.Text(comment.Text));
+            }
+
+            // Save the changes
+            commentsPart.Comments.Save();
+            _worksheetPart.Worksheet.Save();
+        }
+
+        
+
     }
 
     public class CellIndexer
