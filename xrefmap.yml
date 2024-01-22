@@ -280,6 +280,54 @@ references:
   fullName.vb: FileFormat.Cells.CellIndexer.this[]
   nameWithType: CellIndexer.this
   nameWithType.vb: CellIndexer.this[]
+- uid: FileFormat.Cells.Comment
+  name: Comment
+  href: api/FileFormat.Cells.Comment.html
+  commentId: T:FileFormat.Cells.Comment
+  fullName: FileFormat.Cells.Comment
+  nameWithType: Comment
+- uid: FileFormat.Cells.Comment.#ctor(System.String,System.String)
+  name: Comment(string, string)
+  href: api/FileFormat.Cells.Comment.html#FileFormat_Cells_Comment__ctor_System_String_System_String_
+  commentId: M:FileFormat.Cells.Comment.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: FileFormat.Cells.Comment.Comment(string, string)
+  fullName.vb: FileFormat.Cells.Comment.New(String, String)
+  nameWithType: Comment.Comment(string, string)
+  nameWithType.vb: Comment.New(String, String)
+- uid: FileFormat.Cells.Comment.#ctor*
+  name: Comment
+  href: api/FileFormat.Cells.Comment.html#FileFormat_Cells_Comment__ctor_
+  commentId: Overload:FileFormat.Cells.Comment.#ctor
+  name.vb: New
+  fullName: FileFormat.Cells.Comment.Comment
+  fullName.vb: FileFormat.Cells.Comment.New
+  nameWithType: Comment.Comment
+  nameWithType.vb: Comment.New
+- uid: FileFormat.Cells.Comment.Author
+  name: Author
+  href: api/FileFormat.Cells.Comment.html#FileFormat_Cells_Comment_Author
+  commentId: P:FileFormat.Cells.Comment.Author
+  fullName: FileFormat.Cells.Comment.Author
+  nameWithType: Comment.Author
+- uid: FileFormat.Cells.Comment.Author*
+  name: Author
+  href: api/FileFormat.Cells.Comment.html#FileFormat_Cells_Comment_Author_
+  commentId: Overload:FileFormat.Cells.Comment.Author
+  fullName: FileFormat.Cells.Comment.Author
+  nameWithType: Comment.Author
+- uid: FileFormat.Cells.Comment.Text
+  name: Text
+  href: api/FileFormat.Cells.Comment.html#FileFormat_Cells_Comment_Text
+  commentId: P:FileFormat.Cells.Comment.Text
+  fullName: FileFormat.Cells.Comment.Text
+  nameWithType: Comment.Text
+- uid: FileFormat.Cells.Comment.Text*
+  name: Text
+  href: api/FileFormat.Cells.Comment.html#FileFormat_Cells_Comment_Text_
+  commentId: Overload:FileFormat.Cells.Comment.Text
+  fullName: FileFormat.Cells.Comment.Text
+  nameWithType: Comment.Text
 - uid: FileFormat.Cells.Image
   name: Image
   href: api/FileFormat.Cells.Image.html
@@ -931,6 +979,21 @@ references:
   commentId: T:FileFormat.Cells.Worksheet
   fullName: FileFormat.Cells.Worksheet
   nameWithType: Worksheet
+- uid: FileFormat.Cells.Worksheet.AddComment(System.String,FileFormat.Cells.Comment)
+  name: AddComment(string, Comment)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_AddComment_System_String_FileFormat_Cells_Comment_
+  commentId: M:FileFormat.Cells.Worksheet.AddComment(System.String,FileFormat.Cells.Comment)
+  name.vb: AddComment(String, Comment)
+  fullName: FileFormat.Cells.Worksheet.AddComment(string, FileFormat.Cells.Comment)
+  fullName.vb: FileFormat.Cells.Worksheet.AddComment(String, FileFormat.Cells.Comment)
+  nameWithType: Worksheet.AddComment(string, Comment)
+  nameWithType.vb: Worksheet.AddComment(String, Comment)
+- uid: FileFormat.Cells.Worksheet.AddComment*
+  name: AddComment
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_AddComment_
+  commentId: Overload:FileFormat.Cells.Worksheet.AddComment
+  fullName: FileFormat.Cells.Worksheet.AddComment
+  nameWithType: Worksheet.AddComment
 - uid: FileFormat.Cells.Worksheet.AddDropdownListValidation(System.String,System.String[])
   name: AddDropdownListValidation(string, string[])
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_AddDropdownListValidation_System_String_System_String___
@@ -1027,6 +1090,18 @@ references:
   commentId: Overload:FileFormat.Cells.Worksheet.GetCell
   fullName: FileFormat.Cells.Worksheet.GetCell
   nameWithType: Worksheet.GetCell
+- uid: FileFormat.Cells.Worksheet.GetColumnCount
+  name: GetColumnCount()
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_GetColumnCount
+  commentId: M:FileFormat.Cells.Worksheet.GetColumnCount
+  fullName: FileFormat.Cells.Worksheet.GetColumnCount()
+  nameWithType: Worksheet.GetColumnCount()
+- uid: FileFormat.Cells.Worksheet.GetColumnCount*
+  name: GetColumnCount
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_GetColumnCount_
+  commentId: Overload:FileFormat.Cells.Worksheet.GetColumnCount
+  fullName: FileFormat.Cells.Worksheet.GetColumnCount
+  nameWithType: Worksheet.GetColumnCount
 - uid: FileFormat.Cells.Worksheet.GetColumnWidth(System.UInt32)
   name: GetColumnWidth(uint)
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_GetColumnWidth_System_UInt32_
@@ -1066,6 +1141,18 @@ references:
   commentId: Overload:FileFormat.Cells.Worksheet.GetRange
   fullName: FileFormat.Cells.Worksheet.GetRange
   nameWithType: Worksheet.GetRange
+- uid: FileFormat.Cells.Worksheet.GetRowCount
+  name: GetRowCount()
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_GetRowCount
+  commentId: M:FileFormat.Cells.Worksheet.GetRowCount
+  fullName: FileFormat.Cells.Worksheet.GetRowCount()
+  nameWithType: Worksheet.GetRowCount()
+- uid: FileFormat.Cells.Worksheet.GetRowCount*
+  name: GetRowCount
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_GetRowCount_
+  commentId: Overload:FileFormat.Cells.Worksheet.GetRowCount
+  fullName: FileFormat.Cells.Worksheet.GetRowCount
+  nameWithType: Worksheet.GetRowCount
 - uid: FileFormat.Cells.Worksheet.GetRowHeight(System.UInt32)
   name: GetRowHeight(uint)
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_GetRowHeight_System_UInt32_
@@ -1108,6 +1195,126 @@ references:
   commentId: Overload:FileFormat.Cells.Worksheet.GetValidationRule
   fullName: FileFormat.Cells.Worksheet.GetValidationRule
   nameWithType: Worksheet.GetValidationRule
+- uid: FileFormat.Cells.Worksheet.HideColumn(System.String)
+  name: HideColumn(string)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_HideColumn_System_String_
+  commentId: M:FileFormat.Cells.Worksheet.HideColumn(System.String)
+  name.vb: HideColumn(String)
+  fullName: FileFormat.Cells.Worksheet.HideColumn(string)
+  fullName.vb: FileFormat.Cells.Worksheet.HideColumn(String)
+  nameWithType: Worksheet.HideColumn(string)
+  nameWithType.vb: Worksheet.HideColumn(String)
+- uid: FileFormat.Cells.Worksheet.HideColumn*
+  name: HideColumn
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_HideColumn_
+  commentId: Overload:FileFormat.Cells.Worksheet.HideColumn
+  fullName: FileFormat.Cells.Worksheet.HideColumn
+  nameWithType: Worksheet.HideColumn
+- uid: FileFormat.Cells.Worksheet.HideRow(System.UInt32)
+  name: HideRow(uint)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_HideRow_System_UInt32_
+  commentId: M:FileFormat.Cells.Worksheet.HideRow(System.UInt32)
+  name.vb: HideRow(UInteger)
+  fullName: FileFormat.Cells.Worksheet.HideRow(uint)
+  fullName.vb: FileFormat.Cells.Worksheet.HideRow(UInteger)
+  nameWithType: Worksheet.HideRow(uint)
+  nameWithType.vb: Worksheet.HideRow(UInteger)
+- uid: FileFormat.Cells.Worksheet.HideRow*
+  name: HideRow
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_HideRow_
+  commentId: Overload:FileFormat.Cells.Worksheet.HideRow
+  fullName: FileFormat.Cells.Worksheet.HideRow
+  nameWithType: Worksheet.HideRow
+- uid: FileFormat.Cells.Worksheet.HideRows(System.UInt32,System.UInt32)
+  name: HideRows(uint, uint)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_HideRows_System_UInt32_System_UInt32_
+  commentId: M:FileFormat.Cells.Worksheet.HideRows(System.UInt32,System.UInt32)
+  name.vb: HideRows(UInteger, UInteger)
+  fullName: FileFormat.Cells.Worksheet.HideRows(uint, uint)
+  fullName.vb: FileFormat.Cells.Worksheet.HideRows(UInteger, UInteger)
+  nameWithType: Worksheet.HideRows(uint, uint)
+  nameWithType.vb: Worksheet.HideRows(UInteger, UInteger)
+- uid: FileFormat.Cells.Worksheet.HideRows*
+  name: HideRows
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_HideRows_
+  commentId: Overload:FileFormat.Cells.Worksheet.HideRows
+  fullName: FileFormat.Cells.Worksheet.HideRows
+  nameWithType: Worksheet.HideRows
+- uid: FileFormat.Cells.Worksheet.InsertColumn(System.String)
+  name: InsertColumn(string)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_InsertColumn_System_String_
+  commentId: M:FileFormat.Cells.Worksheet.InsertColumn(System.String)
+  name.vb: InsertColumn(String)
+  fullName: FileFormat.Cells.Worksheet.InsertColumn(string)
+  fullName.vb: FileFormat.Cells.Worksheet.InsertColumn(String)
+  nameWithType: Worksheet.InsertColumn(string)
+  nameWithType.vb: Worksheet.InsertColumn(String)
+- uid: FileFormat.Cells.Worksheet.InsertColumn*
+  name: InsertColumn
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_InsertColumn_
+  commentId: Overload:FileFormat.Cells.Worksheet.InsertColumn
+  fullName: FileFormat.Cells.Worksheet.InsertColumn
+  nameWithType: Worksheet.InsertColumn
+- uid: FileFormat.Cells.Worksheet.InsertColumns(System.String,System.Int32)
+  name: InsertColumns(string, int)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_InsertColumns_System_String_System_Int32_
+  commentId: M:FileFormat.Cells.Worksheet.InsertColumns(System.String,System.Int32)
+  name.vb: InsertColumns(String, Integer)
+  fullName: FileFormat.Cells.Worksheet.InsertColumns(string, int)
+  fullName.vb: FileFormat.Cells.Worksheet.InsertColumns(String, Integer)
+  nameWithType: Worksheet.InsertColumns(string, int)
+  nameWithType.vb: Worksheet.InsertColumns(String, Integer)
+- uid: FileFormat.Cells.Worksheet.InsertColumns*
+  name: InsertColumns
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_InsertColumns_
+  commentId: Overload:FileFormat.Cells.Worksheet.InsertColumns
+  fullName: FileFormat.Cells.Worksheet.InsertColumns
+  nameWithType: Worksheet.InsertColumns
+- uid: FileFormat.Cells.Worksheet.InsertRow(System.UInt32)
+  name: InsertRow(uint)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_InsertRow_System_UInt32_
+  commentId: M:FileFormat.Cells.Worksheet.InsertRow(System.UInt32)
+  name.vb: InsertRow(UInteger)
+  fullName: FileFormat.Cells.Worksheet.InsertRow(uint)
+  fullName.vb: FileFormat.Cells.Worksheet.InsertRow(UInteger)
+  nameWithType: Worksheet.InsertRow(uint)
+  nameWithType.vb: Worksheet.InsertRow(UInteger)
+- uid: FileFormat.Cells.Worksheet.InsertRow*
+  name: InsertRow
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_InsertRow_
+  commentId: Overload:FileFormat.Cells.Worksheet.InsertRow
+  fullName: FileFormat.Cells.Worksheet.InsertRow
+  nameWithType: Worksheet.InsertRow
+- uid: FileFormat.Cells.Worksheet.InsertRows(System.UInt32,System.UInt32)
+  name: InsertRows(uint, uint)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_InsertRows_System_UInt32_System_UInt32_
+  commentId: M:FileFormat.Cells.Worksheet.InsertRows(System.UInt32,System.UInt32)
+  name.vb: InsertRows(UInteger, UInteger)
+  fullName: FileFormat.Cells.Worksheet.InsertRows(uint, uint)
+  fullName.vb: FileFormat.Cells.Worksheet.InsertRows(UInteger, UInteger)
+  nameWithType: Worksheet.InsertRows(uint, uint)
+  nameWithType.vb: Worksheet.InsertRows(UInteger, UInteger)
+- uid: FileFormat.Cells.Worksheet.InsertRows*
+  name: InsertRows
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_InsertRows_
+  commentId: Overload:FileFormat.Cells.Worksheet.InsertRows
+  fullName: FileFormat.Cells.Worksheet.InsertRows
+  nameWithType: Worksheet.InsertRows
+- uid: FileFormat.Cells.Worksheet.IsColumnHidden(System.String)
+  name: IsColumnHidden(string)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_IsColumnHidden_System_String_
+  commentId: M:FileFormat.Cells.Worksheet.IsColumnHidden(System.String)
+  name.vb: IsColumnHidden(String)
+  fullName: FileFormat.Cells.Worksheet.IsColumnHidden(string)
+  fullName.vb: FileFormat.Cells.Worksheet.IsColumnHidden(String)
+  nameWithType: Worksheet.IsColumnHidden(string)
+  nameWithType.vb: Worksheet.IsColumnHidden(String)
+- uid: FileFormat.Cells.Worksheet.IsColumnHidden*
+  name: IsColumnHidden
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_IsColumnHidden_
+  commentId: Overload:FileFormat.Cells.Worksheet.IsColumnHidden
+  fullName: FileFormat.Cells.Worksheet.IsColumnHidden
+  nameWithType: Worksheet.IsColumnHidden
 - uid: FileFormat.Cells.Worksheet.IsProtected
   name: IsProtected()
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_IsProtected
@@ -1120,6 +1327,21 @@ references:
   commentId: Overload:FileFormat.Cells.Worksheet.IsProtected
   fullName: FileFormat.Cells.Worksheet.IsProtected
   nameWithType: Worksheet.IsProtected
+- uid: FileFormat.Cells.Worksheet.IsRowHidden(System.UInt32)
+  name: IsRowHidden(uint)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_IsRowHidden_System_UInt32_
+  commentId: M:FileFormat.Cells.Worksheet.IsRowHidden(System.UInt32)
+  name.vb: IsRowHidden(UInteger)
+  fullName: FileFormat.Cells.Worksheet.IsRowHidden(uint)
+  fullName.vb: FileFormat.Cells.Worksheet.IsRowHidden(UInteger)
+  nameWithType: Worksheet.IsRowHidden(uint)
+  nameWithType.vb: Worksheet.IsRowHidden(UInteger)
+- uid: FileFormat.Cells.Worksheet.IsRowHidden*
+  name: IsRowHidden
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_IsRowHidden_
+  commentId: Overload:FileFormat.Cells.Worksheet.IsRowHidden
+  fullName: FileFormat.Cells.Worksheet.IsRowHidden
+  nameWithType: Worksheet.IsRowHidden
 - uid: FileFormat.Cells.Worksheet.MergeCells(System.String,System.String)
   name: MergeCells(string, string)
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_MergeCells_System_String_System_String_
@@ -1192,6 +1414,66 @@ references:
   commentId: Overload:FileFormat.Cells.Worksheet.SetRowHeight
   fullName: FileFormat.Cells.Worksheet.SetRowHeight
   nameWithType: Worksheet.SetRowHeight
+- uid: FileFormat.Cells.Worksheet.UnhideColumn(System.String)
+  name: UnhideColumn(string)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_UnhideColumn_System_String_
+  commentId: M:FileFormat.Cells.Worksheet.UnhideColumn(System.String)
+  name.vb: UnhideColumn(String)
+  fullName: FileFormat.Cells.Worksheet.UnhideColumn(string)
+  fullName.vb: FileFormat.Cells.Worksheet.UnhideColumn(String)
+  nameWithType: Worksheet.UnhideColumn(string)
+  nameWithType.vb: Worksheet.UnhideColumn(String)
+- uid: FileFormat.Cells.Worksheet.UnhideColumn*
+  name: UnhideColumn
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_UnhideColumn_
+  commentId: Overload:FileFormat.Cells.Worksheet.UnhideColumn
+  fullName: FileFormat.Cells.Worksheet.UnhideColumn
+  nameWithType: Worksheet.UnhideColumn
+- uid: FileFormat.Cells.Worksheet.UnhideColumns(System.String,System.Int32)
+  name: UnhideColumns(string, int)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_UnhideColumns_System_String_System_Int32_
+  commentId: M:FileFormat.Cells.Worksheet.UnhideColumns(System.String,System.Int32)
+  name.vb: UnhideColumns(String, Integer)
+  fullName: FileFormat.Cells.Worksheet.UnhideColumns(string, int)
+  fullName.vb: FileFormat.Cells.Worksheet.UnhideColumns(String, Integer)
+  nameWithType: Worksheet.UnhideColumns(string, int)
+  nameWithType.vb: Worksheet.UnhideColumns(String, Integer)
+- uid: FileFormat.Cells.Worksheet.UnhideColumns*
+  name: UnhideColumns
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_UnhideColumns_
+  commentId: Overload:FileFormat.Cells.Worksheet.UnhideColumns
+  fullName: FileFormat.Cells.Worksheet.UnhideColumns
+  nameWithType: Worksheet.UnhideColumns
+- uid: FileFormat.Cells.Worksheet.UnhideRow(System.UInt32)
+  name: UnhideRow(uint)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_UnhideRow_System_UInt32_
+  commentId: M:FileFormat.Cells.Worksheet.UnhideRow(System.UInt32)
+  name.vb: UnhideRow(UInteger)
+  fullName: FileFormat.Cells.Worksheet.UnhideRow(uint)
+  fullName.vb: FileFormat.Cells.Worksheet.UnhideRow(UInteger)
+  nameWithType: Worksheet.UnhideRow(uint)
+  nameWithType.vb: Worksheet.UnhideRow(UInteger)
+- uid: FileFormat.Cells.Worksheet.UnhideRow*
+  name: UnhideRow
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_UnhideRow_
+  commentId: Overload:FileFormat.Cells.Worksheet.UnhideRow
+  fullName: FileFormat.Cells.Worksheet.UnhideRow
+  nameWithType: Worksheet.UnhideRow
+- uid: FileFormat.Cells.Worksheet.UnhideRows(System.UInt32,System.UInt32)
+  name: UnhideRows(uint, uint)
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_UnhideRows_System_UInt32_System_UInt32_
+  commentId: M:FileFormat.Cells.Worksheet.UnhideRows(System.UInt32,System.UInt32)
+  name.vb: UnhideRows(UInteger, UInteger)
+  fullName: FileFormat.Cells.Worksheet.UnhideRows(uint, uint)
+  fullName.vb: FileFormat.Cells.Worksheet.UnhideRows(UInteger, UInteger)
+  nameWithType: Worksheet.UnhideRows(uint, uint)
+  nameWithType.vb: Worksheet.UnhideRows(UInteger, UInteger)
+- uid: FileFormat.Cells.Worksheet.UnhideRows*
+  name: UnhideRows
+  href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_UnhideRows_
+  commentId: Overload:FileFormat.Cells.Worksheet.UnhideRows
+  fullName: FileFormat.Cells.Worksheet.UnhideRows
+  nameWithType: Worksheet.UnhideRows
 - uid: FileFormat.Cells.Worksheet.UnprotectSheet
   name: UnprotectSheet()
   href: api/FileFormat.Cells.Worksheet.html#FileFormat_Cells_Worksheet_UnprotectSheet

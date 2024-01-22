@@ -1,88 +1,130 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class Worksheet
  </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Worksheet
  ">
-    
-      <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
-              </form>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
             </div>
           </div>
-        </nav>
+        </div>
+      </nav>
+    </header>
 
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
+      </div>
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FileFormat.Cells.Worksheet">
+
+        <article data-uid="FileFormat.Cells.Worksheet">
 
 
 
-  <h1 id="FileFormat_Cells_Worksheet" data-uid="FileFormat.Cells.Worksheet" class="text-break">Class Worksheet
-</h1>
-  <div class="markdown level0 summary"><p>Represents a worksheet within an Excel file, providing methods to manipulate its content.</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">Worksheet</span></div>
+  <h1 id="FileFormat_Cells_Worksheet" data-uid="FileFormat.Cells.Worksheet" class="text-break">
+    Class Worksheet
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="FileFormat.html">FileFormat</a>.<a class="xref" href="FileFormat.Cells.html">Cells</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>FileFormat.Cells.dll</dd></dl>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Worksheet</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Worksheet</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -90,926 +132,1270 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="FileFormat.html">FileFormat</a>.<a class="xref" href="FileFormat.Cells.html">Cells</a></h6>
-  <h6><strong>Assembly</strong>: FileFormat.Cells.dll</h6>
-  <h5 id="FileFormat_Cells_Worksheet_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class Worksheet</code></pre>
-  </div>
-  <h3 id="fields">Fields
-</h3>
+  </dd></dl>
 
 
-  <h4 id="FileFormat_Cells_Worksheet_DefaultColumnWidth" data-uid="FileFormat.Cells.Worksheet.DefaultColumnWidth">DefaultColumnWidth</h4>
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="FileFormat_Cells_Worksheet_DefaultColumnWidth" data-uid="FileFormat.Cells.Worksheet.DefaultColumnWidth">
+  DefaultColumnWidth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public const double DefaultColumnWidth = 8.43</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="FileFormat_Cells_Worksheet_DefaultRowHeight" data-uid="FileFormat.Cells.Worksheet.DefaultRowHeight">DefaultRowHeight</h4>
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="FileFormat_Cells_Worksheet_DefaultRowHeight" data-uid="FileFormat.Cells.Worksheet.DefaultRowHeight">
+  DefaultRowHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public const double DefaultRowHeight = 15</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="FileFormat_Cells_Worksheet_Cells_" data-uid="FileFormat.Cells.Worksheet.Cells*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_Cells" data-uid="FileFormat.Cells.Worksheet.Cells">Cells</h4>
-  <div class="markdown level1 summary"><p>Gets the CellIndexer for the worksheet. This property provides indexed access to the cells of the worksheet.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_Cells" data-uid="FileFormat.Cells.Worksheet.Cells">
+  Cells
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public CellIndexer Cells { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="FileFormat.Cells.CellIndexer.html">CellIndexer</a></td>
-        <td><p>The CellIndexer for the worksheet.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FileFormat.Cells.CellIndexer.html">CellIndexer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_Name_" data-uid="FileFormat.Cells.Worksheet.Name*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_Name" data-uid="FileFormat.Cells.Worksheet.Name">Name</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the name of the worksheet. This property performs several checks to ensure the integrity and validity of the worksheet and workbook parts.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_Name" data-uid="FileFormat.Cells.Worksheet.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><p>The name of the worksheet.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
-        <td><p>Thrown if the WorksheetPart is null, if the WorkbookPart is not found as a parent, if the ID of the part is null or empty, or if no sheet is found with the specified ID.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
-        <td><p>Thrown when attempting to set the name with a null or empty value.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="FileFormat_Cells_Worksheet_AddComment_" data-uid="FileFormat.Cells.Worksheet.AddComment*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_AddComment_System_String_FileFormat_Cells_Comment_" data-uid="FileFormat.Cells.Worksheet.AddComment(System.String,FileFormat.Cells.Comment)">
+  AddComment(string, Comment)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddComment(string cellReference, Comment comment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cellReference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>comment</code> <a class="xref" href="FileFormat.Cells.Comment.html">Comment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_AddDropdownListValidation_" data-uid="FileFormat.Cells.Worksheet.AddDropdownListValidation*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_AddDropdownListValidation_System_String_System_String___" data-uid="FileFormat.Cells.Worksheet.AddDropdownListValidation(System.String,System.String[])">AddDropdownListValidation(string, string[])</h4>
-  <div class="markdown level1 summary"><p>Adds a dropdown list validation to a specified cell. The dropdown list contains the options provided.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_AddDropdownListValidation_System_String_System_String___" data-uid="FileFormat.Cells.Worksheet.AddDropdownListValidation(System.String,System.String[])">
+  AddDropdownListValidation(string, string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void AddDropdownListValidation(string cellReference, string[] options)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">cellReference</span></td>
-        <td><p>The cell reference in A1 notation where the dropdown should be added.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
-        <td><span class="parametername">options</span></td>
-        <td><p>An array of string values that will appear as options in the dropdown list.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="FileFormat_Cells_Worksheet_AddDropdownListValidation_System_String_System_String____remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method creates a data validation rule that restricts input to the cell to the provided list of options.</p>
-</div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
-        <td><p>Thrown when <code class="paramref">cellReference</code> is null or invalid, or if <code class="paramref">options</code> is empty or null.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cellReference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_AddImage_" data-uid="FileFormat.Cells.Worksheet.AddImage*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_AddImage_FileFormat_Cells_Image_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="FileFormat.Cells.Worksheet.AddImage(FileFormat.Cells.Image,System.Int32,System.Int32,System.Int32,System.Int32)">AddImage(Image, int, int, int, int)</h4>
-  <div class="markdown level1 summary"><p>Adds an image to the worksheet.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_AddImage_FileFormat_Cells_Image_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="FileFormat.Cells.Worksheet.AddImage(FileFormat.Cells.Image,System.Int32,System.Int32,System.Int32,System.Int32)">
+  AddImage(Image, int, int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void AddImage(Image image, int startRowIndex, int startColumnIndex, int endRowIndex, int endColumnIndex)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="FileFormat.Cells.Image.html">Image</a></td>
-        <td><span class="parametername">image</span></td>
-        <td><p>The image to be added.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">startRowIndex</span></td>
-        <td><p>The starting row index.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">startColumnIndex</span></td>
-        <td><p>The starting column index.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">endRowIndex</span></td>
-        <td><p>The ending row index.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">endColumnIndex</span></td>
-        <td><p>The ending column index.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>image</code> <a class="xref" href="FileFormat.Cells.Image.html">Image</a></dt>
+    <dd></dd>
+    <dt><code>startRowIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>startColumnIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>endRowIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>endColumnIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_ApplyValidation_" data-uid="FileFormat.Cells.Worksheet.ApplyValidation*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_ApplyValidation_System_String_FileFormat_Cells_ValidationRule_" data-uid="FileFormat.Cells.Worksheet.ApplyValidation(System.String,FileFormat.Cells.ValidationRule)">
+  ApplyValidation(string, ValidationRule)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ApplyValidation(string cellReference, ValidationRule rule)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cellReference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>rule</code> <a class="xref" href="FileFormat.Cells.ValidationRule.html">ValidationRule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_ExtractImages_" data-uid="FileFormat.Cells.Worksheet.ExtractImages*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_ExtractImages" data-uid="FileFormat.Cells.Worksheet.ExtractImages">ExtractImages()</h4>
-  <div class="markdown level1 summary"><p>Extracts images from the worksheet.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_ExtractImages" data-uid="FileFormat.Cells.Worksheet.ExtractImages">
+  ExtractImages()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public List&lt;Image&gt; ExtractImages()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="FileFormat.Cells.Image.html">Image</a>&gt;</td>
-        <td><p>A list of images present in the worksheet.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="FileFormat.Cells.Image.html">Image</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_GetCell_" data-uid="FileFormat.Cells.Worksheet.GetCell*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_GetCell_System_String_" data-uid="FileFormat.Cells.Worksheet.GetCell(System.String)">GetCell(string)</h4>
-  <div class="markdown level1 summary"><p>Retrieves a cell based on its reference.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_GetCell_System_String_" data-uid="FileFormat.Cells.Worksheet.GetCell(System.String)">
+  GetCell(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Cell GetCell(string cellReference)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">cellReference</span></td>
-        <td><p>The cell reference in A1 notation.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="FileFormat.Cells.Cell.html">Cell</a></td>
-        <td><p>The cell at the specified reference.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cellReference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FileFormat.Cells.Cell.html">Cell</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_GetColumnCount_" data-uid="FileFormat.Cells.Worksheet.GetColumnCount*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_GetColumnCount" data-uid="FileFormat.Cells.Worksheet.GetColumnCount">
+  GetColumnCount()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetColumnCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_GetColumnWidth_" data-uid="FileFormat.Cells.Worksheet.GetColumnWidth*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_GetColumnWidth_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.GetColumnWidth(System.UInt32)">GetColumnWidth(uint)</h4>
-  <div class="markdown level1 summary"><p>Retrieves the width of the specified column in the worksheet.
-If the width of the column has been explicitly set, it returns that value; otherwise, it returns the default column width.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_GetColumnWidth_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.GetColumnWidth(System.UInt32)">
+  GetColumnWidth(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double GetColumnWidth(uint columnIndex)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
-        <td><span class="parametername">columnIndex</span></td>
-        <td><p>The 1-based index of the column for which the width is to be retrieved.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
-        <td><p>The width of the specified column. If the column's width is explicitly set, that value is returned;
-otherwise, the default column width is returned.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></td>
-        <td><p>Thrown if the columnIndex is less than 1.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
-        <td><p>Thrown if the worksheet part or the worksheet is null.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>columnIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_GetRange_" data-uid="FileFormat.Cells.Worksheet.GetRange*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_GetRange_System_String_System_String_" data-uid="FileFormat.Cells.Worksheet.GetRange(System.String,System.String)">GetRange(string, string)</h4>
-  <div class="markdown level1 summary"><p>Retrieves a range of cells specified by the start and end cell references in A1 notation.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_GetRange_System_String_System_String_" data-uid="FileFormat.Cells.Worksheet.GetRange(System.String,System.String)">
+  GetRange(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Range GetRange(string startCellReference, string endCellReference)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">startCellReference</span></td>
-        <td><p>The start cell reference in A1 notation.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">endCellReference</span></td>
-        <td><p>The end cell reference in A1 notation.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="FileFormat.Cells.Range.html">Range</a></td>
-        <td><p>A <a class="xref" href="FileFormat.Cells.Range.html">Range</a> object representing the specified range of cells.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startCellReference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>endCellReference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FileFormat.Cells.Range.html">Range</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_GetRange_" data-uid="FileFormat.Cells.Worksheet.GetRange*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_GetRange_System_UInt32_System_UInt32_System_UInt32_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.GetRange(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">GetRange(uint, uint, uint, uint)</h4>
-  <div class="markdown level1 summary"><p>Retrieves a range of cells specified by the start and end row and column indices.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_GetRange_System_UInt32_System_UInt32_System_UInt32_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.GetRange(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+  GetRange(uint, uint, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Range GetRange(uint startRowIndex, uint startColumnIndex, uint endRowIndex, uint endColumnIndex)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
-        <td><span class="parametername">startRowIndex</span></td>
-        <td><p>The starting row index of the range.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
-        <td><span class="parametername">startColumnIndex</span></td>
-        <td><p>The starting column index of the range.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
-        <td><span class="parametername">endRowIndex</span></td>
-        <td><p>The ending row index of the range.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
-        <td><span class="parametername">endColumnIndex</span></td>
-        <td><p>The ending column index of the range.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="FileFormat.Cells.Range.html">Range</a></td>
-        <td><p>A <a class="xref" href="FileFormat.Cells.Range.html">Range</a> object representing the specified range of cells.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startRowIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>startColumnIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>endRowIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>endColumnIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FileFormat.Cells.Range.html">Range</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_GetRowCount_" data-uid="FileFormat.Cells.Worksheet.GetRowCount*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_GetRowCount" data-uid="FileFormat.Cells.Worksheet.GetRowCount">
+  GetRowCount()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetRowCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_GetRowHeight_" data-uid="FileFormat.Cells.Worksheet.GetRowHeight*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_GetRowHeight_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.GetRowHeight(System.UInt32)">GetRowHeight(uint)</h4>
-  <div class="markdown level1 summary"><p>Retrieves the height of the specified row in the worksheet.
-If the height of the row has been explicitly set, it returns that value; otherwise, it returns the default row height.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_GetRowHeight_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.GetRowHeight(System.UInt32)">
+  GetRowHeight(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double GetRowHeight(uint rowIndex)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
-        <td><span class="parametername">rowIndex</span></td>
-        <td><p>The 1-based index of the row for which the height is to be retrieved.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
-        <td><p>The height of the specified row. If the row's height is explicitly set, that value is returned;
-otherwise, the default row height is returned.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></td>
-        <td><p>Thrown if the rowIndex is less than 1.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
-        <td><p>Thrown if the worksheet part or the worksheet is null.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rowIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_GetSheetIndex_" data-uid="FileFormat.Cells.Worksheet.GetSheetIndex*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_GetSheetIndex" data-uid="FileFormat.Cells.Worksheet.GetSheetIndex">GetSheetIndex()</h4>
-  <div class="markdown level1 summary"><p>Retrieves the index of the current worksheet within the workbook. This method locates the worksheet within the workbook's collection of sheets and returns its index.
-Note that the SheetId property of a worksheet is different from its index in the workbook's sheet collection.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_GetSheetIndex" data-uid="FileFormat.Cells.Worksheet.GetSheetIndex">
+  GetSheetIndex()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int GetSheetIndex()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><p>The index of the sheet within the workbook. This is not the same as the SheetId.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
-        <td><p>Thrown if no WorkbookPart is found, or if the worksheet is not found in the workbook.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_GetValidationRule_" data-uid="FileFormat.Cells.Worksheet.GetValidationRule*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_GetValidationRule_System_String_" data-uid="FileFormat.Cells.Worksheet.GetValidationRule(System.String)">
+  GetValidationRule(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValidationRule GetValidationRule(string cellReference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cellReference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="FileFormat.Cells.ValidationRule.html">ValidationRule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_HideColumn_" data-uid="FileFormat.Cells.Worksheet.HideColumn*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_HideColumn_System_String_" data-uid="FileFormat.Cells.Worksheet.HideColumn(System.String)">
+  HideColumn(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void HideColumn(string columnName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>columnName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_HideRow_" data-uid="FileFormat.Cells.Worksheet.HideRow*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_HideRow_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.HideRow(System.UInt32)">
+  HideRow(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void HideRow(uint rowIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rowIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_HideRows_" data-uid="FileFormat.Cells.Worksheet.HideRows*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_HideRows_System_UInt32_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.HideRows(System.UInt32,System.UInt32)">
+  HideRows(uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void HideRows(uint startRowIndex, uint numberOfRows)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startRowIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>numberOfRows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_InsertColumn_" data-uid="FileFormat.Cells.Worksheet.InsertColumn*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_InsertColumn_System_String_" data-uid="FileFormat.Cells.Worksheet.InsertColumn(System.String)">
+  InsertColumn(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InsertColumn(string startColumn)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startColumn</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_InsertColumns_" data-uid="FileFormat.Cells.Worksheet.InsertColumns*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_InsertColumns_System_String_System_Int32_" data-uid="FileFormat.Cells.Worksheet.InsertColumns(System.String,System.Int32)">
+  InsertColumns(string, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InsertColumns(string startColumn, int numberOfColumns)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startColumn</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>numberOfColumns</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_InsertRow_" data-uid="FileFormat.Cells.Worksheet.InsertRow*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_InsertRow_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.InsertRow(System.UInt32)">
+  InsertRow(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InsertRow(uint rowIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rowIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_InsertRows_" data-uid="FileFormat.Cells.Worksheet.InsertRows*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_InsertRows_System_UInt32_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.InsertRows(System.UInt32,System.UInt32)">
+  InsertRows(uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InsertRows(uint startRowIndex, uint numberOfRows)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startRowIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>numberOfRows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_IsColumnHidden_" data-uid="FileFormat.Cells.Worksheet.IsColumnHidden*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_IsColumnHidden_System_String_" data-uid="FileFormat.Cells.Worksheet.IsColumnHidden(System.String)">
+  IsColumnHidden(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsColumnHidden(string columnName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>columnName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_IsProtected_" data-uid="FileFormat.Cells.Worksheet.IsProtected*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_IsProtected" data-uid="FileFormat.Cells.Worksheet.IsProtected">IsProtected()</h4>
-  <div class="markdown level1 summary"><p>Determines whether the worksheet is protected.
-This method checks for the presence of a SheetProtection element within the worksheet to ascertain its protection status.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_IsProtected" data-uid="FileFormat.Cells.Worksheet.IsProtected">
+  IsProtected()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsProtected()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p>A boolean value indicating whether the worksheet is protected. Returns <code>true</code> if the worksheet is protected, otherwise <code>false</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="FileFormat_Cells_Worksheet_IsProtected_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>A worksheet is considered protected if there is at least one SheetProtection element present in its elements.</p>
-</div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_IsRowHidden_" data-uid="FileFormat.Cells.Worksheet.IsRowHidden*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_IsRowHidden_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.IsRowHidden(System.UInt32)">
+  IsRowHidden(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsRowHidden(uint rowIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rowIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_MergeCells_" data-uid="FileFormat.Cells.Worksheet.MergeCells*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_MergeCells_System_String_System_String_" data-uid="FileFormat.Cells.Worksheet.MergeCells(System.String,System.String)">MergeCells(string, string)</h4>
-  <div class="markdown level1 summary"><p>Merges a range of cells specified by the start and end cell references in A1 notation.
-This method creates a merged cell area that spans from the start cell to the end cell.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_MergeCells_System_String_System_String_" data-uid="FileFormat.Cells.Worksheet.MergeCells(System.String,System.String)">
+  MergeCells(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void MergeCells(string startCellReference, string endCellReference)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">startCellReference</span></td>
-        <td><p>The start cell reference in A1 notation for the merge range.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">endCellReference</span></td>
-        <td><p>The end cell reference in A1 notation for the merge range.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="FileFormat_Cells_Worksheet_MergeCells_System_String_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>If a MergeCells element already exists in the worksheet, this method appends a new merge cell reference to it.
-If no MergeCells element exists, it creates a new one and then appends the merge cell reference.
-After defining the merge cell range, it saves the changes to the WorksheetPart.</p>
-</div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
-        <td><p>Thrown when either <code class="paramref">startCellReference</code> or <code class="paramref">endCellReference</code> is null, empty, or invalid.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startCellReference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>endCellReference</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_ProtectSheet_" data-uid="FileFormat.Cells.Worksheet.ProtectSheet*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_ProtectSheet_System_String_" data-uid="FileFormat.Cells.Worksheet.ProtectSheet(System.String)">ProtectSheet(string)</h4>
+
+  <h3 id="FileFormat_Cells_Worksheet_ProtectSheet_System_String_" data-uid="FileFormat.Cells.Worksheet.ProtectSheet(System.String)">
+  ProtectSheet(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ProtectSheet(string password)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">password</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>password</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_SetColumnWidth_" data-uid="FileFormat.Cells.Worksheet.SetColumnWidth*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_SetColumnWidth_System_String_System_Double_" data-uid="FileFormat.Cells.Worksheet.SetColumnWidth(System.String,System.Double)">SetColumnWidth(string, double)</h4>
-  <div class="markdown level1 summary"><p>Sets the width of the specified column in the worksheet.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_SetColumnWidth_System_String_System_Double_" data-uid="FileFormat.Cells.Worksheet.SetColumnWidth(System.String,System.Double)">
+  SetColumnWidth(string, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetColumnWidth(string columnName, double width)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">columnName</span></td>
-        <td><p>The name of the column (e.g., &quot;A&quot;, &quot;B&quot;, &quot;C&quot;) for which the width is to be set.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
-        <td><span class="parametername">width</span></td>
-        <td><p>The width to set for the specified column.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p>Thrown if the columnName is null or empty.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></td>
-        <td><p>Thrown if the width is less than 0 or if the columnName is invalid or represents a column index out of range.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
-        <td><p>Thrown if the worksheet part or the worksheet is null.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>columnName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_SetRowHeight_" data-uid="FileFormat.Cells.Worksheet.SetRowHeight*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_SetRowHeight_System_UInt32_System_Double_" data-uid="FileFormat.Cells.Worksheet.SetRowHeight(System.UInt32,System.Double)">SetRowHeight(uint, double)</h4>
-  <div class="markdown level1 summary"><p>Sets the height of the specified row in the worksheet.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_SetRowHeight_System_UInt32_System_Double_" data-uid="FileFormat.Cells.Worksheet.SetRowHeight(System.UInt32,System.Double)">
+  SetRowHeight(uint, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void SetRowHeight(uint rowIndex, double height)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
-        <td><span class="parametername">rowIndex</span></td>
-        <td><p>The 1-based index of the row for which the height is to be set.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></td>
-        <td><span class="parametername">height</span></td>
-        <td><p>The height to set for the specified row.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></td>
-        <td><p>Thrown if the rowIndex is less than 1 or if the height is less than 0.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
-        <td><p>Thrown if the worksheet part or the worksheet is null.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rowIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_UnhideColumn_" data-uid="FileFormat.Cells.Worksheet.UnhideColumn*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_UnhideColumn_System_String_" data-uid="FileFormat.Cells.Worksheet.UnhideColumn(System.String)">
+  UnhideColumn(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnhideColumn(string columnName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>columnName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_UnhideColumns_" data-uid="FileFormat.Cells.Worksheet.UnhideColumns*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_UnhideColumns_System_String_System_Int32_" data-uid="FileFormat.Cells.Worksheet.UnhideColumns(System.String,System.Int32)">
+  UnhideColumns(string, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnhideColumns(string startColumn, int numberOfColumns)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startColumn</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>numberOfColumns</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_UnhideRow_" data-uid="FileFormat.Cells.Worksheet.UnhideRow*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_UnhideRow_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.UnhideRow(System.UInt32)">
+  UnhideRow(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnhideRow(uint rowIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rowIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="FileFormat_Cells_Worksheet_UnhideRows_" data-uid="FileFormat.Cells.Worksheet.UnhideRows*"></a>
+
+  <h3 id="FileFormat_Cells_Worksheet_UnhideRows_System_UInt32_System_UInt32_" data-uid="FileFormat.Cells.Worksheet.UnhideRows(System.UInt32,System.UInt32)">
+  UnhideRows(uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnhideRows(uint startRowIndex, uint numberOfRows)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startRowIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>numberOfRows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="FileFormat_Cells_Worksheet_UnprotectSheet_" data-uid="FileFormat.Cells.Worksheet.UnprotectSheet*"></a>
-  <h4 id="FileFormat_Cells_Worksheet_UnprotectSheet" data-uid="FileFormat.Cells.Worksheet.UnprotectSheet">UnprotectSheet()</h4>
-  <div class="markdown level1 summary"><p>Removes protection from the worksheet, if it is currently protected.
-This method checks for the presence of a SheetProtection element and removes it to unprotect the sheet.</p>
-</div>
+
+  <h3 id="FileFormat_Cells_Worksheet_UnprotectSheet" data-uid="FileFormat.Cells.Worksheet.UnprotectSheet">
+  UnprotectSheet()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void UnprotectSheet()</code></pre>
   </div>
-  <h5 id="FileFormat_Cells_Worksheet_UnprotectSheet_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>If the worksheet is protected (indicated by the presence of a SheetProtection element), this method removes the protection.
-After altering the protection status, it saves the changes to the worksheet.
-If the worksheet is not protected, this method performs no action.</p>
-</div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
-        <td><p>Thrown if an attempt is made to remove protection but no SheetProtection element is found. This should not normally occur, as the method first checks if the sheet is protected.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fahadadeel/FileFormat.Cells-for-.NET/blob/15eba2bfb9d8aebf4594d7d65435a3b5b32e049b/FileFormat.Cells/Worksheet.cs" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      <span></span>
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
