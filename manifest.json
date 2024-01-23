@@ -167,10 +167,50 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/developer-guide.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/developer-guide.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/index.md",
       "output": {
         ".html": {
           "relative_path": "articles/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/installation.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/installation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/licensing.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/licensing.html"
         }
       },
       "version": ""
@@ -186,6 +226,16 @@
       "version": ""
     },
     {
+      "type": "Conceptual",
+      "source_relative_path": "articles/product-overview.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/product-overview.html"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
@@ -194,6 +244,16 @@
         },
         ".json": {
           "relative_path": "articles/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/whats-new-in-fileformat-cells-for-net.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/whats-new-in-fileformat-cells-for-net.html"
         }
       },
       "version": ""
@@ -214,6 +274,16 @@
       "output": {
         ".html": {
           "relative_path": "articles/worksheet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "favicon.ico"
         }
       },
       "version": ""

@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>How to Add a Worksheet in Excel using C# Excel Automation API - FileFormat.Cells </title>
+      <title>Installing FileFormat.Cells for .NET </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="How to Add a Worksheet in Excel using C# Excel Automation API - FileFormat.Cells ">
+      <meta name="title" content="Installing FileFormat.Cells for .NET ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -81,21 +81,22 @@
         </div>
 
         <article data-uid="">
-<h1 id="how-to-add-a-worksheet-in-excel-using-c-excel-automation-api---fileformatcells">How to Add a Worksheet in Excel using C# Excel Automation API - FileFormat.Cells</h1>
+<h1 id="installing-fileformatcells-for-net">Installing FileFormat.Cells for .NET</h1>
 
-<p>Creating an empty workbook in C# using the Excel Automation API, FileFormat.Cells, is a straightforward process that can significantly enhance the efficiency and capabilities of your .NET applications. This article will guide you through the steps to create an empty Excel workbook programmatically using the FileFormat.Cells library.</p>
-<h2 id="steps">Steps</h2>
-<h3 id="step-1-initialize-the-workbook">Step 1: Initialize the Workbook</h3>
-<p>First, create an instance of the <code>Workbook</code> class. This instance represents your Excel workbook.</p>
-<pre><code class="lang-csharp">Workbook workbook = new Workbook();
+<h2 id="getting-started-with-installation">Getting Started with Installation</h2>
+<p>FileFormat.Cells for .NET is readily available as a NuGet Package, making the installation process simple and straightforward.</p>
+<h3 id="steps-for-installation">Steps for Installation:</h3>
+<ol>
+<li><p><strong>NuGet Package Installation</strong>: You can install FileFormat.Cells through NuGet, which is a package manager for .NET. The installation is achieved using a single command:</p>
+<pre><code>Install-Package FileFormat.Cells
 </code></pre>
-<h3 id="step-2-save-the-workbook">Step 2: Save the Workbook</h3>
-<p>Once the `Workbook`` object is created, you can save it as an Excel file. This will create an empty workbook</p>
-<pre><code class="lang-csharp">workbook.Save(&quot;MyNewWorkbook.xlsx&quot;);
-</code></pre>
-<p>Replace <code>&quot;MyNewWorkbook.xlsx&quot;</code> with your desired file name.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>You have successfully created an empty Excel workbook using FileFormat.Cells in C#. This library offers extensive features for further manipulation and customization of your Excel files.</p>
+</li>
+<li><p><strong>Using Package Manager Console</strong>: In your Visual Studio, open the Package Manager Console and run the above command. This will download and install FileFormat.Cells and its dependencies into your project.</p>
+</li>
+<li><p><strong>Verify Installation</strong>: After installation, ensure that the package is added to your project references.</p>
+</li>
+</ol>
+<p>With these steps, you should have FileFormat.Cells integrated into your .NET project, ready for use in spreadsheet automation tasks.</p>
 
 </article>
 
