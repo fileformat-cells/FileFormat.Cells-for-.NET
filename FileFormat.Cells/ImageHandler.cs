@@ -7,6 +7,8 @@ using A14 = DocumentFormat.OpenXml.Office2010.Drawing;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System.Linq;
 using DocumentFormat.OpenXml.Drawing.Spreadsheet;
+using System;
+using System.IO;
 
 namespace FileFormat.Cells
 {

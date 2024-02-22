@@ -2,12 +2,16 @@
 using DocumentFormat.OpenXml;
 using System.Globalization;
 using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Packaging;
 
 namespace FileFormat.Cells
 {
     public sealed class Cell
     {
+
         private readonly DocumentFormat.OpenXml.Spreadsheet.Cell _cell;
+        private readonly WorkbookPart _workbookPart;
+
         private readonly SheetData _sheetData;
 
         /// <summary>
@@ -23,10 +27,11 @@ namespace FileFormat.Cells
         /// <exception cref="ArgumentNullException">
         /// Thrown when <paramref name="cell"/> or <paramref name="sheetData"/> is null.
         /// </exception>
-        public Cell(DocumentFormat.OpenXml.Spreadsheet.Cell cell, SheetData sheetData)
+        public Cell(DocumentFormat.OpenXml.Spreadsheet.Cell cell, SheetData sheetData, WorkbookPart workbookPart)
         {
             _cell = cell ?? throw new ArgumentNullException(nameof(cell));
             _sheetData = sheetData ?? throw new ArgumentNullException(nameof(sheetData));
+            _workbookPart = workbookPart ?? throw new ArgumentNullException(nameof(workbookPart));
         }
 
         /// <summary>
@@ -84,7 +89,18 @@ namespace FileFormat.Cells
         /// <returns>The cell value as a string.</returns>
         public string GetValue()
         {
-            return _cell.CellValue?.Text;
+            if (_cell == null || _cell.CellValue == null) return "";
+
+            if (_cell.DataType != null && _cell.DataType.Value == CellValues.SharedString)
+            {
+                int index = int.Parse(_cell.CellValue.Text);
+                SharedStringTablePart sharedStrings = _workbookPart.SharedStringTablePart;
+                return sharedStrings.SharedStringTable.ElementAt(index).InnerText;
+            }
+            else
+            {
+                return _cell.CellValue.Text;
+            }
         }
 
         /// <summary>

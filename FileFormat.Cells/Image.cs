@@ -6,6 +6,8 @@ using Xdr = DocumentFormat.OpenXml.Drawing.Spreadsheet;
 using A14 = DocumentFormat.OpenXml.Office2010.Drawing;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System.Linq;
+using System.IO;
+using System;
 
 namespace FileFormat.Cells
 {

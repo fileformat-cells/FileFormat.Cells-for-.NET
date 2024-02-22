@@ -58,7 +58,7 @@ namespace FileFormat.Cells
 
             // Adding your Worksheet object to Worksheets list
             //var newWorksheet = new Worksheet(worksheetPart, worksheetPart.Worksheet);
-            var newWorksheet = Worksheet.WorksheetFactory.CreateInstance(worksheetPart, worksheetPart.Worksheet);
+            var newWorksheet = Worksheet.WorksheetFactory.CreateInstance(worksheetPart, worksheetPart.Worksheet, workbookpart);
             this.Worksheets.Add(newWorksheet);
 
             this.stylesPart = this.spreadsheetDocument.WorkbookPart.AddNewPart<WorkbookStylesPart>();
@@ -124,8 +124,9 @@ namespace FileFormat.Cells
             {
                 var worksheetPart = (WorksheetPart)(this.workbookpart.GetPartById(sheet.Id));
                 var worksheet = worksheetPart.Worksheet;
+                var workbookPart = this.workbookpart;
                 var sheetData = worksheet.Elements<SheetData>().FirstOrDefault() ?? new SheetData();
-                this.Worksheets.Add(Worksheet.WorksheetFactory.CreateInstance(worksheetPart, worksheetPart.Worksheet));
+                this.Worksheets.Add(Worksheet.WorksheetFactory.CreateInstance(worksheetPart, worksheetPart.Worksheet, workbookPart));
             }
         }
 
@@ -228,7 +229,7 @@ namespace FileFormat.Cells
             newWorksheetPart.Worksheet = new DocumentFormat.OpenXml.Spreadsheet.Worksheet(sheetData);
 
             // Create a new Worksheet object and add it to Worksheets list
-            var newWorksheet = Worksheet.WorksheetFactory.CreateInstance(newWorksheetPart, newWorksheetPart.Worksheet);
+            var newWorksheet = Worksheet.WorksheetFactory.CreateInstance(newWorksheetPart, newWorksheetPart.Worksheet, this.workbookpart);
             this.Worksheets.Add(newWorksheet);
 
             // Append a new sheet and associate it with the workbook
@@ -286,7 +287,7 @@ namespace FileFormat.Cells
                 var wp = (WorksheetPart)(this.workbookpart.GetPartById(sh.Id));
                 var ws = wp.Worksheet;
                 var sd = ws.Elements<SheetData>().FirstOrDefault() ?? new SheetData();
-                this.Worksheets.Add(Worksheet.WorksheetFactory.CreateInstance(wp, wp.Worksheet));
+                this.Worksheets.Add(Worksheet.WorksheetFactory.CreateInstance(wp, wp.Worksheet, this.workbookpart));
             }
         }
 
