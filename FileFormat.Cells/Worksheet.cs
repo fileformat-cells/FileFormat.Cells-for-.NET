@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using DocumentFormat.OpenXml;
@@ -16,11 +18,11 @@ namespace FileFormat.Cells
     {
         private WorksheetPart _worksheetPart;
         private SheetData _sheetData;
-
+        private DocumentFormat.OpenXml.Spreadsheet.Cell sourceCell;
         public const double DefaultColumnWidth = 8.43; // Default width in character units
         public const double DefaultRowHeight = 15.0;   // Default height in points
 
-
+        private WorkbookPart _workbookPart;
         /// <summary>
         /// Gets the CellIndexer for the worksheet. This property provides indexed access to the cells of the worksheet.
         /// </summary>
@@ -41,15 +43,17 @@ namespace FileFormat.Cells
         /// <exception cref="InvalidOperationException">
         /// Thrown if SheetData is not found in the provided worksheet.
         /// </exception>
-        private Worksheet(WorksheetPart worksheetPart, DocumentFormat.OpenXml.Spreadsheet.Worksheet worksheet)
+        private Worksheet(WorksheetPart worksheetPart, DocumentFormat.OpenXml.Spreadsheet.Worksheet worksheet, WorkbookPart workbookPart)
         {
             _worksheetPart = worksheetPart ?? throw new ArgumentNullException(nameof(worksheetPart));
 
             _sheetData = worksheet?.Elements<SheetData>().FirstOrDefault()
                          ?? throw new InvalidOperationException("SheetData not found in the worksheet.");
+            _workbookPart = workbookPart ?? throw new ArgumentNullException(nameof(workbookPart));
 
             // Initialize the Cells property
             this.Cells = new CellIndexer(this);
+         
         }
 
         /// <summary>
@@ -61,9 +65,9 @@ namespace FileFormat.Cells
         /// <returns>A new instance of the Worksheet class.</returns>
         public class WorksheetFactory
         {
-            public static Worksheet CreateInstance(WorksheetPart worksheetPart, DocumentFormat.OpenXml.Spreadsheet.Worksheet worksheet)
+            public static Worksheet CreateInstance(WorksheetPart worksheetPart, DocumentFormat.OpenXml.Spreadsheet.Worksheet worksheet, WorkbookPart workbookPart)
             {
-                return new Worksheet(worksheetPart, worksheet);
+                return new Worksheet(worksheetPart, worksheet, workbookPart);
             }
         }
 
@@ -123,7 +127,7 @@ namespace FileFormat.Cells
         public Cell GetCell(string cellReference)
         {
             // This logic used to be in your indexer
-            return new Cell(GetOrCreateCell(cellReference), _sheetData);
+            return new Cell(GetOrCreateCell(cellReference), _sheetData, _workbookPart);
         }
 
         /// <summary>
@@ -1604,7 +1608,35 @@ namespace FileFormat.Cells
             _worksheetPart.Worksheet.Save();
         }
 
+        public void CopyRange(Range sourceRange, string targetStartCellReference)
+        {
+            var (targetStartRow, targetStartColumn) = ParseCellReference(targetStartCellReference);
+
+            uint rowOffset = targetStartRow - sourceRange.StartRowIndex;
+            uint columnOffset = targetStartColumn - sourceRange.StartColumnIndex;
+
+            for (uint row = sourceRange.StartRowIndex; row <= sourceRange.EndRowIndex; row++)
+            {
+                for (uint column = sourceRange.StartColumnIndex - 1; column < sourceRange.EndColumnIndex; column++)
+                {
+                    // Calculate target cell's row and column indices
+                    uint targetRow = row + rowOffset;
+                    uint targetColumn = column + columnOffset;
+
+                    // Construct source and target cell references
+                    string sourceCellRef = $"{IndexToColumnLetter((int)column)}{row}";
+                    string targetCellRef = $"{IndexToColumnLetter((int)targetColumn)}{targetRow}";
+
+                    this.Cells[targetCellRef].PutValue(this.Cells[sourceCellRef].GetValue());
+                }
+            }
+
+            // Save the worksheet to apply changes
+            _worksheetPart.Worksheet.Save();
+        }
+
         
+
 
     }
 
@@ -1635,6 +1667,7 @@ namespace FileFormat.Cells
                 return _worksheet.GetCell(cellReference);
             }
         }
+
     }
 }
 
