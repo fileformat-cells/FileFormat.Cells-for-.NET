@@ -1566,47 +1566,72 @@ namespace FileFormat.Cells
         }
 
 
+        /// <summary>
+        /// Adds or updates a comment in a specified cell within the worksheet. If the cell already has a comment,
+        /// it updates the existing comment text. If there is no comment, it creates a new one.
+        /// </summary>
+        /// <param name="cellReference">The cell reference where the comment should be added, e.g., "A1".</param>
+        /// <param name="comment">The comment object containing the author and the text of the comment.</param>
+        /// <remarks>
+        /// This method ensures that the worksheet comments part exists before adding or updating a comment.
+        /// It also manages the authors list to ensure that each author is only added once and reuses the existing author index if available.
+        /// Usage of this method requires that the workbook and worksheet are properly initialized and that the worksheet part is correctly associated.
+        /// </remarks>
+
         public void AddComment(string cellReference, Comment comment)
         {
             // Ensure the comments part exists
             var commentsPart = _worksheetPart.GetPartsOfType<WorksheetCommentsPart>().FirstOrDefault();
+            CommentList commentList;
+            Authors authors;
+
             if (commentsPart == null)
             {
                 commentsPart = _worksheetPart.AddNewPart<WorksheetCommentsPart>();
                 commentsPart.Comments = new Comments();
-                commentsPart.Comments.AppendChild(new CommentList());
-                commentsPart.Comments.AppendChild(new Authors());
+
+                // Initialize new CommentList and Authors only if a new comments part is created
+                commentList = new CommentList();
+                authors = new Authors();
+                commentsPart.Comments.AppendChild(commentList);
+                commentsPart.Comments.AppendChild(authors);
+            }
+            else
+            {
+                // Retrieve existing CommentList and Authors
+                commentList = commentsPart.Comments.Elements<CommentList>().First();
+                authors = commentsPart.Comments.Elements<Authors>().First();
             }
 
             // Ensure the author exists
-            var authors = commentsPart.Comments.Elements<Authors>().First();
             var author = authors.Elements<Author>().FirstOrDefault(a => a.Text == comment.Author);
             if (author == null)
             {
                 author = new Author() { Text = comment.Author };
-                authors.Append(author);
+                authors.AppendChild(author);  // Use AppendChild to add to the XML structure
             }
             uint authorId = (uint)authors.Elements<Author>().ToList().IndexOf(author);
 
             // Add or update the comment
-            var commentList = commentsPart.Comments.Elements<CommentList>().First();
             var existingComment = commentList.Elements<DocumentFormat.OpenXml.Spreadsheet.Comment>().FirstOrDefault(c => c.Reference == cellReference);
             if (existingComment == null)
             {
                 var newComment = new DocumentFormat.OpenXml.Spreadsheet.Comment() { Reference = cellReference, AuthorId = authorId };
-                newComment.Append(new CommentText(new DocumentFormat.OpenXml.Spreadsheet.Text(comment.Text)));
-                commentList.Append(newComment);
+                newComment.AppendChild(new CommentText(new DocumentFormat.OpenXml.Spreadsheet.Text(comment.Text)));
+                commentList.AppendChild(newComment); // Ensure appending to commentList
             }
             else
             {
                 // Update the existing comment's text
-                existingComment.CommentText = new CommentText(new DocumentFormat.OpenXml.Spreadsheet.Text(comment.Text));
+                existingComment.Elements<CommentText>().First().Text = new DocumentFormat.OpenXml.Spreadsheet.Text(comment.Text);
             }
 
             // Save the changes
             commentsPart.Comments.Save();
             _worksheetPart.Worksheet.Save();
         }
+
+
 
         public void CopyRange(Range sourceRange, string targetStartCellReference)
         {
