@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Office2016.Excel;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System;
@@ -9,6 +10,14 @@ using System.Linq;
 
 namespace FileFormat.Cells
 {
+
+    public enum SheetVisibility
+    {
+        Visible,
+        Hidden,
+        VeryHidden
+    }
+
     /// <summary>
     /// Represents an Excel workbook with methods for creating, modifying, and saving content.
     /// </summary>
@@ -272,6 +281,128 @@ namespace FileFormat.Cells
 
             // Return true to indicate success
             return true;
+        }
+
+        /// <summary>
+        /// Renames an existing sheet within the workbook.
+        /// </summary>
+        /// <param name="existingSheetName">The current name of the sheet to be renamed.</param>
+        /// <param name="newSheetName">The new name to be assigned to the sheet.</param>
+        public void RenameSheet(string existingSheetName, string newSheetName)
+        {
+            // Find the sheet by its existing name
+            var sheet = workbookpart.Workbook.Descendants<Sheet>().FirstOrDefault(s => s.Name == existingSheetName);
+
+            // If the sheet is found, rename it
+            if (sheet != null)
+            {
+                sheet.Name = newSheetName; // Set the new name
+                workbookpart.Workbook.Save(); // Save changes to the workbook
+
+                // Synchronize the Worksheets property with the Sheets of the workbook
+                SyncWorksheets();
+            }
+        }
+
+        /// <summary>
+        /// Copies an existing sheet within the workbook to a new sheet.
+        /// </summary>
+        /// <param name="sourceSheetName">The name of the sheet to be copied.</param>
+        /// <param name="newSheetName">The name of the new sheet to be created.</param>
+        public void CopySheet(string sourceSheetName, string newSheetName)
+        {
+            // Find the source sheet by its name
+            Sheet sourceSheet = workbookpart.Workbook.Descendants<Sheet>().FirstOrDefault(s => s.Name == sourceSheetName);
+
+            if (sourceSheet != null)
+            {
+                // Clone the WorksheetPart of the source sheet
+                WorksheetPart sourcePart = (WorksheetPart)(workbookpart.GetPartById(sourceSheet.Id));
+                WorksheetPart newPart = workbookpart.AddNewPart<WorksheetPart>();
+
+                // Clone the worksheet content
+                newPart.Worksheet = (DocumentFormat.OpenXml.Spreadsheet.Worksheet)sourcePart.Worksheet.CloneNode(true);
+                newPart.Worksheet.Save();
+
+                // Create a new sheet and assign it the cloned WorksheetPart
+                Sheet newSheet = new Sheet()
+                {
+                    Id = workbookpart.GetIdOfPart(newPart),
+                    SheetId = (uint)(workbookpart.Workbook.Sheets.Count() + 1),
+                    Name = newSheetName
+                };
+
+                // Append the new sheet to the workbook
+                workbookpart.Workbook.Sheets.Append(newSheet);
+                workbookpart.Workbook.Save(); // Save changes to the workbook
+            }
+        }
+
+
+
+        /// <summary>
+        /// Reorders a sheet within the workbook to a new position.
+        /// </summary>
+        /// <param name="sheetName">The name of the sheet to be reordered.</param>
+        /// <param name="newPosition">The new position (index) where the sheet should be moved.</param>
+        public void ReorderSheets(string sheetName, int newPosition)
+        {
+            // Get the Sheets collection from the workbook
+            Sheets sheets = workbookpart.Workbook.Sheets;
+
+            // Find the sheet by its name
+            Sheet sourceSheet = workbookpart.Workbook.Descendants<Sheet>().FirstOrDefault(s => s.Name == sheetName);
+
+            if (sourceSheet != null)
+            {
+                sourceSheet.Remove();  // Remove the sheet from its current position
+                sheets.InsertAt(sourceSheet, newPosition);  // Insert the sheet at the new position
+                workbookpart.Workbook.Save();  // Save changes to the workbook
+            }
+        }
+
+
+
+        /// <summary>
+        /// Sets the visibility of a sheet within the workbook.
+        /// </summary>
+        /// <param name="sheetName">The name of the sheet whose visibility is to be set.</param>
+        /// <param name="visibility">The visibility state to be applied to the sheet (Visible, Hidden, or VeryHidden).</param>
+        /// <exception cref="ArgumentException">Thrown when the sheet is not found in the workbook.</exception>
+        public void SetSheetVisibility(string sheetName, SheetVisibility visibility)
+        {
+            // Retrieve the Sheets collection from the workbook
+            var sheets = workbookpart.Workbook.Sheets.Elements<Sheet>();
+
+            // Find the sheet by its name
+            var sheet = sheets.FirstOrDefault(s => s.Name == sheetName);
+
+            if (sheet != null)
+            {
+                // Adjust the state based on the visibility parameter
+                switch (visibility)
+                {
+                    case SheetVisibility.Visible:
+                        sheet.State = SheetStateValues.Visible;
+                        break;
+                    case SheetVisibility.Hidden:
+                        sheet.State = SheetStateValues.Hidden;
+                        break;
+                    case SheetVisibility.VeryHidden:
+                        sheet.State = SheetStateValues.VeryHidden;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(visibility), "Invalid visibility value.");
+                }
+
+                // Save the changes to the workbook
+                workbookpart.Workbook.Save();
+            }
+            else
+            {
+                // Throw an exception if the sheet is not found
+                throw new ArgumentException($"Sheet '{sheetName}' not found in the workbook.");
+            }
         }
 
 
