@@ -1,6 +1,6 @@
 ﻿
-using FileFormat.Cells;
-namespace FileFormat.Cells_Tests
+using Openize.Cells;
+namespace Openize.Cells_Tests
 {
     [TestClass]
     public class UnitTest1

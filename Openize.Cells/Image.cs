@@ -9,7 +9,7 @@ using System.Linq;
 using System.IO;
 using System;
 
-namespace FileFormat.Cells
+namespace Openize.Cells
 {
 
     /// <summary>

@@ -20,6 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FileFormat.Cells\FileFormat.Cells.csproj" />
+    <ProjectReference Include="..\Openize.Cells\Openize.Cells.csproj" />
   </ItemGroup>
 </Project>

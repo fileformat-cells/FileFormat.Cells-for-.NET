@@ -10,7 +10,7 @@ using DocumentFormat.OpenXml.Drawing.Spreadsheet;
 using System;
 using System.IO;
 
-namespace FileFormat.Cells
+namespace Openize.Cells
 {
     public class ImageHandler
     {
