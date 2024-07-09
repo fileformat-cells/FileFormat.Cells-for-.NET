@@ -9,7 +9,7 @@ using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Vml;
 
 
-namespace Openize.Cells
+namespace FileFormat.Cells
 {
     /// <summary>
     /// Represents a worksheet within an Excel file, providing methods to manipulate its content.

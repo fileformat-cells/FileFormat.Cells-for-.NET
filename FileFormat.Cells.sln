@@ -1,11 +1,11 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openize.Cells", "Openize.Cells\Openize.Cells.csproj", "{347E8540-1317-4E99-BF8A-A16A04E753BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileFormat.Cells", "FileFormat.Cells\FileFormat.Cells.csproj", "{347E8540-1317-4E99-BF8A-A16A04E753BB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openize.Cells_Tests", "Openize.Cells_Tests\Openize.Cells_Tests.csproj", "{A9BFD275-A6CD-4CD7-B039-8CB29CDE5C93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileFormat.Cells_Tests", "FileFormat.Cells_Tests\FileFormat.Cells_Tests.csproj", "{A9BFD275-A6CD-4CD7-B039-8CB29CDE5C93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

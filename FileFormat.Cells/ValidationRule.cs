@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace Openize.Cells
+namespace FileFormat.Cells
 {
     /// <summary>
     /// Specifies the types of validation that can be applied to a cell or range of cells.

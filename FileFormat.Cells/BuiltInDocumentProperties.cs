@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Openize.Cells
+namespace FileFormat.Cells
 {
     public class BuiltInDocumentProperties
     {
