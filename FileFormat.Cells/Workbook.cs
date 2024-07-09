@@ -8,7 +8,7 @@ using System.IO;
 using System.IO.Packaging;
 using System.Linq;
 
-namespace Openize.Cells
+namespace FileFormat.Cells
 {
 
     public enum SheetVisibility

@@ -4,7 +4,7 @@ using System.Globalization;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Packaging;
 
-namespace Openize.Cells
+namespace FileFormat.Cells
 {
     public sealed class Cell
     {
