@@ -1535,6 +1535,115 @@ namespace FileFormat.Cells
             _worksheetPart.Worksheet.Save();
         }
 
+        /// <summary>
+        /// Gets the column heading for a specified cell in the worksheet.
+        /// </summary>
+        /// <param name="cellName">The name of the cell (e.g., "A1").</param>
+        /// <returns>The text of the column heading, or null if the column does not exist.</returns>
+        /// <exception cref="ArgumentException">Thrown when the cellName is null or empty.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when the WorkbookPart is not found, the sheet is not found,
+        /// the column name is invalid, no header cell is found, or the SharedStringTablePart is missing.</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the shared string index is out of range.</exception>
+        public string? GetColumnHeadingNew(string cellName)
+        {
+            if (string.IsNullOrEmpty(cellName))
+                throw new ArgumentException("Cell name cannot be null or empty.", nameof(cellName));
+
+            var workbookPart = _worksheetPart.GetParentParts().OfType<WorkbookPart>().FirstOrDefault();
+            if (workbookPart == null)
+                throw new InvalidOperationException("No WorkbookPart found.");
+
+            var sheets = workbookPart.Workbook.Descendants<DocumentFormat.OpenXml.Spreadsheet.Sheet>();
+            var sheet = sheets.FirstOrDefault(s => workbookPart.GetPartById(s.Id) == _worksheetPart);
+
+            if (sheet == null)
+                throw new InvalidOperationException("No matching sheet found for the provided WorksheetPart.");
+
+            WorksheetPart worksheetPart = _worksheetPart;
+
+            // Get the column name for the specified cell.
+            string columnName = GetColumnName(cellName);
+
+            if (string.IsNullOrEmpty(columnName))
+                throw new InvalidOperationException("Unable to determine the column name from the provided cell name.");
+
+            // Get the cells in the specified column and order them by row.
+            IEnumerable<DocumentFormat.OpenXml.Spreadsheet.Cell> cells = worksheetPart.Worksheet.Descendants<DocumentFormat.OpenXml.Spreadsheet.Cell>()
+                .Where(c => string.Compare(GetColumnName(c.CellReference?.Value), columnName, true) == 0)
+                .OrderBy(r => GetRowIndexN(r.CellReference) ?? 0);
+
+            if (!cells.Any())
+            {
+                // The specified column does not exist.
+                return null;
+            }
+
+            // Get the first cell in the column.
+            DocumentFormat.OpenXml.Spreadsheet.Cell headCell = cells.First();
+
+            if (headCell == null)
+                throw new InvalidOperationException("No header cell found in the specified column.");
+
+            // If the content of the first cell is stored as a shared string, get the text of the first cell
+            // from the SharedStringTablePart and return it. Otherwise, return the string value of the cell.
+            if (headCell.DataType != null && headCell.DataType.Value == CellValues.SharedString && int.TryParse(headCell.CellValue?.Text, out int index))
+            {
+                var sharedStringPart = workbookPart.GetPartsOfType<SharedStringTablePart>().FirstOrDefault();
+                if (sharedStringPart == null)
+                    throw new InvalidOperationException("No SharedStringTablePart found.");
+
+                var items = sharedStringPart.SharedStringTable.Elements<SharedStringItem>().ToArray();
+                if (index < 0 || index >= items.Length)
+                    throw new IndexOutOfRangeException("Shared string index is out of range.");
+
+                return items[index].InnerText;
+            }
+            else
+            {
+                return headCell.CellValue?.Text;
+            }
+        }
+
+
+        /// <summary>
+        /// Gets the row index from the specified cell name.
+        /// </summary>
+        /// <param name="cellName">The cell name in A1 notation (e.g., "A1").</param>
+        /// <returns>The row index as a nullable unsigned integer, or null if the cell name is invalid.</returns>
+        /// <exception cref="FormatException">Thrown when the row index portion of the cell name cannot be parsed.</exception>
+        private uint? GetRowIndexN(string? cellName)
+        {
+            if (cellName is null)
+            {
+                return null;
+            }
+
+            // Create a regular expression to match the row index portion the cell name.
+            Regex regex = new Regex(@"\d+");
+            Match match = regex.Match(cellName);
+
+            return uint.Parse(match.Value);
+        }
+
+        /// <summary>
+        /// Given a cell name, parses the specified cell to get the column name.
+        /// </summary>
+        /// <param name="cellName">The cell name in A1 notation (e.g., "A1").</param>
+        /// <returns>The column name as a string, or an empty string if the cell name is invalid.</returns>
+        private string GetColumnName(string? cellName)
+        {
+            if (cellName is null)
+            {
+                return string.Empty;
+            }
+
+            // Create a regular expression to match the column name portion of the cell name.
+            Regex regex = new Regex("[A-Za-z]+");
+            Match match = regex.Match(cellName);
+
+            return match.Value;
+        }
+
         private static string IncrementColumnReference(string reference, int columnCount)
         {
             var regex = new System.Text.RegularExpressions.Regex("([A-Za-z]+)(\\d+)");
