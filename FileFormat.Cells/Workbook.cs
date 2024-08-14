@@ -405,6 +405,53 @@ namespace FileFormat.Cells
             }
         }
 
+        /// <summary>
+        /// Retrieves a list of hidden or very hidden sheets from the workbook.
+        /// </summary>
+        /// <returns>A list of tuples where each tuple contains the sheet ID and sheet name for hidden sheets.</returns>
+        /// <exception cref="InvalidOperationException">Thrown when the workbook part is not initialized.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a sheet's ID or Name is null.</exception>
+        public List<Tuple<string, string>> GetHiddenSheets()
+        {
+            if (workbookpart is null)
+                throw new InvalidOperationException("WorkbookPart is not initialized.");
+
+            List<Tuple<string, string>> returnVal = new List<Tuple<string, string>>();
+
+            // Retrieves all sheets in the workbook.
+            // Reference: DocumentFormat.OpenXml.Spreadsheet.Sheet
+            var sheets = workbookpart.Workbook.Descendants<Sheet>();
+
+            // Look for sheets where there is a State attribute defined,
+            // where the State has a value,
+            // and where the value is either Hidden or VeryHidden.
+            // Reference: DocumentFormat.OpenXml.Spreadsheet.SheetStateValues
+            var hiddenSheets = sheets.Where(item => item.State is not null &&
+                                                    item.State.HasValue &&
+                                                    (item.State.Value == SheetStateValues.Hidden ||
+                                                     item.State.Value == SheetStateValues.VeryHidden));
+
+            // Populate the return list with the sheet ID and name as tuples.
+            foreach (var sheet in hiddenSheets)
+            {
+                // Check if sheet ID or Name is null
+                if (sheet.Id is null)
+                    throw new ArgumentNullException(nameof(sheet.Id), "Sheet ID cannot be null.");
+
+                if (sheet.Name is null)
+                    throw new ArgumentNullException(nameof(sheet.Name), "Sheet Name cannot be null.");
+
+                returnVal.Add(new Tuple<string, string>(
+                    sheet.Id,    // The ID of the sheet, typically used to reference the sheet in the workbook.
+                    sheet.Name   // The name of the sheet as displayed in the workbook.
+                ));
+            }
+
+            return returnVal;
+        }
+
+
+
 
         /// <summary>
         /// Synchronize the Worksheets property with the actual sheets present in the workbook.
