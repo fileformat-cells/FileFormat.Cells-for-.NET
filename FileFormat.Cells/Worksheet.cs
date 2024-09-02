@@ -1544,7 +1544,7 @@ namespace FileFormat.Cells
         /// <exception cref="InvalidOperationException">Thrown when the WorkbookPart is not found, the sheet is not found,
         /// the column name is invalid, no header cell is found, or the SharedStringTablePart is missing.</exception>
         /// <exception cref="IndexOutOfRangeException">Thrown when the shared string index is out of range.</exception>
-        public string? GetColumnHeadingNew(string cellName)
+        public string? GetColumnHeading(string cellName)
         {
             if (string.IsNullOrEmpty(cellName))
                 throw new ArgumentException("Cell name cannot be null or empty.", nameof(cellName));
@@ -1643,7 +1643,6 @@ namespace FileFormat.Cells
 
             return match.Value;
         }
-
         private static string IncrementColumnReference(string reference, int columnCount)
         {
             var regex = new System.Text.RegularExpressions.Regex("([A-Za-z]+)(\\d+)");

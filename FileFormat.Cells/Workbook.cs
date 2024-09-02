@@ -287,8 +287,11 @@ namespace FileFormat.Cells
         /// Renames an existing sheet within the workbook.
         /// </summary>
         /// <param name="existingSheetName">The current name of the sheet to be renamed.</param>
-        /// <param name="newSheetName">The new name to be assigned to the sheet.</param>
-        public void RenameSheet(string existingSheetName, string newSheetName)
+        /// <param name="newSheetName">The new name for the sheet.</param>
+        /// <returns>
+        /// Returns <c>true</c> if the sheet is successfully renamed; otherwise, <c>false</c>.
+        /// </returns>
+        public bool RenameSheet(string existingSheetName, string newSheetName)
         {
             // Find the sheet by its existing name
             var sheet = workbookpart.Workbook.Descendants<Sheet>().FirstOrDefault(s => s.Name == existingSheetName);
@@ -301,7 +304,9 @@ namespace FileFormat.Cells
 
                 // Synchronize the Worksheets property with the Sheets of the workbook
                 SyncWorksheets();
+                return true; // Sheet renamed successfully
             }
+            return false; // Sheet not found, rename failed
         }
 
         /// <summary>
@@ -309,7 +314,10 @@ namespace FileFormat.Cells
         /// </summary>
         /// <param name="sourceSheetName">The name of the sheet to be copied.</param>
         /// <param name="newSheetName">The name of the new sheet to be created.</param>
-        public void CopySheet(string sourceSheetName, string newSheetName)
+        /// <returns>
+        /// Returns <c>true</c> if the sheet is successfully copied; otherwise, <c>false</c>.
+        /// </returns>
+        public bool CopySheet(string sourceSheetName, string newSheetName)
         {
             // Find the source sheet by its name
             Sheet sourceSheet = workbookpart.Workbook.Descendants<Sheet>().FirstOrDefault(s => s.Name == sourceSheetName);
@@ -335,7 +343,10 @@ namespace FileFormat.Cells
                 // Append the new sheet to the workbook
                 workbookpart.Workbook.Sheets.Append(newSheet);
                 workbookpart.Workbook.Save(); // Save changes to the workbook
+
+                return true; // Sheet copied successfully
             }
+            return false; // Source sheet not found, copy failed
         }
 
 
@@ -452,6 +463,50 @@ namespace FileFormat.Cells
 
 
 
+        /// <summary>
+        /// Retrieves a list of hidden or very hidden sheets from the workbook.
+        /// </summary>
+        /// <returns>A list of tuples where each tuple contains the sheet ID and sheet name for hidden sheets.</returns>
+        /// <exception cref="InvalidOperationException">Thrown when the workbook part is not initialized.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a sheet's ID or Name is null.</exception>
+        public List<Tuple<string, string>> GetHiddenSheets()
+        {
+            if (workbookpart is null)
+                throw new InvalidOperationException("WorkbookPart is not initialized.");
+
+            List<Tuple<string, string>> returnVal = new List<Tuple<string, string>>();
+
+            // Retrieves all sheets in the workbook.
+            // Reference: DocumentFormat.OpenXml.Spreadsheet.Sheet
+            var sheets = workbookpart.Workbook.Descendants<Sheet>();
+
+            // Look for sheets where there is a State attribute defined,
+            // where the State has a value,
+            // and where the value is either Hidden or VeryHidden.
+            // Reference: DocumentFormat.OpenXml.Spreadsheet.SheetStateValues
+            var hiddenSheets = sheets.Where(item => item.State is not null &&
+                                                    item.State.HasValue &&
+                                                    (item.State.Value == SheetStateValues.Hidden ||
+                                                     item.State.Value == SheetStateValues.VeryHidden));
+
+            // Populate the return list with the sheet ID and name as tuples.
+            foreach (var sheet in hiddenSheets)
+            {
+                // Check if sheet ID or Name is null
+                if (sheet.Id is null)
+                    throw new ArgumentNullException(nameof(sheet.Id), "Sheet ID cannot be null.");
+
+                if (sheet.Name is null)
+                    throw new ArgumentNullException(nameof(sheet.Name), "Sheet Name cannot be null.");
+
+                returnVal.Add(new Tuple<string, string>(
+                    sheet.Id,    // The ID of the sheet, typically used to reference the sheet in the workbook.
+                    sheet.Name   // The name of the sheet as displayed in the workbook.
+                ));
+            }
+
+            return returnVal;
+        }
 
         /// <summary>
         /// Synchronize the Worksheets property with the actual sheets present in the workbook.
