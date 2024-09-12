@@ -1001,6 +1001,112 @@ namespace FileFormat.Cells
             }
         }
 
+
+        public List<uint> GetHiddenRows()
+        {
+            List<uint> itemList = new List<uint>();
+
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
+
+            
+            // Retrieve hidden rows.
+            itemList = _worksheetPart.Worksheet.Descendants<Row>()
+                .Where((r) => r?.Hidden is not null && r.Hidden.Value)
+                .Select(r => r.RowIndex?.Value)
+                .Cast<uint>()
+                .ToList();
+
+            return itemList;
+        }
+
+        public List<uint> GetHiddenColumns()
+        {
+            List<uint> itemList = new List<uint>();
+
+            if (_worksheetPart == null || _worksheetPart.Worksheet == null)
+            {
+                throw new InvalidOperationException("Worksheet or WorksheetPart is null.");
+            }
+
+
+            // Retrieve hidden columns.
+            var cols = _worksheetPart.Worksheet.Descendants<Column>().Where((c) => c?.Hidden is not null && c.Hidden.Value);
+
+            foreach (Column item in cols)
+            {
+                if (item.Min is not null && item.Max is not null)
+                {
+                    for (uint i = item.Min.Value; i <= item.Max.Value; i++)
+                    {
+                        itemList.Add(i);
+                    }
+                }
+            }
+
+            return itemList;
+        }
+
+        
+        /// <summary>
+        /// Freezes the top row of the worksheet.
+        /// </summary>
+        public void FreezeFirstRow()
+        {
+            // Retrieve or create the SheetViews element
+            SheetViews sheetViews = _worksheetPart.Worksheet.GetFirstChild<SheetViews>();
+
+            if (sheetViews == null)
+            {
+                sheetViews = new SheetViews();
+                _worksheetPart.Worksheet.InsertAt(sheetViews, 0);
+            }
+
+            // Retrieve or create the SheetView element
+            SheetView sheetView = sheetViews.Elements<SheetView>().FirstOrDefault();
+
+            if (sheetView == null)
+            {
+                sheetView = new SheetView() { WorkbookViewId = (UInt32Value)0U };
+                sheetViews.Append(sheetView);
+            }
+
+            // Remove any existing Pane elements to avoid conflicts
+            Pane existingPane = sheetView.Elements<Pane>().FirstOrDefault();
+            if (existingPane != null)
+            {
+                existingPane.Remove();
+            }
+
+            // Define freeze pane settings for freezing the top row
+            Pane pane = new Pane
+            {
+                VerticalSplit = 1D,     // Split below the first row
+                TopLeftCell = "A2",     // Top left cell after freeze
+                ActivePane = PaneValues.BottomLeft,
+                State = PaneStateValues.Frozen
+            };
+
+            // Insert the Pane as the first child of SheetView
+            sheetView.InsertAt(pane, 0);
+
+            // Add the selection for the frozen pane
+            Selection selection = new Selection()
+            {
+                Pane = PaneValues.BottomLeft,
+                ActiveCell = "A2",
+                SequenceOfReferences = new ListValue<StringValue>() { InnerText = "A2" }
+            };
+
+            // Ensure selection comes after the pane
+            sheetView.Append(selection);
+
+            // Save the worksheet
+            _worksheetPart.Worksheet.Save();
+        }
+
         /// <summary>
         /// Hides a specific row in the worksheet.
         /// </summary>
