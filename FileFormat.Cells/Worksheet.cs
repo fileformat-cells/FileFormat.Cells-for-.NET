@@ -117,6 +117,42 @@ namespace FileFormat.Cells
                     sheet.Name = value;
             }
         }
+        
+        /// <summary>
+        /// Gets the row index where the pane is frozen in the worksheet.
+        /// Returns 0 if no rows are frozen.
+        /// </summary>
+        /// <remarks>
+        /// This property retrieves the value of <see cref="VerticalSplit"/> from the Pane element in the SheetView.
+        /// </remarks>
+        public int FreezePanesRow
+        {
+            get
+            {
+                var pane = _worksheetPart.Worksheet.GetFirstChild<SheetViews>()
+                             ?.Elements<SheetView>().FirstOrDefault()
+                             ?.Elements<Pane>().FirstOrDefault();
+                return pane != null ? (int)pane.VerticalSplit.Value : 0;
+            }
+        }
+
+        /// <summary>
+        /// Gets the column index where the pane is frozen in the worksheet.
+        /// Returns 0 if no columns are frozen.
+        /// </summary>
+        /// <remarks>
+        /// This property retrieves the value of <see cref="HorizontalSplit"/> from the Pane element in the SheetView.
+        /// </remarks>
+        public int FreezePanesColumn
+        {
+            get
+            {
+                var pane = _worksheetPart.Worksheet.GetFirstChild<SheetViews>()
+                             ?.Elements<SheetView>().FirstOrDefault()
+                             ?.Elements<Pane>().FirstOrDefault();
+                return pane != null ? (int)pane.HorizontalSplit.Value : 0;
+            }
+        }
 
 
         /// <summary>
@@ -1049,12 +1085,19 @@ namespace FileFormat.Cells
             return itemList;
         }
 
-        
         /// <summary>
-        /// Freezes the top row of the worksheet.
+        /// Freezes the specified rows and/or columns of the worksheet.
         /// </summary>
-        public void FreezeFirstRow()
+        /// <param name="rowsToFreeze">The number of rows to freeze. Set to 0 if no row freezing is needed.</param>
+        /// <param name="columnsToFreeze">The number of columns to freeze. Set to 0 if no column freezing is needed.</param>
+        public void FreezePane(int rowsToFreeze, int columnsToFreeze)
         {
+            // Ensure we are freezing at least one row or column
+            if (rowsToFreeze == 0 && columnsToFreeze == 0)
+            {
+                return; // No freeze needed, exit the method.
+            }
+
             // Retrieve or create the SheetViews element
             SheetViews sheetViews = _worksheetPart.Worksheet.GetFirstChild<SheetViews>();
 
@@ -1080,14 +1123,32 @@ namespace FileFormat.Cells
                 existingPane.Remove();
             }
 
-            // Define freeze pane settings for freezing the top row
+            // Calculate the top left cell after the freeze
+            string topLeftCell = GetTopLeftCell(rowsToFreeze, columnsToFreeze);
+
+            // Define freeze pane settings dynamically based on the rows and columns to freeze
             Pane pane = new Pane
             {
-                VerticalSplit = 1D,     // Split below the first row
-                TopLeftCell = "A2",     // Top left cell after freeze
-                ActivePane = PaneValues.BottomLeft,
+                VerticalSplit = rowsToFreeze > 0 ? (double)rowsToFreeze : 0D,
+                HorizontalSplit = columnsToFreeze > 0 ? (double)columnsToFreeze : 0D,
+                TopLeftCell = topLeftCell,
+                ActivePane = PaneValues.BottomRight,
                 State = PaneStateValues.Frozen
             };
+
+            // Adjust active pane based on what is being frozen
+            if (rowsToFreeze > 0 && columnsToFreeze > 0)
+            {
+                pane.ActivePane = PaneValues.BottomRight; // Both rows and columns
+            }
+            else if (rowsToFreeze > 0)
+            {
+                pane.ActivePane = PaneValues.BottomLeft; // Only rows
+            }
+            else if (columnsToFreeze > 0)
+            {
+                pane.ActivePane = PaneValues.TopRight; // Only columns
+            }
 
             // Insert the Pane as the first child of SheetView
             sheetView.InsertAt(pane, 0);
@@ -1095,9 +1156,9 @@ namespace FileFormat.Cells
             // Add the selection for the frozen pane
             Selection selection = new Selection()
             {
-                Pane = PaneValues.BottomLeft,
-                ActiveCell = "A2",
-                SequenceOfReferences = new ListValue<StringValue>() { InnerText = "A2" }
+                Pane = pane.ActivePane,
+                ActiveCell = topLeftCell,
+                SequenceOfReferences = new ListValue<StringValue>() { InnerText = topLeftCell }
             };
 
             // Ensure selection comes after the pane
@@ -1105,6 +1166,46 @@ namespace FileFormat.Cells
 
             // Save the worksheet
             _worksheetPart.Worksheet.Save();
+        }
+
+        /// <summary>
+        /// Determines the top left cell after the freeze pane based on rows and columns to freeze.
+        /// </summary>
+        /// <param name="rowsToFreeze">The number of rows to freeze.</param>
+        /// <param name="columnsToFreeze">The number of columns to freeze.</param>
+        /// <returns>The top left cell reference as a string (e.g., "B2").</returns>
+        private string GetTopLeftCell(int rowsToFreeze, int columnsToFreeze)
+        {
+            // Default top left cell is A1
+            if (rowsToFreeze == 0 && columnsToFreeze == 0)
+            {
+                return "A1";
+            }
+
+            // Calculate column part (A, B, C, etc.) based on columns to freeze
+            string columnLetter = columnsToFreeze > 0 ? GetColumnLetter(columnsToFreeze + 1) : "A";
+
+            // Calculate row number based on rows to freeze
+            int rowNumber = rowsToFreeze > 0 ? rowsToFreeze + 1 : 1;
+
+            return $"{columnLetter}{rowNumber}";
+        }
+
+        /// <summary>
+        /// Converts a column index (1-based) to an Excel column letter (A, B, C, ..., Z, AA, AB, etc.).
+        /// </summary>
+        /// <param name="columnIndex">The 1-based index of the column.</param>
+        /// <returns>The corresponding column letter as a string.</returns>
+        private string GetColumnLetter(int columnIndex)
+        {
+            string columnLetter = string.Empty;
+            while (columnIndex > 0)
+            {
+                columnIndex--;
+                columnLetter = (char)('A' + (columnIndex % 26)) + columnLetter;
+                columnIndex /= 26;
+            }
+            return columnLetter;
         }
 
         /// <summary>

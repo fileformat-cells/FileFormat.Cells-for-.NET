@@ -1,5 +1,4 @@
-﻿
-using FileFormat.Cells;
+﻿using FileFormat.Cells;
 namespace FileFormat.Cells_Tests
 {
     [TestClass]
@@ -472,6 +471,56 @@ namespace FileFormat.Cells_Tests
             Assert.AreEqual(minValue, rule.MinValue);
             Assert.AreEqual(maxValue, rule.MaxValue);
         }
+
+        [TestMethod]
+        public void FreezePane_ShouldSetCorrectFreezePanesRow()
+        {
+            // Arrange
+            int expectedRows = 2;
+            int expectedColumns = 1;
+            using (Workbook wb = new Workbook(testFilePath))
+            {
+                Worksheet firstSheet = wb.Worksheets.First();
+
+                firstSheet.FreezePane(expectedRows, expectedColumns);
+
+                wb.Save();
+            }
+
+            using (Workbook wb = new Workbook(testFilePath))
+            {
+                Worksheet firstSheet = wb.Worksheets.First();
+
+                // Assert
+                Assert.AreEqual(expectedRows, firstSheet.FreezePanesRow, "FreezePanesColumn should match the columns frozen.");
+            }
+        }
+
+        [TestMethod]
+        public void FreezePane_ShouldSetCorrectFreezePanesColumn()
+        {
+            // Arrange
+            int expectedRows = 2;
+            int expectedColumns = 1;
+            using (Workbook wb = new Workbook(testFilePath))
+            {
+                Worksheet firstSheet = wb.Worksheets.First();
+
+                firstSheet.FreezePane(expectedRows, expectedColumns);
+
+                wb.Save();
+            }
+
+            using (Workbook wb = new Workbook(testFilePath))
+            {
+                Worksheet firstSheet = wb.Worksheets.First();
+
+                // Assert
+                Assert.AreEqual(expectedColumns, firstSheet.FreezePanesColumn, "FreezePanesColumn should match the columns frozen.");
+            }
+
+        }
+
 
         [TestMethod]
         public void CustomFormulaValidationRule_CreatesCorrectFormula()
