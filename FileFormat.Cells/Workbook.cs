@@ -219,17 +219,70 @@ namespace FileFormat.Cells
         }
 
         /// <summary>
-        /// Create a custom style for the workbook.
+        /// Creates a custom style for a cell in the workbook with specified font settings, color, 
+        /// and optional text alignment (horizontal and vertical).
         /// </summary>
-        public uint CreateStyle(string fontName, double fontSize, string hexColor)
+        /// <param name="fontName">The name of the font to be used in the style (e.g., "Arial").</param>
+        /// <param name="fontSize">The size of the font in points. Must be greater than zero.</param>
+        /// <param name="hexColor">
+        /// The color of the text in hexadecimal format (e.g., "000000" for black or "FF0000" for red). 
+        /// Must be a valid hex color code.
+        /// </param>
+        /// <param name="horizontalAlignment">
+        /// Optional. The horizontal alignment for the text within the cell. 
+        /// Acceptable values are defined in the <see cref="HorizontalAlignment"/> enumeration 
+        /// (e.g., <see cref="HorizontalAlignment.Center"/> or <see cref="HorizontalAlignment.Left"/>).
+        /// </param>
+        /// <param name="verticalAlignment">
+        /// Optional. The vertical alignment for the text within the cell. 
+        /// Acceptable values are defined in the <see cref="VerticalAlignment"/> enumeration 
+        /// (e.g., <see cref="VerticalAlignment.Center"/> or <see cref="VerticalAlignment.Top"/>).
+        /// </param>
+        /// <returns>
+        /// A <see cref="uint"/> representing the unique index of the created style within the workbook's stylesheet. 
+        /// This index can be assigned to a cell to apply the style.
+        /// </returns>
+        /// <remarks>
+        /// This method leverages the underlying style utility to create and register a new style 
+        /// in the workbook's stylesheet. If no alignment is specified, default text alignment is applied.
+        /// </remarks>
+        public uint CreateStyle(string fontName, double fontSize, string hexColor, HorizontalAlignment? horizontalAlignment = null,
+    VerticalAlignment? verticalAlignment = null)
         {
-            return this.styleUtility.CreateStyle(fontName, fontSize, hexColor);
+            return this.styleUtility.CreateStyle(fontName, fontSize, hexColor, horizontalAlignment, verticalAlignment);
         }
 
 
         /// <summary>
-        /// Add a new worksheet to the workbook.
+        /// Adds a new worksheet to the workbook with the specified name.
         /// </summary>
+        /// <param name="sheetName">
+        /// The name of the worksheet to be added. 
+        /// The name must be unique within the workbook and comply with Excel's naming rules (e.g., no special characters).
+        /// </param>
+        /// <returns>
+        /// A <see cref="Worksheet"/> object representing the newly created worksheet.
+        /// </returns>
+        /// <remarks>
+        /// This method performs the following actions:
+        /// <list type="bullet">
+        /// <item><description>Creates a new <see cref="WorksheetPart"/> and initializes its <see cref="SheetData"/>.</description></item>
+        /// <item><description>Registers the worksheet with the workbook and assigns it a unique ID.</description></item>
+        /// <item><description>Adds the new worksheet to the internal <see cref="Worksheets"/> collection of the workbook.</description></item>
+        /// <item><description>Appends the new worksheet as a <see cref="Sheet"/> element in the workbook's <see cref="Sheets"/> collection.</description></item>
+        /// </list>
+        /// </remarks>
+        /// <exception cref="ArgumentException">
+        /// Thrown if the <paramref name="sheetName"/> is null, empty, or duplicates an existing sheet name.
+        /// </exception>
+        /// <example>
+        /// The following code demonstrates how to add a new worksheet to a workbook:
+        /// <code>
+        /// Workbook workbook = new Workbook("example.xlsx");
+        /// Worksheet newSheet = workbook.AddSheet("Sheet1");
+        /// workbook.Save();
+        /// </code>
+        /// </example>
         public Worksheet AddSheet(string sheetName)
         {
             // Create new WorksheetPart and SheetData
@@ -256,8 +309,43 @@ namespace FileFormat.Cells
         }
 
         /// <summary>
-        /// Remove a worksheet from the workbook.
+        /// Removes a worksheet from the workbook by its name.
         /// </summary>
+        /// <param name="sheetName">
+        /// The name of the worksheet to be removed. 
+        /// The name must match an existing worksheet in the workbook.
+        /// </param>
+        /// <returns>
+        /// <c>true</c> if the worksheet was successfully removed; otherwise, <c>false</c>.
+        /// </returns>
+        /// <remarks>
+        /// This method performs the following actions:
+        /// <list type="bullet">
+        /// <item><description>Searches the workbook for a sheet with the specified name.</description></item>
+        /// <item><description>Removes the corresponding <see cref="Sheet"/> element from the workbook's <see cref="Sheets"/> collection.</description></item>
+        /// <item><description>Deletes the associated <see cref="WorksheetPart"/> from the workbook's <see cref="WorkbookPart"/>.</description></item>
+        /// <item><description>Synchronizes the internal <see cref="Worksheets"/> collection to reflect the changes.</description></item>
+        /// </list>
+        /// </remarks>
+        /// <exception cref="ArgumentException">
+        /// Thrown if <paramref name="sheetName"/> is null, empty, or invalid.
+        /// </exception>
+        /// <example>
+        /// The following code demonstrates how to remove a worksheet from a workbook:
+        /// <code>
+        /// Workbook workbook = new Workbook("example.xlsx");
+        /// bool success = workbook.RemoveSheet("Sheet1");
+        /// if (success)
+        /// {
+        ///     Console.WriteLine("Worksheet removed successfully.");
+        /// }
+        /// else
+        /// {
+        ///     Console.WriteLine("Worksheet not found.");
+        /// }
+        /// workbook.Save();
+        /// </code>
+        /// </example>
         public bool RemoveSheet(string sheetName)
         {
             // Find the sheet in the workbook by its name
@@ -284,13 +372,44 @@ namespace FileFormat.Cells
         }
 
         /// <summary>
-        /// Renames an existing sheet within the workbook.
+        /// Renames an existing worksheet within the workbook.
         /// </summary>
-        /// <param name="existingSheetName">The current name of the sheet to be renamed.</param>
-        /// <param name="newSheetName">The new name for the sheet.</param>
+        /// <param name="existingSheetName">
+        /// The current name of the worksheet to be renamed. 
+        /// This must match the name of an existing worksheet in the workbook.
+        /// </param>
+        /// <param name="newSheetName">
+        /// The new name for the worksheet. 
+        /// The name must be unique within the workbook and comply with Excel's naming rules (e.g., no special characters or exceeding 31 characters).
+        /// </param>
         /// <returns>
-        /// Returns <c>true</c> if the sheet is successfully renamed; otherwise, <c>false</c>.
+        /// <c>true</c> if the worksheet is successfully renamed; otherwise, <c>false</c>.
         /// </returns>
+        /// <remarks>
+        /// This method searches the workbook for a worksheet with the specified <paramref name="existingSheetName"/>. 
+        /// If found, it updates the sheet's name to <paramref name="newSheetName"/> and saves the changes. 
+        /// The internal <see cref="Worksheets"/> collection is synchronized to reflect the updated name.
+        /// </remarks>
+        /// <exception cref="ArgumentException">
+        /// Thrown if <paramref name="existingSheetName"/> or <paramref name="newSheetName"/> is null, empty, 
+        /// or violates Excel's naming conventions.
+        /// </exception>
+        /// <example>
+        /// The following code demonstrates how to rename a worksheet in a workbook:
+        /// <code>
+        /// Workbook workbook = new Workbook("example.xlsx");
+        /// bool success = workbook.RenameSheet("OldSheetName", "NewSheetName");
+        /// if (success)
+        /// {
+        ///     Console.WriteLine("Worksheet renamed successfully.");
+        /// }
+        /// else
+        /// {
+        ///     Console.WriteLine("Worksheet not found or renaming failed.");
+        /// }
+        /// workbook.Save();
+        /// </code>
+        /// </example>
         public bool RenameSheet(string existingSheetName, string newSheetName)
         {
             // Find the sheet by its existing name
@@ -310,13 +429,49 @@ namespace FileFormat.Cells
         }
 
         /// <summary>
-        /// Copies an existing sheet within the workbook to a new sheet.
+        /// Copies an existing worksheet within the workbook and creates a new worksheet with the specified name.
         /// </summary>
-        /// <param name="sourceSheetName">The name of the sheet to be copied.</param>
-        /// <param name="newSheetName">The name of the new sheet to be created.</param>
+        /// <param name="sourceSheetName">
+        /// The name of the existing worksheet to be copied. 
+        /// This must match the name of an existing worksheet in the workbook.
+        /// </param>
+        /// <param name="newSheetName">
+        /// The name of the new worksheet to be created. 
+        /// The name must be unique within the workbook and comply with Excel's naming rules (e.g., no special characters or exceeding 31 characters).
+        /// </param>
         /// <returns>
-        /// Returns <c>true</c> if the sheet is successfully copied; otherwise, <c>false</c>.
+        /// <c>true</c> if the worksheet is successfully copied; otherwise, <c>false</c>.
         /// </returns>
+        /// <remarks>
+        /// This method performs the following actions:
+        /// <list type="bullet">
+        /// <item><description>Locates the source worksheet using the <paramref name="sourceSheetName"/>.</description></item>
+        /// <item><description>Clones the <see cref="WorksheetPart"/> of the source worksheet to create a new worksheet part.</description></item>
+        /// <item><description>Assigns the cloned worksheet part to a new <see cref="Sheet"/> with the specified <paramref name="newSheetName"/>.</description></item>
+        /// <item><description>Appends the new worksheet to the workbook's <see cref="Sheets"/> collection.</description></item>
+        /// <item><description>Saves the changes to the workbook.</description></item>
+        /// </list>
+        /// </remarks>
+        /// <exception cref="ArgumentException">
+        /// Thrown if <paramref name="sourceSheetName"/> or <paramref name="newSheetName"/> is null, empty, 
+        /// or violates Excel's naming conventions.
+        /// </exception>
+        /// <example>
+        /// The following code demonstrates how to copy an existing worksheet to a new worksheet:
+        /// <code>
+        /// Workbook workbook = new Workbook("example.xlsx");
+        /// bool success = workbook.CopySheet("SourceSheet", "CopiedSheet");
+        /// if (success)
+        /// {
+        ///     Console.WriteLine("Worksheet copied successfully.");
+        /// }
+        /// else
+        /// {
+        ///     Console.WriteLine("Source worksheet not found or copying failed.");
+        /// }
+        /// workbook.Save();
+        /// </code>
+        /// </example>
         public bool CopySheet(string sourceSheetName, string newSheetName)
         {
             // Find the source sheet by its name
