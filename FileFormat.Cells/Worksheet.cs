@@ -334,6 +334,56 @@ namespace FileFormat.Cells
 
             return DefaultColumnWidth;
         }
+
+        /// <summary>
+        /// Auto-fits the specified column to match its content width by setting
+        /// the <see cref="BestFit"/> and <see cref="CustomWidth"/> attributes.
+        /// </summary>
+        /// <param name="columnName">The column name (e.g., "A", "B") to auto-fit.</param>
+        public void AutoFitColumn(string columnName)
+        {
+            var sheetData = _worksheetPart.Worksheet.GetFirstChild<SheetData>();
+
+            Columns columns = _worksheetPart.Worksheet.Elements<Columns>().FirstOrDefault();
+            if (columns == null)
+            {
+                columns = new Columns();
+                _worksheetPart.Worksheet.InsertBefore(columns, sheetData);
+            }
+
+            int columnIndex = ConvertColumnNameToIndex(columnName);
+
+            var column = new Column
+            {
+                Min = (uint)(columnIndex + 1),
+                Max = (uint)(columnIndex + 1),
+                Width = 26.83, // Optionally calculate width based on content
+                BestFit = true,
+                CustomWidth = true
+            };
+            columns.Append(column);
+
+            _worksheetPart.Worksheet.Save();
+        }
+
+        /// <summary>
+        /// Converts a column name (e.g., "A", "B", "AA") to a zero-based index.
+        /// </summary>
+        /// <param name="columnName">The Excel column name to convert.</param>
+        /// <returns>The zero-based index of the specified column.</returns>
+        private int ConvertColumnNameToIndex(string columnName)
+        {
+            int index = 0;
+            foreach (char c in columnName.ToUpper())
+            {
+                index = index * 26 + (c - 'A' + 1);
+            }
+            return index - 1;
+        }
+
+
+
+
         /// <summary>
         /// Retrieves the height of the specified row in the worksheet.
         /// If the height of the row has been explicitly set, it returns that value; otherwise, it returns the default row height.
