@@ -61,4 +61,4 @@ workbook.Save("/spreadsheet.xlsx");
 </pre>
 
 ## Coming updates
-<p> <a href="https://fileformat-cells.github.io/FileFormat.Cells-for-.NET/">FileFormat.Cells</a> for .NET is planning to add more functionalities to its features bucket. However, after the successful launch of <a href="https://fileformat-cells.github.io/FileFormat.Cells-for-.NET/">FileFormat.Cells</a> and <a href="https://fileformat-words.github.io/FileFormat.Words-for-.NET/">FileFormat.Words</a> the development of FileFormat.Slides is a work in progress. So, stay in touch for regular updates. </p>
+<p> <a href="https://fileformat-cells.github.io/FileFormat.Cells-for-.NET/">FileFormat.Cells</a> is planning to add more functionalities to its features bucket. However, after the successful launch of <a href="https://fileformat-cells.github.io/FileFormat.Cells-for-.NET/">FileFormat.Cells</a> and <a href="https://fileformat-words.github.io/FileFormat.Words-for-.NET/">FileFormat.Words</a> the development of FileFormat.Slides is a work in progress. So, stay in touch for regular updates. </p>
