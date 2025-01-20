@@ -650,7 +650,7 @@ namespace FileFormat.Cells
         public void Save(string filePath)
         {
             this.workbookpart.Workbook.Save();
-            this.spreadsheetDocument.Close();
+            this.spreadsheetDocument.Dispose();
 
             File.WriteAllBytes(filePath, this.ms.ToArray()); // Write the MemoryStream back to the file
         }
@@ -663,7 +663,7 @@ namespace FileFormat.Cells
 
             var clonedDocument = this.spreadsheetDocument.Clone(stream);
             workbookpart.Workbook.Save();
-            spreadsheetDocument.Close();
+            spreadsheetDocument.Dispose();
             stream.Close();
 
         }

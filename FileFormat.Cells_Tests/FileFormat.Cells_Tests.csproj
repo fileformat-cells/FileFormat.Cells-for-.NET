@@ -16,7 +16,7 @@
     <PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
     <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
     <PackageReference Include="coverlet.collector" Version="3.2.0" />
-    <PackageReference Include="DocumentFormat.OpenXml" Version="2.20.0" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.2.0" />
   </ItemGroup>
 
   <ItemGroup>
