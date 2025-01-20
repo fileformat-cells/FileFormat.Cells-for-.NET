@@ -827,18 +827,23 @@ namespace FileFormat.Cells
 
         private ValidationType DetermineValidationType(DataValidationValues openXmlType)
         {
+            var values = Enum.GetNames(typeof(DataValidationValues));
+            Console.WriteLine("Available DataValidationValues:");
+            foreach (var value in values)
+            {
+                Console.WriteLine(value);
+            }
             // Map the OpenXML DataValidationValues to your ValidationType enum
             // This mapping depends on how closely your ValidationType enum aligns with OpenXML's types
             // Example mapping:
-            switch (openXmlType)
+            switch (openXmlType.ToString()) // If DataValidationValues is now a string enum
             {
-                case DataValidationValues.List:
+                case "List":
                     return ValidationType.List;
-                case DataValidationValues.Custom:
+                case "Custom":
                     return ValidationType.CustomFormula;
-                // Map other types...
                 default:
-                    throw new NotImplementedException("Validation type not supported.");
+                    throw new NotImplementedException($"Validation type '{openXmlType}' not supported.");
             }
         }
 
